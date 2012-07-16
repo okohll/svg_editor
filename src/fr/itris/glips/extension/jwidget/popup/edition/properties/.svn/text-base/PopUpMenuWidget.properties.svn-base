@@ -1,0 +1,14 @@
+description=Popup menu
+menu1Label=Menu 1
+menu2Label=Menu 2
+labelMenu=Menu label
+labelMenuItem=Menu item label
+labelMenuPopUp=Menu
+labelMenuItemPopUp=Menu item
+nodeChooserLabel=<html><body>Choose a menu item :</body></html>
+menuLabel=Menu
+menuItemLabel=Menu item
+zoneLabel=Popup menu active zone
+configurationPanelLabel=Build the menus and menu items hierarchy :
+treeLabel=Tree
+lookLabel=Display

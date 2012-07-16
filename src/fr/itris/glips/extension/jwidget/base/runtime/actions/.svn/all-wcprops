@@ -1,0 +1,125 @@
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svnroot/glipssvgeditor/!svn/ver/14/GLIPSGraffiti/fr/itris/glips/extension/jwidget/base/runtime/actions
+END
+StateButtonSimpleSendCommand.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svnroot/glipssvgeditor/!svn/ver/14/GLIPSGraffiti/fr/itris/glips/extension/jwidget/base/runtime/actions/StateButtonSimpleSendCommand.java
+END
+ButtonGroupRunApplication.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svnroot/glipssvgeditor/!svn/ver/14/GLIPSGraffiti/fr/itris/glips/extension/jwidget/base/runtime/actions/ButtonGroupRunApplication.java
+END
+MenuItemSimpleSendCommand.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svnroot/glipssvgeditor/!svn/ver/14/GLIPSGraffiti/fr/itris/glips/extension/jwidget/base/runtime/actions/MenuItemSimpleSendCommand.java
+END
+AbstractButtonWriteDataToFile.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svnroot/glipssvgeditor/!svn/ver/14/GLIPSGraffiti/fr/itris/glips/extension/jwidget/base/runtime/actions/AbstractButtonWriteDataToFile.java
+END
+AbstractButtonSendCommand.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svnroot/glipssvgeditor/!svn/ver/14/GLIPSGraffiti/fr/itris/glips/extension/jwidget/base/runtime/actions/AbstractButtonSendCommand.java
+END
+AbstractButtonRunApplication.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svnroot/glipssvgeditor/!svn/ver/14/GLIPSGraffiti/fr/itris/glips/extension/jwidget/base/runtime/actions/AbstractButtonRunApplication.java
+END
+AbstractButtonDisconnect.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svnroot/glipssvgeditor/!svn/ver/14/GLIPSGraffiti/fr/itris/glips/extension/jwidget/base/runtime/actions/AbstractButtonDisconnect.java
+END
+ButtonGroupSimpleSendCommand.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svnroot/glipssvgeditor/!svn/ver/14/GLIPSGraffiti/fr/itris/glips/extension/jwidget/base/runtime/actions/ButtonGroupSimpleSendCommand.java
+END
+MenuItemLoadView.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svnroot/glipssvgeditor/!svn/ver/14/GLIPSGraffiti/fr/itris/glips/extension/jwidget/base/runtime/actions/MenuItemLoadView.java
+END
+MenuItemSendMeasure.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svnroot/glipssvgeditor/!svn/ver/14/GLIPSGraffiti/fr/itris/glips/extension/jwidget/base/runtime/actions/MenuItemSendMeasure.java
+END
+AbstractButtonSimpleSendCommand.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svnroot/glipssvgeditor/!svn/ver/14/GLIPSGraffiti/fr/itris/glips/extension/jwidget/base/runtime/actions/AbstractButtonSimpleSendCommand.java
+END
+ButtonGroupLoadView.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svnroot/glipssvgeditor/!svn/ver/14/GLIPSGraffiti/fr/itris/glips/extension/jwidget/base/runtime/actions/ButtonGroupLoadView.java
+END
+ButtonGroupSendMeasure.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svnroot/glipssvgeditor/!svn/ver/14/GLIPSGraffiti/fr/itris/glips/extension/jwidget/base/runtime/actions/ButtonGroupSendMeasure.java
+END
+AbstractButtonRecordData.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svnroot/glipssvgeditor/!svn/ver/14/GLIPSGraffiti/fr/itris/glips/extension/jwidget/base/runtime/actions/AbstractButtonRecordData.java
+END
+AbstractButtonLogin.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svnroot/glipssvgeditor/!svn/ver/14/GLIPSGraffiti/fr/itris/glips/extension/jwidget/base/runtime/actions/AbstractButtonLogin.java
+END
+AbstractButtonLoadData.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svnroot/glipssvgeditor/!svn/ver/14/GLIPSGraffiti/fr/itris/glips/extension/jwidget/base/runtime/actions/AbstractButtonLoadData.java
+END
+AbstractButtonLoadView.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svnroot/glipssvgeditor/!svn/ver/14/GLIPSGraffiti/fr/itris/glips/extension/jwidget/base/runtime/actions/AbstractButtonLoadView.java
+END
+AbstractButtonSendMeasure.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svnroot/glipssvgeditor/!svn/ver/14/GLIPSGraffiti/fr/itris/glips/extension/jwidget/base/runtime/actions/AbstractButtonSendMeasure.java
+END
+MenuItemRunApplication.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svnroot/glipssvgeditor/!svn/ver/14/GLIPSGraffiti/fr/itris/glips/extension/jwidget/base/runtime/actions/MenuItemRunApplication.java
+END
+MenuItemSendCommand.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svnroot/glipssvgeditor/!svn/ver/14/GLIPSGraffiti/fr/itris/glips/extension/jwidget/base/runtime/actions/MenuItemSendCommand.java
+END

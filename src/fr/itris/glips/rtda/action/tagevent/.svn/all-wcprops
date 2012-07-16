@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/glipssvgeditor/!svn/ver/16/GLIPSGraffiti/fr/itris/glips/rtda/action/tagevent
+END
+TagEventSimpleSendCommand.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svnroot/glipssvgeditor/!svn/ver/16/GLIPSGraffiti/fr/itris/glips/rtda/action/tagevent/TagEventSimpleSendCommand.java
+END
+TagEventWriteDataToFile.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svnroot/glipssvgeditor/!svn/ver/16/GLIPSGraffiti/fr/itris/glips/rtda/action/tagevent/TagEventWriteDataToFile.java
+END
+TagEventLogin.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/glipssvgeditor/!svn/ver/16/GLIPSGraffiti/fr/itris/glips/rtda/action/tagevent/TagEventLogin.java
+END
+TagEventRecordData.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svnroot/glipssvgeditor/!svn/ver/16/GLIPSGraffiti/fr/itris/glips/rtda/action/tagevent/TagEventRecordData.java
+END
+TagEventRunApplication.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svnroot/glipssvgeditor/!svn/ver/16/GLIPSGraffiti/fr/itris/glips/rtda/action/tagevent/TagEventRunApplication.java
+END
+TagEventSendCommand.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svnroot/glipssvgeditor/!svn/ver/16/GLIPSGraffiti/fr/itris/glips/rtda/action/tagevent/TagEventSendCommand.java
+END
+TagEventDisconnect.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svnroot/glipssvgeditor/!svn/ver/16/GLIPSGraffiti/fr/itris/glips/rtda/action/tagevent/TagEventDisconnect.java
+END
+TagEventLoadData.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svnroot/glipssvgeditor/!svn/ver/16/GLIPSGraffiti/fr/itris/glips/rtda/action/tagevent/TagEventLoadData.java
+END
+TagEventLoadView.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svnroot/glipssvgeditor/!svn/ver/16/GLIPSGraffiti/fr/itris/glips/rtda/action/tagevent/TagEventLoadView.java
+END
+TagEventSendMeasure.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svnroot/glipssvgeditor/!svn/ver/16/GLIPSGraffiti/fr/itris/glips/rtda/action/tagevent/TagEventSendMeasure.java
+END
+TagEventsManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svnroot/glipssvgeditor/!svn/ver/16/GLIPSGraffiti/fr/itris/glips/rtda/action/tagevent/TagEventsManager.java
+END

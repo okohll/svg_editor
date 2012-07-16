@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/glipssvgeditor/!svn/ver/15/GLIPSGraffiti/fr/itris/glips/library/geom/path/segment
+END
+Segment.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svnroot/glipssvgeditor/!svn/ver/15/GLIPSGraffiti/fr/itris/glips/library/geom/path/segment/Segment.java
+END
+QuadraticToSegment.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svnroot/glipssvgeditor/!svn/ver/15/GLIPSGraffiti/fr/itris/glips/library/geom/path/segment/QuadraticToSegment.java
+END
+ClosePathSegment.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svnroot/glipssvgeditor/!svn/ver/15/GLIPSGraffiti/fr/itris/glips/library/geom/path/segment/ClosePathSegment.java
+END
+SmoothCubicToSegment.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svnroot/glipssvgeditor/!svn/ver/15/GLIPSGraffiti/fr/itris/glips/library/geom/path/segment/SmoothCubicToSegment.java
+END
+HorizontalLineToSegment.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svnroot/glipssvgeditor/!svn/ver/15/GLIPSGraffiti/fr/itris/glips/library/geom/path/segment/HorizontalLineToSegment.java
+END
+VerticalLineToSegment.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svnroot/glipssvgeditor/!svn/ver/15/GLIPSGraffiti/fr/itris/glips/library/geom/path/segment/VerticalLineToSegment.java
+END
+ArcToSegment.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svnroot/glipssvgeditor/!svn/ver/15/GLIPSGraffiti/fr/itris/glips/library/geom/path/segment/ArcToSegment.java
+END
+CubicToSegment.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svnroot/glipssvgeditor/!svn/ver/15/GLIPSGraffiti/fr/itris/glips/library/geom/path/segment/CubicToSegment.java
+END
+MoveToSegment.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svnroot/glipssvgeditor/!svn/ver/15/GLIPSGraffiti/fr/itris/glips/library/geom/path/segment/MoveToSegment.java
+END
+LineToSegment.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svnroot/glipssvgeditor/!svn/ver/15/GLIPSGraffiti/fr/itris/glips/library/geom/path/segment/LineToSegment.java
+END
+SmoothQuadraticToSegment.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svnroot/glipssvgeditor/!svn/ver/15/GLIPSGraffiti/fr/itris/glips/library/geom/path/segment/SmoothQuadraticToSegment.java
+END

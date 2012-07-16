@@ -1,0 +1,54 @@
+<?xml version="1.0" ?> 
+<animations>
+
+	<animationgroup name="textAnimations">
+
+		<animation name="rtda:label" type="enumerated">
+		
+			<attribute name="tag" type="tagchooser" constraint="tag" tagtype="enumerated"/>
+			<attribute name="defaultText" type="entry"/>
+			<attribute name="invalidText" type="entry"/>
+			
+			<child name="rtda:value">
+				<attribute name="used" type="checkbox" defaultValue="true">
+					<item name="item_true" value="true"/>
+					<item name="item_false" value="false"/>
+				</attribute>
+				<attribute name="value" type="label" constraint="tagvalue"/>
+				<attribute name="text" type="entry"/>
+			</child>
+			
+		</animation>
+		
+	</animationgroup>
+
+	<actiongroup name="sendAnimations">
+	
+		<action name="rtda:simpleSendCommand" type="enumerated" restriction="1">
+		
+			<attribute name="tagToWrite" type="lowtagchooser" tagtype="enumerated"/>
+			<attribute name="valueDown" type="tagvalueschooser" ref="tagToWrite"/>
+			<attribute name="valueUp" type="tagvalueschooser" ref="tagToWrite"/>
+			<attribute name="returnToInitialValueMethod" type="simplereturntoinitialvaluechooser"/>
+			<attribute name="confirmationDialog" type="entry"/>
+			<attribute name="authorizationLevel" type="integerchooser"/>
+			<attribute name="authorizationTag" type="lowtagchooser" tagtype="enumerated"/>
+			<attribute name="authorizationValue" type="tagvaluesmultichooser" ref="authorizationTag"/>
+			
+		</action>
+
+	</actiongroup>
+	
+	<actiongroup name="customActions">
+	
+		<action name="rtda:class" type="none">
+			<attribute name="class" type="actionchooser"/>
+			<attribute name="confirmationDialog" type="entry"/>
+			<attribute name="authorizationLevel" type="integerchooser"/>
+			<attribute name="authorizationTag" type="lowtagchooser" tagtype="enumerated"/>
+			<attribute name="authorizationValue" type="tagvaluesmultichooser" ref="authorizationTag"/>
+		</action>
+	
+	</actiongroup>	
+
+</animations>

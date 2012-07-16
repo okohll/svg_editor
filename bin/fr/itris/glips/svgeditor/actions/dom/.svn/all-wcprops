@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/glipssvgeditor/!svn/ver/18/GLIPSGraffiti/fr/itris/glips/svgeditor/actions/dom
+END
+CenterOnCanvasModule.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svnroot/glipssvgeditor/!svn/ver/18/GLIPSGraffiti/fr/itris/glips/svgeditor/actions/dom/CenterOnCanvasModule.java
+END
+AlignModule.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svnroot/glipssvgeditor/!svn/ver/18/GLIPSGraffiti/fr/itris/glips/svgeditor/actions/dom/AlignModule.java
+END
+FlipModule.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svnroot/glipssvgeditor/!svn/ver/18/GLIPSGraffiti/fr/itris/glips/svgeditor/actions/dom/FlipModule.java
+END
+OrderModule.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svnroot/glipssvgeditor/!svn/ver/18/GLIPSGraffiti/fr/itris/glips/svgeditor/actions/dom/OrderModule.java
+END
+DistributeModule.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svnroot/glipssvgeditor/!svn/ver/18/GLIPSGraffiti/fr/itris/glips/svgeditor/actions/dom/DistributeModule.java
+END
+RotateModule.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/glipssvgeditor/!svn/ver/18/GLIPSGraffiti/fr/itris/glips/svgeditor/actions/dom/RotateModule.java
+END
+SameDimensionsModule.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svnroot/glipssvgeditor/!svn/ver/18/GLIPSGraffiti/fr/itris/glips/svgeditor/actions/dom/SameDimensionsModule.java
+END
+CanvasSizeDialog.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svnroot/glipssvgeditor/!svn/ver/18/GLIPSGraffiti/fr/itris/glips/svgeditor/actions/dom/CanvasSizeDialog.java
+END
+DomActionsModule.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svnroot/glipssvgeditor/!svn/ver/18/GLIPSGraffiti/fr/itris/glips/svgeditor/actions/dom/DomActionsModule.java
+END
+PathOperationsModule.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svnroot/glipssvgeditor/!svn/ver/18/GLIPSGraffiti/fr/itris/glips/svgeditor/actions/dom/PathOperationsModule.java
+END
+CanvasSizeModule.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svnroot/glipssvgeditor/!svn/ver/18/GLIPSGraffiti/fr/itris/glips/svgeditor/actions/dom/CanvasSizeModule.java
+END

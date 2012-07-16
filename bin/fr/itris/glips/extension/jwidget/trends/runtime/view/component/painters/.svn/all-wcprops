@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svnroot/glipssvgeditor/!svn/ver/14/GLIPSGraffiti/fr/itris/glips/extension/jwidget/trends/runtime/view/component/painters
+END
+CurvePaintersManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svnroot/glipssvgeditor/!svn/ver/14/GLIPSGraffiti/fr/itris/glips/extension/jwidget/trends/runtime/view/component/painters/CurvePaintersManager.java
+END
+CurvePainter.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svnroot/glipssvgeditor/!svn/ver/14/GLIPSGraffiti/fr/itris/glips/extension/jwidget/trends/runtime/view/component/painters/CurvePainter.java
+END
+DivisionPainter.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svnroot/glipssvgeditor/!svn/ver/14/GLIPSGraffiti/fr/itris/glips/extension/jwidget/trends/runtime/view/component/painters/DivisionPainter.java
+END
+AnyPainter.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svnroot/glipssvgeditor/!svn/ver/14/GLIPSGraffiti/fr/itris/glips/extension/jwidget/trends/runtime/view/component/painters/AnyPainter.java
+END
+ScalesPainter.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svnroot/glipssvgeditor/!svn/ver/14/GLIPSGraffiti/fr/itris/glips/extension/jwidget/trends/runtime/view/component/painters/ScalesPainter.java
+END

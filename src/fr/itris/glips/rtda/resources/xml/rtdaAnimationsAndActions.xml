@@ -1,0 +1,511 @@
+<?xml version="1.0" ?> 
+<animations>
+
+	<animationgroup name="colorAnimations">
+	
+		<animation name="rtda:colorOnState" type="enumerated">
+		
+			<attribute name="tag" type="tagchooser" constraint="tag" tagtype="enumerated"/>
+			<attribute name="invalidValueStroke" type="colorchooser" defaultValue="none"/>
+			<attribute name="invalidValueFill" type="colorchooser" defaultValue="none"/>
+			<attribute name="defaultValueStroke" type="colorchooser" defaultValue="none"/>
+			<attribute name="defaultValueFill" type="colorchooser" defaultValue="none"/>
+			
+			<child name="rtda:state">
+				<attribute name="used" type="checkbox" defaultValue="true">
+					<item name="item_true" value="true"/>
+					<item name="item_false" value="false"/>
+				</attribute>
+				<attribute name="value" type="label" constraint="tagvalue"/>
+				<attribute name="stroke" type="colorchooser" defaultValue="none"/>
+				<attribute name="fill" type="colorchooser" defaultValue="none"/>
+			</child>
+			
+		</animation>
+		
+		<animation name="rtda:colorOnMeasure" type="analogic">
+		
+			<attribute name="tag" type="tagchooser" constraint="tag" tagtype="analogic"/>
+			<attribute name="tagMin" type="limit" tagtype="analogic"/>
+			<attribute name="tagMax" type="limit" tagtype="analogic"/>
+			<attribute name="invalidValueStroke" type="colorchooser" defaultValue="none"/>
+			<attribute name="invalidValueFill" type="colorchooser" defaultValue="none"/>
+			<attribute name="outOfRangeStroke" type="colorchooser" defaultValue="none"/>
+			<attribute name="outOfRangeFill" type="colorchooser" defaultValue="none"/>
+
+			<child name="rtda:range">
+				<attribute name="used" type="checkbox" defaultValue="true">
+					<item name="item_true" value="true"/>
+					<item name="item_false" value="false"/>
+				</attribute>
+				<attribute name="min" type="childlimit" tagtype="analogic"/>
+				<attribute name="equal1" type="equalChooser" group="equal" defaultValue="false">
+					<item name="item_true" value="true"/>
+					<item name="item_false" value="false"/>
+				</attribute>
+				<attribute name="equal2" type="equalChooser" group="equal" defaultValue="false">
+					<item name="item_true" value="true"/>
+					<item name="item_false" value="false"/>
+				</attribute>
+				<attribute name="max" type="childlimit" tagtype="analogic"/>
+				<attribute name="stroke" type="colorchooser" defaultValue="none"/>
+				<attribute name="fill" type="colorchooser" defaultValue="none"/>
+			</child>
+			
+		</animation>
+		
+		<animation name="rtda:bargraph" type="analogic">
+		
+			<attribute name="tag" type="lowtagchooser" constraint="tag" tagtype="analogic"/>
+			<attribute name="tagMin" type="limit" tagtype="analogic"/>
+			<attribute name="tagMax" type="limit" tagtype="analogic"/>
+			<attribute name="foregroundColor" type="colorchooser" defaultValue="none"/>
+			<attribute name="backgroundColor" type="colorchooser" defaultValue="none"/>
+			<attribute name="transparentBackground" type="checkbox" defaultValue="false">
+				<item name="item_true" value="true"/>
+				<item name="item_false" value="false"/>
+			</attribute>		
+			<attribute name="invalidColor" type="colorchooser" defaultValue="none"/>
+			<attribute name="direction" type="combo" defaultValue="top">
+				<item name="item_right" value="right"/>
+				<item name="item_top" value="top"/>
+				<item name="item_left" value="left"/>
+				<item name="item_bottom" value="bottom"/>
+			</attribute>
+
+		</animation>
+	
+	</animationgroup>
+	
+	<animationgroup name="attributeAnimations">
+
+		<animation name="rtda:attributeOnState" type="enumerated">
+		
+			<attribute name="tag" type="tagchooser" constraint="tag" tagtype="enumerated"/>
+			<!--<attribute name="attribute" type="entry"/>-->
+			<attribute name="attribute" type="combo">
+				<item name="item_font-style" value="font-style"/>
+				<item name="item_font-weight" value="font-weight"/>
+				<item name="item_visibility" value="visibility"/>
+				<item name="item_opacity" value="opacity"/>
+			</attribute>
+			<attribute name="invalidValue1" type="entry"/>
+			<attribute name="invalidValue2" type="entry"/>
+			<attribute name="invalidValueBlinking" type="blinkingchooser"/>
+			<attribute name="defaultValue1" type="entry"/>
+			<attribute name="defaultValue2" type="entry"/>
+			<attribute name="defaultValueBlinking" type="blinkingchooser"/>
+	
+			<child name="rtda:state">
+				<attribute name="used" type="checkbox" defaultValue="true">
+					<item name="item_true" value="true"/>
+					<item name="item_false" value="false"/>
+				</attribute>
+				<attribute name="value" type="label" constraint="tagvalue"/>
+				<attribute name="attributeValue1" type="entry"/>
+				<attribute name="attributeValue2" type="entry"/>
+				<attribute name="blinking" type="blinkingchooser"/>
+			</child>
+			
+		</animation>
+		
+		<animation name="rtda:attributeOnInterval" type="analogic">
+		
+			<attribute name="tag" type="tagchooser" constraint="tag" tagtype="analogic"/>
+			<attribute name="tagMin" type="limit" tagtype="analogic"/>
+			<attribute name="tagMax" type="limit" tagtype="analogic"/>
+			<attribute name="attribute" type="entry">
+				<!--<item name="item_visibility" value="visibility"/>
+				<item name="item_opacity" value="opacity"/>-->
+			</attribute>
+			<attribute name="invalidValue1" type="entry"/>
+			<attribute name="invalidValue2" type="entry"/>
+			<attribute name="invalidValueBlinking" type="blinkingchooser"/>
+			<attribute name="outOfRangeValue1" type="entry"/>
+			<attribute name="outOfRangeValue2" type="entry"/>
+			<attribute name="outOfRangeValueBlinking" type="blinkingchooser"/>
+	
+			<child name="rtda:range">
+				<attribute name="used" type="checkbox" defaultValue="true">
+					<item name="item_true" value="true"/>
+					<item name="item_false" value="false"/>
+				</attribute>
+				<attribute name="min" type="childlimit" tagtype="analogic"/>
+				<attribute name="equal1" type="equalChooser" group="equal" defaultValue="false">
+					<item name="item_true" value="true"/>
+					<item name="item_false" value="false"/>
+				</attribute>
+				<attribute name="equal2" type="equalChooser" group="equal" defaultValue="false">
+					<item name="item_true" value="true"/>
+					<item name="item_false" value="false"/>
+				</attribute>
+				<attribute name="max" type="childlimit" tagtype="analogic"/>
+				<attribute name="value1" type="entry"/>
+				<attribute name="value2" type="entry"/>
+				<attribute name="blinking" type="blinkingchooser"/>
+			</child>
+			
+		</animation>
+		
+		<animation name="rtda:attributeOnMeasure" type="analogic">
+		
+			<attribute name="tag" type="lowtagchooser" constraint="tag" tagtype="analogic"/>
+			<attribute name="tagMin" type="limit" tagtype="analogic"/>
+			<attribute name="tagMax" type="limit" tagtype="analogic"/>
+			<attribute name="attribute" type="entry">
+				<!--<item name="item_opacity" value="opacity"/>-->
+			</attribute>
+			<attribute name="invalidValue" type="entry"/>
+			<attribute name="attributeMin" type="entry"/>
+			<attribute name="attributeMax" type="entry"/>
+		</animation>
+
+	</animationgroup>
+	
+	<animationgroup name="movementAnimations" type="analogic">
+	
+		<animation name="rtda:translation" type="analogic">
+		
+			<attribute name="tag" type="lowtagchooser" constraint="tag" tagtype="analogic"/>
+			<attribute name="tagMin" type="limit" tagtype="analogic"/>
+			<attribute name="tagMax" type="limit" tagtype="analogic"/>
+			<attribute name="xRef" type="pointchooser" group="pointRef" color="#0000ff" defaultValue="0"/>
+			<attribute name="yRef" type="pointchooser" group="pointRef" color="#0000ff" defaultValue="0"/>
+			<attribute name="xMin" type="pointchooser" group="pointMin" color="#00bb00" defaultValue="0"/>
+			<attribute name="yMin" type="pointchooser" group="pointMin" color="#00bb00" defaultValue="0"/>
+			<attribute name="xMax" type="pointchooser" group="pointMax" color="#ff0000" defaultValue="0"/>
+			<attribute name="yMax" type="pointchooser" group="pointMax" color="#ff0000" defaultValue="0"/>
+			<attribute name="direction" type="combo">
+				<item name="item_x" value="x"/>
+				<item name="item_y" value="y"/>
+				<item name="item_xy" value="xy"/>
+			</attribute>
+			
+		</animation>
+		
+		<animation name="rtda:rotation" type="analogic">
+		
+			<attribute name="tag" type="lowtagchooser" constraint="tag" tagtype="analogic"/>
+			<attribute name="tagMin" type="limit" tagtype="analogic"/>
+			<attribute name="tagMax" type="limit" tagtype="analogic"/>
+			<attribute name="xCenter" type="pointchooser" group="pointCenter" color="#00ffff" defaultValue="0"/>
+			<attribute name="yCenter" type="pointchooser" group="pointCenter" color="#00ffff" defaultValue="0"/>
+			<attribute name="xRef" type="pointchooser" group="pointRef" color="#0000ff" defaultValue="0"/>
+			<attribute name="yRef" type="pointchooser" group="pointRef" color="#0000ff" defaultValue="0"/>
+			<attribute name="xMin" type="pointchooser" group="pointMin" color="#00ff00" defaultValue="0"/>
+			<attribute name="yMin" type="pointchooser" group="pointMin" color="#00ff00" defaultValue="0"/>
+			<attribute name="xMax" type="pointchooser" group="pointMax" color="#ff0000" defaultValue="0"/>
+			<attribute name="yMax" type="pointchooser" group="pointMax" color="#ff0000" defaultValue="0"/>
+			<attribute name="clockwise" type="checkbox">
+				<item name="item_true" value="true"/>
+				<item name="item_false" value="false"/>
+			</attribute>
+						
+		</animation>
+		
+		<animation name="rtda:scale" type="analogic">
+		
+			<attribute name="tag" type="lowtagchooser" constraint="tag" tagtype="analogic"/>
+			<attribute name="tagMin" type="limit" tagtype="analogic"/>
+			<attribute name="tagMax" type="limit" tagtype="analogic"/>
+			<attribute name="xCenter" type="pointchooser" group="pointCenter" color="#00ffff" defaultValue="0"/>
+			<attribute name="yCenter" type="pointchooser" group="pointCenter" color="#00ffff" defaultValue="0"/>
+			<attribute name="xRef" type="pointchooser" group="pointRef" color="#0000ff" defaultValue="0"/>
+			<attribute name="yRef" type="pointchooser" group="pointRef" color="#0000ff" defaultValue="0"/>
+			<attribute name="xMin" type="pointchooser" group="pointMin" color="#00ff00" defaultValue="0"/>
+			<attribute name="yMin" type="pointchooser" group="pointMin" color="#00ff00" defaultValue="0"/>
+			<attribute name="xMax" type="pointchooser" group="pointMax" color="#ff0000" defaultValue="0"/>
+			<attribute name="yMax" type="pointchooser" group="pointMax" color="#ff0000" defaultValue="0"/>
+			<attribute name="direction" type="combo">
+				<item name="item_x" value="x"/>
+				<item name="item_y" value="y"/>
+				<item name="item_xy" value="xy"/>
+			</attribute>
+			<attribute name="preserveAspectRatio" type="checkbox">
+				<item name="item_true" value="true"/>
+				<item name="item_false" value="false"/>
+			</attribute>
+						
+		</animation>	
+		
+	</animationgroup>
+	
+	<animationgroup name="textAnimations">
+	
+		<animation name="rtda:text" restriction="text" type="text">
+			
+			<attribute name="tag" type="lowtagchooser" tagtype="string"/>
+			<attribute name="invalidText" type="entry"/>
+			
+		</animation>
+		
+		<animation name="rtda:label" restriction="text" type="enumerated">
+		
+			<attribute name="tag" type="tagchooser" constraint="tag" tagtype="enumerated"/>
+			<!--<attribute name="language" type="combo">
+				<item name="item_en" value="en"/>
+				<item name="item_fr" value="fr"/>	
+				<item name="item_it" value="it"/>
+				<item name="item_de" value="de"/>		
+			</attribute>-->
+			<attribute name="invalidText" type="entry"/>
+			<attribute name="defaultText" type="entry"/>
+			
+			<child name="rtda:value">
+				<attribute name="used" type="checkbox" defaultValue="true">
+					<item name="item_true" value="true"/>
+					<item name="item_false" value="false"/>
+				</attribute>
+				<attribute name="value" type="label" constraint="tagvalue"/>
+				<attribute name="text" type="entry"/>
+			</child>
+			
+		</animation>
+		
+		<animation name="rtda:measureText" restriction="text" type="analogic">
+		
+			<attribute name="tag" type="lowrealtagchooser" tagtype="analogic"/>
+			<!--<attribute name="language" type="combo">
+				<item name="item_en" value="en"/>
+				<item name="item_fr" value="fr"/>	
+				<item name="item_it" value="it"/>
+				<item name="item_de" value="de"/>		
+			</attribute>-->
+			<attribute name="invalidText" type="entry"/>
+			<attribute name="pattern" type="entry"/>
+
+		</animation>
+
+		<animation name="rtda:user" restriction="text" type="text">
+
+			<attribute name="defaultUserLabel" type="entry"/>
+			
+		</animation>
+		
+	</animationgroup>
+	
+	<animationgroup name="symbolAnimations">
+	
+		<animation name="rtda:stateSymbol" restriction="g" type="enumerated">
+		
+			<attribute name="tag" type="tagchooser" constraint="tag" tagtype="enumerated"/>
+			<attribute name="invalidSymbol" type="symbolchooser"/>
+			<attribute name="defaultSymbol" type="symbolchooser"/>
+			
+			<child name="rtda:value">
+				<attribute name="used" type="checkbox" defaultValue="true">
+					<item name="item_true" value="true"/>
+					<item name="item_false" value="false"/>
+				</attribute>
+				<attribute name="value" type="label" constraint="tagvalue"/>
+				<attribute name="symbol" type="symbolchooser"/>
+			</child>
+
+		</animation>
+		
+		<animation name="rtda:measureSymbol" restriction="g" type="analogic">
+		
+			<attribute name="tag" type="tagchooser" constraint="tag" tagtype="analogic"/>
+			<attribute name="tagMin" type="limit" tagtype="analogic"/>
+			<attribute name="tagMax" type="limit" tagtype="analogic"/>
+			<attribute name="invalidSymbol" type="symbolchooser"/>
+			<attribute name="outOfRangeSymbol" type="symbolchooser"/>
+			
+			<child name="rtda:measureSymbolRange">
+				<attribute name="used" type="checkbox" defaultValue="true">
+					<item name="item_true" value="true"/>
+					<item name="item_false" value="false"/>
+				</attribute>
+				<attribute name="min" type="childlimit" tagtype="analogic"/>
+				<attribute name="equal1" type="equalChooser" group="equal" defaultValue="false">
+					<item name="item_true" value="true"/>
+					<item name="item_false" value="false"/>
+				</attribute>
+				<attribute name="equal2" type="equalChooser" group="equal" defaultValue="false">
+					<item name="item_true" value="true"/>
+					<item name="item_false" value="false"/>
+				</attribute>
+				<attribute name="max" type="childlimit" tagtype="analogic"/>
+				<attribute name="symbol" type="symbolchooser"/>
+			</child>
+
+		</animation>	
+
+	</animationgroup>
+	
+	<actiongroup name="sendAnimations">
+	
+		<action name="rtda:simpleSendCommand" type="enumerated">
+		
+			<attribute name="event" type="eventchooser" defaultValue="2:1024:-1;"/>
+			<attribute name="tagToWrite" type="lowtagchooser" tagtype="enumerated"/>
+			<attribute name="value" type="tagvalueschooser" ref="tagToWrite"/>
+			<attribute name="returnToInitialValueMethod" type="returntoinitialvaluechooser"/>
+			<attribute name="confirmationDialog" type="entry"/>
+			<attribute name="authorizationLevel" type="integerchooser"/>
+			<attribute name="authorizationTag" type="lowtagchooser" tagtype="enumerated"/>
+			<attribute name="authorizationValue" type="tagvaluesmultichooser" ref="authorizationTag"/>
+			
+		</action>
+	
+		<action name="rtda:sendCommand" type="enumerated">
+		
+			<attribute name="event" type="eventchooser" defaultValue="2:1024:-1;"/>
+			<attribute name="referenceTag" type="tagchooser" constraint="tag" tagtype="enumerated"/>
+			<attribute name="tagToWrite" type="lowtagchooser" tagtype="enumerated"/>
+			<attribute name="defaultValue" type="tagvalueschooser" ref="tagToWrite"/>
+			<attribute name="invalidValue" type="tagvalueschooser" ref="tagToWrite"/>
+			<attribute name="returnToInitialValueMethod" type="returntoinitialvaluechooser"/>
+			<attribute name="confirmationDialog" type="entry"/>
+			<attribute name="authorizationLevel" type="integerchooser"/>
+			<attribute name="authorizationTag" type="lowtagchooser" tagtype="enumerated"/>
+			<attribute name="authorizationValue" type="tagvaluesmultichooser" ref="authorizationTag"/>
+			
+			<child name="rtda:sendCommandValue">
+				<attribute name="used" type="checkbox" defaultValue="true">
+					<item name="item_true" value="true"/>
+					<item name="item_false" value="false"/>
+				</attribute>
+				<attribute name="value" type="label" constraint="tagvalue"/>
+				<attribute name="commandToSend" type="tagvalueschooser" ref="tagToWrite"/>
+			</child>
+			
+		</action>
+
+		<action name="rtda:sendMeasure" type="analogic">
+		
+			<attribute name="event" type="eventchooser" defaultValue="2:1024:-1;"/>
+			<attribute name="tagToWrite" type="lowrealtagchooser" constraint="tag" tagtype="analogic"/>
+			<attribute name="tagMin" type="limit" tagtype="analogic"/>
+			<attribute name="tagMax" type="limit" tagtype="analogic"/>
+			<attribute name="returnToInitialValueMethod" type="simplereturntoinitialvaluechooser"/>
+			<attribute name="confirmationDialog" type="entry"/>
+			<attribute name="authorizationLevel" type="integerchooser"/>
+			<attribute name="authorizationTag" type="lowtagchooser" tagtype="enumerated"/>
+			<attribute name="authorizationValue" type="tagvaluesmultichooser" ref="authorizationTag"/>
+			
+		</action>
+
+	</actiongroup>
+	
+	<actiongroup name="loadActions">
+		
+		<action name="rtda:loadView" type="none">
+			<attribute name="event" type="eventchooser" defaultValue="2:1024:-1;"/>
+			<attribute name="target" type="complextargetchooser"/>
+			<attribute name="view" type="extendedviewchooser" tagtype="view"/>
+			<attribute name="confirmationDialog" type="entry"/>
+			<attribute name="authorizationLevel" type="integerchooser"/>
+			<attribute name="authorizationTag" type="lowtagchooser" tagtype="enumerated"/>
+			<attribute name="authorizationValue" type="tagvaluesmultichooser" ref="authorizationTag"/>
+		</action>
+		
+	</actiongroup>
+	
+	<actiongroup name="rightsActions">
+	
+		<action name="rtda:login" type="none">
+		
+			<attribute name="event" type="eventchooser" defaultValue="2:1024:-1;"/>
+			<attribute name="authorizationTag" type="lowtagchooser" tagtype="enumerated"/>
+			<attribute name="authorizationValue" type="tagvaluesmultichooser" ref="authorizationTag"/>	
+		</action>
+		
+		<action name="rtda:disconnect" type="none">
+		
+			<attribute name="event" type="eventchooser" defaultValue="2:1024:-1;"/>
+			<attribute name="authorizationTag" type="lowtagchooser" tagtype="enumerated"/>
+			<attribute name="authorizationValue" type="tagvaluesmultichooser" ref="authorizationTag"/>	
+		</action>
+		
+	</actiongroup>
+	
+	<actiongroup name="externalLink">
+	
+		<action name="rtda:loadData" type="needChildren">
+		
+			<attribute name="event" type="eventchooser" defaultValue="2:1024:-1;"/>
+			<attribute name="dbName" type="entry"/>
+			<attribute name="request" type="requestchooser"/>
+			<attribute name="confirmationDialog" type="entry"/>
+			<attribute name="authorizationLevel" type="integerchooser"/>
+			<attribute name="authorizationTag" type="lowtagchooser" tagtype="enumerated"/>
+			<attribute name="authorizationValue" type="tagvaluesmultichooser" ref="authorizationTag"/>
+			
+			<child name="rtda:match">
+				<attribute name="dataName" type="entry"/>
+				<attribute name="tag" type="lowtagchooser" tagtype="anyTag"/>
+			</child>
+		</action>
+
+		<action name="rtda:recordData" type="needChildren">
+		
+			<attribute name="event" type="eventchooser" defaultValue="2:1024:-1;"/>
+			<attribute name="dbName" type="entry"/>
+			<attribute name="tableName" type="entry"/>
+			<attribute name="confirmationDialog" type="entry"/>
+			<attribute name="authorizationLevel" type="integerchooser"/>
+			<attribute name="authorizationTag" type="lowtagchooser" tagtype="enumerated"/>
+			<attribute name="authorizationValue" type="tagvaluesmultichooser" ref="authorizationTag"/>
+			
+			<child name="rtda:match">
+				<attribute name="dataName" type="entry"/>
+				<attribute name="tag" type="lowtagchooser" tagtype="anyTag"/>
+			</child>
+		</action>
+		
+		<action name="rtda:writeDataToFile" type="none">
+		
+			<attribute name="event" type="eventchooser" defaultValue="2:1024:-1;"/>
+			<attribute name="dbName" type="entry"/>
+			<attribute name="request" type="requestchooser"/>
+			<attribute name="directory" type="directorychooser"/>
+			<attribute name="fileNamePattern" type="entry"/>
+			<attribute name="writeOnSameFile" type="checkbox">
+				<item name="item_true" value="true"/>
+				<item name="item_false" value="false"/>
+			</attribute>
+			<attribute name="sepBetweenFields" type="entry"/>
+			<attribute name="displayColumnNames" type="checkbox">
+				<item name="item_true" value="true"/>
+				<item name="item_false" value="false"/>
+			</attribute>
+			<attribute name="confirmationDialog" type="entry"/>
+			<attribute name="authorizationLevel" type="integerchooser"/>
+			<attribute name="authorizationTag" type="lowtagchooser" tagtype="enumerated"/>
+			<attribute name="authorizationValue" type="tagvaluesmultichooser" ref="authorizationTag"/>
+			
+		</action>
+
+	</actiongroup>
+	
+	<actiongroup name="runActions">
+	
+		<action name="rtda:runApplication" type="none">
+		
+			<attribute name="event" type="eventchooser" defaultValue="2:1024:-1;"/>
+			<attribute name="command" type="entry"/>
+			<attribute name="workingDirectory" type="directorychooser"/>
+			<attribute name="confirmationDialog" type="entry"/>
+			<attribute name="authorizationLevel" type="integerchooser"/>
+			<attribute name="authorizationTag" type="lowtagchooser" tagtype="enumerated"/>
+			<attribute name="authorizationValue" type="tagvaluesmultichooser" ref="authorizationTag"/>	
+		</action>	
+
+	</actiongroup>
+	
+	<actiongroup name="customActions">
+	
+		<action name="rtda:class" type="none">
+		
+			<attribute name="event" type="eventchooser" defaultValue="2:1024:-1;"/>
+			<attribute name="class" type="actionchooser"/>
+			<attribute name="confirmationDialog" type="entry"/>
+			<attribute name="authorizationLevel" type="integerchooser"/>
+			<attribute name="authorizationTag" type="lowtagchooser" tagtype="enumerated"/>
+			<attribute name="authorizationValue" type="tagvaluesmultichooser" ref="authorizationTag"/>
+		</action>
+	
+	</actiongroup>	
+	
+</animations>

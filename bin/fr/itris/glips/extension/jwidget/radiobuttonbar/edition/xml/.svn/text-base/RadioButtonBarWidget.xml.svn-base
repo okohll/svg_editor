@@ -1,0 +1,72 @@
+<?xml version="1.0" ?> 
+<animations>
+
+	<actiongroup name="sendAnimations">
+	
+		<action name="rtda:simpleSendCommand" type="enumerated">
+		
+			<attribute name="tagToWrite" type="lowtagchooser" tagtype="enumerated"/>
+			<attribute name="value" type="tagvalueschooser" ref="tagToWrite"/>
+			<attribute name="returnToInitialValueMethod" type="simplereturntoinitialvaluechooser"/>
+			<attribute name="confirmationDialog" type="entry"/>
+			<attribute name="authorizationLevel" type="integerchooser"/>
+			<attribute name="authorizationTag" type="lowtagchooser" tagtype="enumerated"/>
+			<attribute name="authorizationValue" type="tagvaluesmultichooser" ref="authorizationTag"/>
+			
+		</action>
+
+		<action name="rtda:sendMeasure" type="analogic">
+	
+			<attribute name="tagToWrite" type="lowrealtagchooser" tagtype="analogic"/>
+			<attribute name="tagValue" type="numberchooser"/>
+			<attribute name="returnToInitialValueMethod" type="simplereturntoinitialvaluechooser"/>
+			<attribute name="confirmationDialog" type="entry"/>
+			<attribute name="authorizationLevel" type="integerchooser"/>
+			<attribute name="authorizationTag" type="lowtagchooser" tagtype="enumerated"/>
+			<attribute name="authorizationValue" type="tagvaluesmultichooser" ref="authorizationTag"/>
+			
+		</action>
+
+	</actiongroup>
+
+	<actiongroup name="loadActions">
+		
+		<action name="rtda:loadView" type="none">
+			<attribute name="target" type="targetchooser"/>
+			<attribute name="view" type="viewchooser" tagtype="view"/>
+			<attribute name="confirmationDialog" type="entry"/>
+			<attribute name="authorizationLevel" type="integerchooser"/>
+			<attribute name="authorizationTag" type="lowtagchooser" tagtype="enumerated"/>
+			<attribute name="authorizationValue" type="tagvaluesmultichooser" ref="authorizationTag"/>
+		</action>
+		
+	</actiongroup>
+	
+	<actiongroup name="runActions">
+	
+		<action name="rtda:runApplication" type="none">
+		
+			<attribute name="command" type="entry"/>
+			<attribute name="workingDirectory" type="directorychooser"/>
+			<attribute name="confirmationDialog" type="entry"/>
+			<attribute name="authorizationLevel" type="integerchooser"/>
+			<attribute name="authorizationTag" type="lowtagchooser" tagtype="enumerated"/>
+			<attribute name="authorizationValue" type="tagvaluesmultichooser" ref="authorizationTag"/>
+	
+		</action>	
+
+	</actiongroup>
+	
+	<actiongroup name="customActions">
+	
+		<action name="rtda:class" type="none">
+			<attribute name="class" type="actionchooser"/>
+			<attribute name="confirmationDialog" type="entry"/>
+			<attribute name="authorizationLevel" type="integerchooser"/>
+			<attribute name="authorizationTag" type="lowtagchooser" tagtype="enumerated"/>
+			<attribute name="authorizationValue" type="tagvaluesmultichooser" ref="authorizationTag"/>
+		</action>
+	
+	</actiongroup>	
+
+</animations>

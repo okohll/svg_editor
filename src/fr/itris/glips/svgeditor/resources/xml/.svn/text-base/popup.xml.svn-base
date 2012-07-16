@@ -1,0 +1,76 @@
+<?xml version="1.0" ?>
+<!--
+ =============================================
+                   GNU LESSER GENERAL PUBLIC LICENSE Version 2.1
+ =============================================
+GLIPS Graffiti Editor, a SVG Editor
+Copyright (C) 2003 Jordi SUC, Philippe Gil, SARL ITRIS
+
+This library is free software; you can redistribute it and/or
+modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either
+version 2.1 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public
+License along with this library; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+Contact : jordi.suc@itris.fr; philippe.gil@itris.fr
+
+ =============================================
+-->
+
+<popup>
+	<group name="undoRedo">
+		<item name="Undo"/>
+		<item name="Redo"/>
+	</group>
+	<group name="select">
+		<item name="AllSelection"/>
+		<item name="AllDeselection"/>
+	</group>
+	<group name="clipboard">
+		<item name="Copy"/>
+		<item name="Paste"/>
+		<item name="PastePos"/>
+		<item name="Cut"/>
+		<item name="Delete"/>
+		<item name="SameDimensions"/>
+	</group>
+	<group name="group">
+		<item name="GroupShape"/>
+		<item name="UnGroupShape"/>
+	</group>
+	<group name="parentgroup">
+		<item name="EnterGroup"/>
+		<item name="ExitGroup"/>
+	</group>
+	<group name="lock">
+		<item name="Lock"/>
+		<item name="UnLock"/>	
+	</group>
+	<group name="path">
+		<item name="PathOperations"/>
+	</group>
+	<group name="transform">
+		<item name="Align"/>
+		<item name="CenterOnCanvas"/>
+		<item name="Distribute"/>
+		<item name="Order"/>
+	</group>
+	<group name="transform2">
+		<item name="Flip"/>
+		<item name="Rotate"/>
+	</group>
+	<group name="CanvasSize">
+		<item name="CanvasSize"/>
+	</group>
+	<group name="about">
+		<item name="About"/>
+	</group>
+</popup>

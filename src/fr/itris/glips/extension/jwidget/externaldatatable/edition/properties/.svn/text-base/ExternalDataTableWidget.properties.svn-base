@@ -1,0 +1,12 @@
+description=External data table
+
+gridLabel=Grid
+showHorizontalLinesLabel=Display the horizontal lines
+showVerticalLinesLabel=Display the vertical lines
+lookLabel=Display
+colorLabel=Background color
+
+refreshButtonLabel=Reload button
+showReloadButtonLabel=Display the reload button
+refreshButtonLabelLabel=Label
+rowHeightLabel=Row height

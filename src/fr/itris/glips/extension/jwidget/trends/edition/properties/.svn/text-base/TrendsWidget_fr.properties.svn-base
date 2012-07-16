@@ -1,0 +1,107 @@
+description=Tendances
+generalTab=<html><body>G<br>é<br>n<br>é<br>r<br>a<br>l</body></html>
+displayTab=<html><body>A<br>f<br>f<br>i<br>c<br>h<br>a<br>g<br>e</body></html>
+curvesTab=<html><body>C<br>o<br>u<br>r<br>b<br>e<br>s</body></html>
+
+horizontalAxis=Axe des temps
+displayedTime=Durée affichée
+displayGraduation=Afficher la graduation du temps
+horodate=Horodates
+displayHorizontalHorodates=Afficher les horodates
+horizontalHorodatesFormat=Format
+
+cursor=Curseur
+displayCursorHorodates=<html><body>Afficher les horodates<br>sous le curseur</body></html>
+cursorHorodatesFormat=Format 
+
+curves=Courbes
+displayCurveLegends=<html><body>Afficher les propriétés<br>des courbes au<br>démarrage</body></html>
+
+realTime=Temps réel
+refreshPeriod=Période de rafraîchissement des données
+pointsNumber=Nombre de points du buffer
+maxDisplayableTime=Durée maximum affichable
+
+start=Démarrage
+startMode=Mode de démarrage
+startPanel_realTime=Temps réel
+startPanel_history=Historique
+
+style=Style
+backgroundColor=Couleur de fond
+fontSize=Taille de la police
+
+grid=Grille
+displayGrid=Afficher la grille
+
+verticalGridLines=Lignes verticales
+automaticVerticalLines=Gérer automatiquement
+
+gridVerticalLinesDivisions=Divisions verticales
+gridVerticalLinesDivisionsAutomaticPeriod=Automatique
+gridVerticalLinesDivisionsDuration=Période
+gridVerticalLinesDivisionsColor=Couleur
+gridVerticalLinesDivisionsDash=Pointillés
+
+gridVerticalLinesSubDivisions=Sous divisions verticales
+gridVerticalLinesSubDivisionsAutomaticPeriod=Automatique
+gridVerticalLinesSubDivisionsDuration=Période
+gridVerticalLinesSubDivisionsColor=Couleur
+gridVerticalLinesSubDivisionsDash=Pointillés
+
+CurvesTable_enabled=Actif
+CurvesTable_tag=Nom du tag
+CurvesTable_label=Libellé
+CurvesTable_color=Couleur
+CurvesTable_thickness=Epaisseur
+CurvesTable_dash=Pointillés
+CurvesTable_point=Points
+CurvesTable_interpolation=Interpolation
+CurvesTable_min=Min
+CurvesTable_max=Max
+CurvesTable_graduations=Echelle
+CurvesTable_colorForInvalid=Couleur
+CurvesTable_thicknessForInvalid=Epaisseur
+CurvesTable_dashForInvalid=Pointillés
+
+dataCurves=Données
+displayCurves=Affichage
+invalidCurves=Etat invalide
+
+historic=Historique
+keepAlive=<html><body>Continuer à recevoir les nouvelles<br>valeurs du mode temps réel</html></body>
+
+interpolation=Interpolation
+interpolationWithPeriod=<html><body>Tenir compte de la période<br>de rafraîchissement</html></body>
+
+scrollBar=Barre de défilement
+displayScrollBar=<html><body>Afficher la barre<br>de défilement</body></html>
+
+values=Valeurs
+decimalNumber=Nombre de chiffres de la partie décimale
+limit=<html><body>Utiliser un exposant quand la valeur absolue est :</body></html>
+higherLimit=supérieure à
+lowerLimit=inférieure à
+
+rtdaanim_curvesAnimations=Tendances
+rtdaanim_menuItem_curvesAnimations=Tendances
+rtdaanim_stateCurve=Tendances d'états
+rtdaanim_menuItem_stateCurve=Tendances d'états
+rtdaanim_measureCurve=Tendances de mesures
+rtdaanim_menuItem_measureCurve=Tendances de mesures
+
+rtdaanim_graduations=Afficher l'échelle
+rtdaanim_thickness=Epaisseur
+rtdaanim_dash=Pointillés
+rtdaanim_point=Points
+rtdaanim_interpolation=Interpolation
+rtdaanim_colorForInvalid=Couleur si courbe invalide
+rtdaanim_thicknessForInvalid=Epaisseur si courbe invalide
+rtdaanim_dashForInvalid=Pointillés si courbe invalide
+
+historicPeriodFromTags=Tags pour la période d'historique
+tag1=Tag de date de début
+tag2=Tag de date de fin
+
+toolBar=Barre d'outils
+displayToolBar=Afficher la barre d'outils

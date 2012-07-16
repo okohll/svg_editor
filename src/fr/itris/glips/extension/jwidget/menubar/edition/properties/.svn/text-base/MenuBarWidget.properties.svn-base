@@ -1,0 +1,11 @@
+description=Menu bar
+labelMenu=Menu label
+labelMenuItem=Menu item label
+labelMenuPopUp=Menu
+labelMenuItemPopUp=Menu item
+nodeChooserLabel=<html><body>Choose a menu item :</body></html>
+menuLabel=Menu
+menuItemLabel=Menu item
+configurationPanelLabel=Build the menus and menu items hierarchy : 
+treeLabel=Tree
+lookLabel=Display

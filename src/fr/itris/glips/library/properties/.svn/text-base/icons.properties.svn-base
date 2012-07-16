@@ -1,0 +1,15 @@
+Error=error.gif
+Information=information.gif
+Warning=warning.gif
+Banner=banner.png
+
+WaitBanner=clock.png
+ErrorLarge=errorLarge.png
+
+Arrow=arrow.gif
+
+Inf=inf.png
+InfEq=infEq.png
+Eq=eq.png
+Sup=sup.png
+SupEq=supEq.png

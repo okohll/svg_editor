@@ -1,0 +1,9 @@
+description=Groupe de boutons radio
+orientationLabel=Orientation
+horizontalLabel=Horizontal
+verticalLabel=Vertical
+titleBorderLabel=Boutons radio
+idLabel=Bouton radio
+buttonLabel=Bouton radio
+sourceLabel=Choisir un bouton :
+lookLabel=Affichage

@@ -1,0 +1,56 @@
+<?xml version="1.0" ?> 
+<animations>
+
+	<actiongroup name="sendAnimations">
+	
+		<action name="rtda:simpleSendCommand" type="enumerated">
+		
+			<attribute name="tagToWrite" type="lowtagchooser" tagtype="enumerated"/>
+			<attribute name="returnToInitialValueMethod" type="simplereturntoinitialvaluechooser"/>
+			<attribute name="confirmationDialog" type="entry"/>
+			<attribute name="authorizationLevel" type="integerchooser"/>
+			<attribute name="authorizationTag" type="lowtagchooser" tagtype="enumerated"/>
+			<attribute name="authorizationValue" type="tagvaluesmultichooser" ref="authorizationTag"/>
+			
+		</action>
+		
+		<action name="rtda:sendMeasure" type="analogic">
+		
+			<attribute name="tagToWrite" type="lowrealtagchooser" tagtype="analogic"/>
+			<attribute name="tagMin" type="limit" tagtype="analogic"/>
+			<attribute name="tagMax" type="limit" tagtype="analogic"/>
+			<attribute name="returnToInitialValueMethod" type="simplereturntoinitialvaluechooser"/>
+			<attribute name="confirmationDialog" type="entry"/>
+			<attribute name="authorizationLevel" type="integerchooser"/>
+			<attribute name="authorizationTag" type="lowtagchooser" tagtype="enumerated"/>
+			<attribute name="authorizationValue" type="tagvaluesmultichooser" ref="authorizationTag"/>
+			
+		</action>
+		
+		<action name="rtda:sendString" type="string">
+		
+			<attribute name="tagToWrite" type="lowrealtagchooser" tagtype="string"/>
+			<attribute name="value" type="entry"/>
+			<attribute name="returnToInitialValueMethod" type="simplereturntoinitialvaluechooser"/>
+			<attribute name="confirmationDialog" type="entry"/>
+			<attribute name="authorizationLevel" type="integerchooser"/>
+			<attribute name="authorizationTag" type="lowtagchooser" tagtype="enumerated"/>
+			<attribute name="authorizationValue" type="tagvaluesmultichooser" ref="authorizationTag"/>
+			
+		</action>
+
+	</actiongroup>
+	
+	<actiongroup name="customActions">
+	
+		<action name="rtda:class" type="none">
+			<attribute name="class" type="actionchooser"/>
+			<attribute name="confirmationDialog" type="entry"/>
+			<attribute name="authorizationLevel" type="integerchooser"/>
+			<attribute name="authorizationTag" type="lowtagchooser" tagtype="enumerated"/>
+			<attribute name="authorizationValue" type="tagvaluesmultichooser" ref="authorizationTag"/>
+		</action>
+	
+	</actiongroup>	
+
+</animations>

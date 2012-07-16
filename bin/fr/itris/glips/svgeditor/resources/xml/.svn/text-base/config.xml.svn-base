@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<configuration>
+	
+	<bounds>
+		<widget name="mainframe" x="0" y="0" width="0" height="0"/>
+		<widget name="frame" x="0" y="0" width="0" height="0"/>
+		<widget name="properties" x="0" y="0" width="250" height="200"/>
+		<widget name="visualresources" x="0" y="0" width="200" height="200"/>
+		<widget name="rtdaanimations" x="0" y="0" width="250" height="400"/>
+		<widget name="rtdadatabaseeditor" x="0" y="0" width="400" height="275"/>
+	</bounds>
+
+</configuration>

@@ -1,0 +1,130 @@
+<?xml version="1.0" ?>
+
+<!--
+ =============================================
+                   GNU LESSER GENERAL PUBLIC LICENSE Version 2.1
+ =============================================
+GLIPS Graffiti Editor, a SVG Editor
+Copyright (C) 2003 Jordi SUC, Philippe Gil, SARL ITRIS
+
+This library is free software; you can redistribute it and/or
+modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either
+version 2.1 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public
+License along with this library; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+Contact : jordi.suc@itris.fr; philippe.gil@itris.fr
+
+ =============================================
+-->
+<menubar>
+	<menu name="menufile">
+		<menuitem name="FileNew"/>
+		<menuitem name="FileOpen"/>
+		<menuitem name="FileOpenRecent"/>
+		<separator/>
+		<menuitem name="FileSave"/>
+		<menuitem name="FileSaveAs"/>
+		<separator/>
+		<menuitem name="FileExport"/>
+		<menuitem name="FilePrint"/>
+		<separator/>
+		<menuitem name="FileClose"/>
+		<separator/>
+		<menuitem name="EditorExit"/>
+	</menu>
+	
+	<menu name="menuedit">
+		<menuitem name="Undo"/>
+		<menuitem name="Redo"/>
+		<separator/>
+		<menuitem name="Copy"/>
+		<menuitem name="Paste"/>
+		<menuitem name="PastePos"/>
+		<menuitem name="Cut"/>
+		<menuitem name="Delete"/>
+		<menuitem name="SameDimensions"/>
+		<separator/>
+		<menuitem name="GroupShape"/>
+		<menuitem name="UnGroupShape"/>
+		<separator/>
+		<menuitem name="EnterGroup"/>
+		<menuitem name="ExitGroup"/>
+		<separator/>
+		<menuitem name="Lock"/>
+		<menuitem name="UnLock"/>
+		<separator/>
+		<menuitem name="RegularSelection"/>
+		<menuitem name="ZoneSelection"/>
+		<menuitem name="AllSelection"/>
+		<menuitem name="AllDeselection"/>	
+	</menu>
+
+	<menu name="menudraw">
+		<menuitem name="RectangleShape"/>
+		<menuitem name="CircleShape"/>
+		<menuitem name="EllipseShape"/>
+		<separator/>
+		<menuitem name="PathShape"/>
+		<menuitem name="AddPointPathShape"/>
+		<menuitem name="RemovePointPathShape"/>
+		<menuitem name="PathOperations"/>
+		<separator/>
+		<menuitem name="ImageShape"/>
+		<menuitem name="TextShape"/>
+		<separator/>
+		<menuitem name="JWidgetManager"/>
+		<menuitem name="RtdaViewShape"/>	
+		<menuitem name="RtdaWidgetShape"/>
+		<separator/>
+		<menuitem name="OptionsModule"/>
+	</menu>
+
+	<menu name="menutransform">
+		<menuitem name="Align"/>
+		<menuitem name="CenterOnCanvas"/>
+		<menuitem name="Distribute"/>
+		<menuitem name="Order"/>
+		<separator/>
+		<menuitem name="Flip"/>
+		<menuitem name="Rotate"/>
+		<separator/>
+		<menuitem name="CanvasSize"/>
+	</menu>
+
+	<menu name="menudisplay">
+		<menu name="menuframe">
+		</menu>
+		<separator/>
+		<menuitem name="ZoomModule"/>
+		<separator/>
+		<menuitem name="GridDisplay"/>
+		<menuitem name="GridParameters"/>
+		<separator/>
+		<menuitem name="Rulers"/>
+	</menu>
+
+	<menu name="menudialog">
+		<menuitem name="ToolFrame_Properties"/>
+		<menuitem name="ToolFrame_VisualResources"/>
+		<separator/>
+		<menuitem name="ToolFrame_RtdaDataBaseEditor"/>
+		<menuitem name="ToolFrame_RtdaAnimationsAndActions"/>
+		<menuitem name="RtdaAnimationsAndActionsTestLauncher"/>
+		<separator/>
+		<menuitem name="DOMViewer"/>
+		<menuitem name="MemoryMonitor"/>
+	</menu>
+
+	<menu name="menuhelp">
+		<menuitem name="About"/>
+	</menu>
+</menubar> 

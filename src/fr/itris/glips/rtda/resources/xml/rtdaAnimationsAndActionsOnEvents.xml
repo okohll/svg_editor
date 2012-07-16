@@ -1,0 +1,179 @@
+<?xml version="1.0" ?> 
+<animations>
+
+	<actiongroup name="sendAnimations">
+	
+		<action name="rtda:simpleSendCommand" type="enumerated">
+		
+			<attribute name="tagEvent" type="TagEventChooser" tagtype="anyTag" constraint="tagvalue"/>
+			<attribute name="tagToWrite" type="lowtagchooser" tagtype="enumerated"/>
+			<attribute name="value" type="tagvalueschooser" ref="tagToWrite"/>
+			<attribute name="returnToInitialValueMethod" type="returntoinitialvaluechooser"/>
+			<attribute name="confirmationDialog" type="entry"/>
+			<attribute name="authorizationLevel" type="integerchooser"/>
+			<attribute name="authorizationTag" type="lowtagchooser" tagtype="enumerated"/>
+			<attribute name="authorizationValue" type="tagvaluesmultichooser" ref="authorizationTag"/>
+			
+		</action>
+	
+		<action name="rtda:sendCommand" type="enumerated">
+		
+			<attribute name="tagEvent" type="TagEventChooser" tagtype="anyTag" constraint="tagvalue"/>
+			<attribute name="referenceTag" type="tagchooser" constraint="tag" tagtype="enumerated"/>
+			<attribute name="tagToWrite" type="lowtagchooser" tagtype="enumerated"/>
+			<attribute name="defaultValue" type="tagvalueschooser" ref="tagToWrite"/>
+			<attribute name="invalidValue" type="tagvalueschooser" ref="tagToWrite"/>
+			<attribute name="returnToInitialValueMethod" type="returntoinitialvaluechooser"/>
+			<attribute name="confirmationDialog" type="entry"/>
+			<attribute name="authorizationLevel" type="integerchooser"/>
+			<attribute name="authorizationTag" type="lowtagchooser" tagtype="enumerated"/>
+			<attribute name="authorizationValue" type="tagvaluesmultichooser" ref="authorizationTag"/>
+			
+			<child name="rtda:sendCommandValue">
+				<attribute name="used" type="checkbox" defaultValue="true">
+					<item name="item_true" value="true"/>
+					<item name="item_false" value="false"/>
+				</attribute>
+				<attribute name="value" type="label" constraint="tagvalue"/>
+				<attribute name="commandToSend" type="tagvalueschooser" ref="tagToWrite"/>
+			</child>
+			
+		</action>
+
+		<action name="rtda:sendMeasure" type="analogic">
+		
+			<attribute name="tagEvent" type="TagEventChooser" tagtype="anyTag" constraint="tagvalue"/>
+			<attribute name="tagToWrite" type="lowrealtagchooser" constraint="tag" tagtype="analogic"/>
+			<attribute name="tagMin" type="limit" tagtype="analogic"/>
+			<attribute name="tagMax" type="limit" tagtype="analogic"/>
+			<attribute name="returnToInitialValueMethod" type="simplereturntoinitialvaluechooser"/>
+			<attribute name="confirmationDialog" type="entry"/>
+			<attribute name="authorizationLevel" type="integerchooser"/>
+			<attribute name="authorizationTag" type="lowtagchooser" tagtype="enumerated"/>
+			<attribute name="authorizationValue" type="tagvaluesmultichooser" ref="authorizationTag"/>
+			
+		</action>
+
+	</actiongroup>
+	
+	<actiongroup name="loadActions">
+		
+		<action name="rtda:loadView" type="none">
+			<attribute name="tagEvent" type="TagEventChooser" tagtype="anyTag" constraint="tagvalue"/>
+			<attribute name="target" type="complextargetchooser"/>
+			<attribute name="view" type="extendedviewchooser" tagtype="view"/>
+			<attribute name="confirmationDialog" type="entry"/>
+			<attribute name="authorizationLevel" type="integerchooser"/>
+			<attribute name="authorizationTag" type="lowtagchooser" tagtype="enumerated"/>
+			<attribute name="authorizationValue" type="tagvaluesmultichooser" ref="authorizationTag"/>
+		</action>
+		
+	</actiongroup>
+	
+	<actiongroup name="rightsActions">
+	
+		<action name="rtda:login" type="none">
+		
+			<attribute name="tagEvent" type="TagEventChooser" tagtype="anyTag" constraint="tagvalue"/>
+			<attribute name="authorizationTag" type="lowtagchooser" tagtype="enumerated"/>
+			<attribute name="authorizationValue" type="tagvaluesmultichooser" ref="authorizationTag"/>	
+		</action>
+		
+		<action name="rtda:disconnect" type="none">
+		
+			<attribute name="tagEvent" type="TagEventChooser" tagtype="anyTag" constraint="tagvalue"/>
+			<attribute name="authorizationTag" type="lowtagchooser" tagtype="enumerated"/>
+			<attribute name="authorizationValue" type="tagvaluesmultichooser" ref="authorizationTag"/>	
+		</action>
+		
+	</actiongroup>
+	
+	<actiongroup name="externalLink">
+	
+		<action name="rtda:loadData" type="needChildren">
+		
+			<attribute name="tagEvent" type="TagEventChooser" tagtype="anyTag" constraint="tagvalue"/>
+			<attribute name="dbName" type="entry"/>
+			<attribute name="request" type="requestchooser" tagtype="anyTag"/>
+			<attribute name="confirmationDialog" type="entry"/>
+			<attribute name="authorizationLevel" type="integerchooser"/>
+			<attribute name="authorizationTag" type="lowtagchooser" tagtype="enumerated"/>
+			<attribute name="authorizationValue" type="tagvaluesmultichooser" ref="authorizationTag"/>
+			
+			<child name="rtda:match">
+				<attribute name="dataName" type="entry"/>
+				<attribute name="tag" type="lowtagchooser" tagtype="anyTag"/>
+			</child>
+		</action>
+
+		<action name="rtda:recordData" type="needChildren">
+		
+			<attribute name="tagEvent" type="TagEventChooser" tagtype="anyTag" constraint="tagvalue"/>
+			<attribute name="dbName" type="entry"/>
+			<attribute name="tableName" type="entry"/>
+			<attribute name="confirmationDialog" type="entry"/>
+			<attribute name="authorizationLevel" type="integerchooser"/>
+			<attribute name="authorizationTag" type="lowtagchooser" tagtype="enumerated"/>
+			<attribute name="authorizationValue" type="tagvaluesmultichooser" ref="authorizationTag"/>
+			
+			<child name="rtda:match">
+				<attribute name="dataName" type="entry"/>
+				<attribute name="tag" type="lowtagchooser" tagtype="anyTag"/>
+			</child>
+		</action>
+		
+		<action name="rtda:writeDataToFile" type="none">
+		
+			<attribute name="tagEvent" type="TagEventChooser" tagtype="anyTag" constraint="tagvalue"/>
+			<attribute name="dbName" type="entry"/>
+			<attribute name="request" type="requestchooser"/>
+			<attribute name="directory" type="directorychooser"/>
+			<attribute name="fileNamePattern" type="entry"/>
+			<attribute name="writeOnSameFile" type="checkbox">
+				<item name="item_true" value="true"/>
+				<item name="item_false" value="false"/>
+			</attribute>
+			<attribute name="sepBetweenFields" type="entry"/>
+			<attribute name="displayColumnNames" type="checkbox">
+				<item name="item_true" value="true"/>
+				<item name="item_false" value="false"/>
+			</attribute>
+			<attribute name="confirmationDialog" type="entry"/>
+			<attribute name="authorizationLevel" type="integerchooser"/>
+			<attribute name="authorizationTag" type="lowtagchooser" tagtype="enumerated"/>
+			<attribute name="authorizationValue" type="tagvaluesmultichooser" ref="authorizationTag"/>
+			
+		</action>
+
+	</actiongroup>
+	
+	<actiongroup name="runActions">
+	
+		<action name="rtda:runApplication" type="none">
+		
+			<attribute name="tagEvent" type="TagEventChooser" tagtype="anyTag" constraint="tagvalue"/>
+			<attribute name="command" type="entry"/>
+			<attribute name="workingDirectory" type="directorychooser"/>
+			<attribute name="confirmationDialog" type="entry"/>
+			<attribute name="authorizationLevel" type="integerchooser"/>
+			<attribute name="authorizationTag" type="lowtagchooser" tagtype="enumerated"/>
+			<attribute name="authorizationValue" type="tagvaluesmultichooser" ref="authorizationTag"/>	
+		</action>	
+
+	</actiongroup>
+	
+	<actiongroup name="customActions">
+	
+		<action name="rtda:class" type="none">
+		
+			<attribute name="tagEvent" type="TagEventChooser" tagtype="anyTag" constraint="tagvalue"/>
+			<attribute name="class" type="actionchooser"/>
+			<attribute name="confirmationDialog" type="entry"/>
+			<attribute name="authorizationLevel" type="integerchooser"/>
+			<attribute name="authorizationTag" type="lowtagchooser" tagtype="enumerated"/>
+			<attribute name="authorizationValue" type="tagvaluesmultichooser" ref="authorizationTag"/>
+		</action>
+	
+	</actiongroup>	
+	
+</animations>

@@ -1,0 +1,71 @@
+##tools
+Error=Error !
+OK=OK
+Cancel=Cancel
+
+Play=Play
+Pause=Pause
+
+RealTimeMode=Real time mode
+HistoryMode=History mode
+
+Regular=Cursor
+
+TimeZoomIn=Time zoom in
+TimeZoomOut=Time zoom out
+TimeZoomInitial=Time zoom 1:1
+MouseTimeZoom=Zone time zoom
+TimeZoomDialog=New displayed duration
+
+MouseZoom=Zone time zoom
+VerticalZoomInitial=Zoom 1:1
+
+DisplayCurvesProperties=Display the properties of the curves
+
+LineCursor=Vertical cursor 
+CrossCursor=Cross cursor
+
+##time zoom dialog widget
+TimeZoomDialogWidget=New time zone to display
+TimeZoomDialogWidgetMessage=The displayed time zone should be lower than the maximum allowed time zone.
+TimeZoomDialogWidgetTime=Time zone to display
+TimeZoomDialogWidgetTimeTooLong=The selected time zone is higher than the maximum allowed time zone.
+
+##curves properties component
+DataPanel=Data
+StylePanel=Style
+CurveCombo=Curve
+ReinitializeCurveValues=Reset the curve data
+
+TagLabel=Label
+TagName=Tag name
+TagCurrentValue=Value
+Limits=Limits
+HigherLimit=Higher
+LowerLimit=Lower
+
+##the curves property dialog
+CurveProperties=Properties
+DisplayScale=Display the scale
+CurveColor=Color
+CurveDashes=Dashes
+CurveThickness=Thickness
+CurveInterpolation=Interpolation
+CurvePoints=Points
+
+##the date pickers dialog
+DatePickersDialog=New time zone selection
+DatePickersDialogMessage=The start date should be lower than the end date. The selected time zone should be lower than the maximum allowed time zone.
+StartDate=Start date
+EndDate=End date
+StartHigherThanEndDate=The start date should be lower than the end date.
+TimeZoneTooLarge=The selected time zone is higher than the maximum allowed time zone.
+
+##the wait dialog
+historyDataLoading=Loading the history data
+historyDataLoadingInfo=Please wait while loading the history data.
+historyDataErrorLoading=An error occurred when loading the history data.
+
+receivingData=Receiving data
+normalizingValues=Normalizing data
+refreshingDisplay=Refreshing display

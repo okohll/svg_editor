@@ -1,0 +1,75 @@
+
+##general
+labelok=Ok
+labelcancel=Annuler
+labelclear=Effacer
+
+##the tooltips
+tooltip_simpleSendCommand=Envoi d'une commande : 
+tooltip_sendString=Envoi d'une chaîne de caractères
+tooltip_sendCommand=Envoi d'une commande avec référence : 
+tooltip_sendMeasure=Envoi d'une consigne : 
+tooltip_loadView=Aller à la vue
+tooltip_returnToLastView=Retourner à la vue précédente
+tooltip_closePopupDialog=Fermer la boîte de dialogue
+tooltip_quit=Quitter
+tooltip_runApplication=Exécuter le programme : 
+tooltip_slider=Fixer une valeur
+tooltip_login=Identification
+tooltip_loadData=Lancer le chargement de données externes
+tooltip_recordData=Lancer l'enregistrement externe
+tooltip_disconnect=Déconnexion
+tooltip_writeDataToFile=Enregister des données externes dans un fichier
+
+tooltip_notEntitled= : Droit insuffisant.
+tooltip_notAuthorized= : Non autorisé.
+tooltip_notEntitledAndnotAuthorized= : Non autorisé et droit insuffisant.
+
+##errors and messages
+errorTitle=Erreur !
+errorMessageNumberChooser=Une valeur incorrecte a été entrée.
+unauthorizedAction=L'action n'est pas autorisée.
+notEntitledAction=Les droits de l'utilisateur courant<br>ne permettent pas d'exécuter cette action.
+
+##the number chooser
+numberchoosertitle=Choix d'une valeur
+
+##the default and invalid values
+defaultLabel=défaut
+invalidLabel=invalide
+
+## the view chooser
+viewchooser_previous=Précédent
+viewchooser_next=Suivant
+viewchooser_reload=Recharger
+viewchooser_chooser=...
+viewchooser_chooser_tooltip=Choisir une vue
+
+## the compiler
+compilingLabel=Compilation en cours
+
+##the login dialog
+LoginDialogTitle=Identification
+LoginDialogMessage=Entrer l'identifiant et le mot de passe de l'utilisateur dont vous voulez obtenir les droits.
+LoginLabel=Identifiant
+PasswordLabel=Mot de passe
+WrongLoginLabel=Le login n'existe pas.
+WrongPasswordLabel=Le mot de passe n'est pas correct.
+ErrorLabel=Erreur !
+
+rtdadb_floattagid=Flottant
+rtdadb_integertagid=Entier
+rtdadb_enumeratedtagid=Enuméré
+rtdadb_stringtagid=Chaîne de caractères
+rtdadb_enumeratedvalueid=Valeur
+rtdadb_moduleid=Module
+
+rtdadb_floattag=Tag flottant
+rtdadb_integertag=Tag entier
+rtdadb_analogictag=Tag analogique
+rtdadb_enumeratedtag=Tag énuméré
+rtdadb_stringtag=Tag chaîne de caractères
+rtdadb_enumeratedvalue=Valeur d'un tag énuméré
+rtdadb_module=Module
+rtdadb_view=Vue
+rtdadb_none=Aucun

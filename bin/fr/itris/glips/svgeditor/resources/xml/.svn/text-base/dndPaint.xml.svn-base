@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<dndpaint>
+	<shape name="circle" styleProperty="fill"/>
+	<shape name="ellipse" styleProperty="fill"/>
+	<shape name="line" styleProperty="stroke"/>
+	<shape name="path" styleProperty="fill"/>
+	<shape name="polygon" styleProperty="fill"/>
+	<shape name="polyline" styleProperty="fill"/>
+	<shape name="rect" styleProperty="fill"/>
+	<shape name="text" styleProperty="fill"/>
+</dndpaint>

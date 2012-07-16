@@ -1,0 +1,107 @@
+description=Trends
+generalTab=<html><body>G<br>e<br>n<br>e<br>r<br>a<br>l</body></html>
+displayTab=<html><body>D<br>i<br>s<br>p<br>l<br>a<br>y</body></html>
+curvesTab=<html><body>C<br>u<br>r<br>v<br>e<br>s</body></html>
+
+horizontalAxis=Time axis
+displayedTime=Displayed time zone
+displayGraduation=Display time graduation
+horodate=Horodates
+displayHorizontalHorodates=Display the horodates
+horizontalHorodatesFormat=Horodates format
+
+cursor=Cursor
+displayCursorHorodates=<html><body>Display the horodates<br>under the cursor</body></html>
+cursorHorodatesFormat=Horodates format
+
+curves=Curves
+displayCurveLegends=<html><body>Display the<br>curves properties<br>when starting</body></html>
+
+realTime=Real time
+refreshPeriod=Data refresh period
+pointsNumber=Buffer points number
+maxDisplayableTime=Maximum displayable time
+
+start=Start
+startMode=Start mode
+startPanel_realTime=Real time
+startPanel_history=History
+
+style=Style
+backgroundColor=Background color
+fontSize=Font size
+
+grid=Grid
+displayGrid=Display the grid
+
+verticalGridLines=Vertical lines
+automaticVerticalLines=Manage automatically
+
+gridVerticalLinesDivisions=Vertical divisions
+gridVerticalLinesDivisionsAutomaticPeriod=Automatic
+gridVerticalLinesDivisionsDuration=Period
+gridVerticalLinesDivisionsColor=Color
+gridVerticalLinesDivisionsDash=Dashes
+
+gridVerticalLinesSubDivisions=Vertical subdivisions
+gridVerticalLinesSubDivisionsAutomaticPeriod=Automatic
+gridVerticalLinesSubDivisionsDuration=Period
+gridVerticalLinesSubDivisionsColor=Color
+gridVerticalLinesSubDivisionsDash=Dashes
+
+CurvesTable_enabled=Use
+CurvesTable_tag=Tag name
+CurvesTable_label=Label
+CurvesTable_color=Color
+CurvesTable_thickness=Thickness
+CurvesTable_dash=Dashes
+CurvesTable_point=Points
+CurvesTable_interpolation=Interpolation
+CurvesTable_min=Min
+CurvesTable_max=Max
+CurvesTable_graduations=Scale
+CurvesTable_colorForInvalid=Color
+CurvesTable_thicknessForInvalid=Thickness
+CurvesTable_dashForInvalid=Dash
+
+dataCurves=Data
+displayCurves=Display
+invalidCurves=Invalid state
+
+historic=History
+keepAlive=Continue to receive the tag updates of the real time mode
+
+interpolation=Interpolation
+interpolationWithPeriod=Interpolate according to the refresh period
+
+scrollBar=Scroll bar
+displayScrollBar=<html><body>Display the<br>scrollbar</body></html>
+
+values=Values
+decimalNumber=Number of digits of the decimal part
+limit=<html><body>Use a exponent when the absolute value is :</body></html>
+higherLimit=higher than
+lowerLimit=lower than
+
+rtdaanim_curvesAnimations=Trends curves
+rtdaanim_menuItem_curvesAnimations=Trends curves
+rtdaanim_stateCurve=States curve
+rtdaanim_menuItem_stateCurve=States
+rtdaanim_measureCurve=Measures curve
+rtdaanim_menuItem_measureCurve=Measures
+
+rtdaanim_graduations=Display the scale
+rtdaanim_thickness=Thickness
+rtdaanim_dash=Dashes
+rtdaanim_point=Points
+rtdaanim_interpolation=Interpolation
+rtdaanim_colorForInvalid=Color if in invalid state
+rtdaanim_thicknessForInvalid=Thickness if in invalid state
+rtdaanim_dashForInvalid=Dashes if in invalid state
+
+historicPeriodFromTags=Tags for the historic period
+tag1=Start date tag
+tag2=End date tag
+
+toolBar=Toolbar
+displayToolBar=Display the toolbar

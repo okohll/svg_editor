@@ -1,0 +1,18 @@
+#General
+mainFrameTitle=GLIPS View
+
+#menu names
+fileMenuLabel=File
+diplayMenuLabel=Display
+controlMenuLabel=Controls
+
+#Open menu item
+
+openMenuItemLabel=Open
+
+#Exit menu item
+exitMenuItemLabel=Exit
+
+#Full screen menu items
+fullScreenEnterMenuItemLabel=Enter full screen mode
+fullScreenExitMenuItemLabel=Exit full screen mode

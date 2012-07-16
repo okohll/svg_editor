@@ -1,0 +1,7 @@
+description=Liste
+itemLabel=Elément 
+lookLabel=Affichage
+colorLabel=Couleur de fond
+fontSizeLabel=Taille de la police
+isOpaqueLabel=Fond opaque
+displayBorderLabel=Afficher la bordure

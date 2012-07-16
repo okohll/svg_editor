@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/glipssvgeditor/!svn/ver/18/GLIPSGraffiti/fr/itris/glips/svgeditor/display/selection
+END
+SelectionManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svnroot/glipssvgeditor/!svn/ver/18/GLIPSGraffiti/fr/itris/glips/svgeditor/display/selection/SelectionManager.java
+END
+SingleSelectionManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svnroot/glipssvgeditor/!svn/ver/18/GLIPSGraffiti/fr/itris/glips/svgeditor/display/selection/SingleSelectionManager.java
+END
+SelectionItemRecord.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svnroot/glipssvgeditor/!svn/ver/18/GLIPSGraffiti/fr/itris/glips/svgeditor/display/selection/SelectionItemRecord.java
+END
+KeySelectionListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svnroot/glipssvgeditor/!svn/ver/18/GLIPSGraffiti/fr/itris/glips/svgeditor/display/selection/KeySelectionListener.java
+END
+SelectionItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svnroot/glipssvgeditor/!svn/ver/18/GLIPSGraffiti/fr/itris/glips/svgeditor/display/selection/SelectionItem.java
+END
+Selection.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svnroot/glipssvgeditor/!svn/ver/18/GLIPSGraffiti/fr/itris/glips/svgeditor/display/selection/Selection.java
+END
+SelectionChangedListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svnroot/glipssvgeditor/!svn/ver/18/GLIPSGraffiti/fr/itris/glips/svgeditor/display/selection/SelectionChangedListener.java
+END
+MultiSelectionManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svnroot/glipssvgeditor/!svn/ver/18/GLIPSGraffiti/fr/itris/glips/svgeditor/display/selection/MultiSelectionManager.java
+END
+SelectionListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svnroot/glipssvgeditor/!svn/ver/18/GLIPSGraffiti/fr/itris/glips/svgeditor/display/selection/SelectionListener.java
+END

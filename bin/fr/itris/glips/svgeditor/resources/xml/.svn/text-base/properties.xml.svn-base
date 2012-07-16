@@ -1,0 +1,311 @@
+<?xml version="1.0" ?> 
+
+<!--
+ =============================================
+                   GNU LESSER GENERAL PUBLIC LICENSE Version 2.1
+ =============================================
+GLIPS Graffiti Editor, a SVG Editor
+Copyright (C) 2003 Jordi SUC, Philippe Gil, SARL ITRIS
+
+This library is free software; you can redistribute it and/or
+modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either
+version 2.1 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public
+License along with this library; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+Contact : jordi.suc@itris.fr; philippe.gil@itris.fr
+
+ =============================================
+-->
+
+<properties>
+
+	<define>
+		<tab name="tab_stroke">
+			<property type="style" name="property_stroke" valuetype="renderchooser" defaultvalue="none" constraint="normal"/>
+			<property type="style" name="property_stroke-opacity" valuetype="slider" defaultvalue="1" constraint="normal"/>
+			<property type="style" name="property_stroke-width" valuetype="positivenumberchooser" defaultvalue="0" constraint="normal"/>
+			<property type="style" name="property_stroke-dasharray" valuetype="editablecombo" defaultvalue="none" constraint="normal">
+				<item name="item_none" value="none"/>
+				<item name="item_dasharray_avalue1" value="5"/>
+				<item name="item_dasharray_avalue2" value="5 10"/>
+				<item name="item_dasharray_avalue3" value="5 10 5"/>
+			</property>
+			<property type="style" name="property_stroke-dashoffset" valuetype="numberchooser" defaultvalue="0" constraint="normal"/>
+			<property type="style" name="property_stroke-linecap" valuetype="combo"  defaultvalue="butt" constraint="normal">
+				<item name="item_butt" value="butt"/>
+				<item name="item_round" value="round"/>
+				<item name="item_square" value="square"/>
+			</property>
+			<property type="style" name="property_stroke-linejoin" valuetype="combo" defaultvalue="miter" constraint="normal">
+				<item name="item_miter" value="miter"/>
+				<item name="item_round" value="round"/>
+				<item name="item_bevel" value="bevel"/>
+			</property>
+			<!--<property type="style" name="property_stroke-miterlimit" valuetype="positivenumberchooser" defaultvalue="1" constraint="normal"/>-->
+		</tab>
+		<tab name="tab_fill">
+			<property type="style" name="property_fill" valuetype="renderchooser" defaultvalue="none" constraint="normal"/>
+			<property type="style" name="property_fill-opacity" valuetype="slider" defaultvalue="1" constraint="normal"/>
+			<!--<property type="style" name="property_fill-rule" valuetype="combo" defaultvalue="evenodd" constraint="normal">
+				<item name="item_nonzero" value="nonzero"/>
+				<item name="item_evenodd" value="evenodd"/>
+			</property>-->
+		</tab>
+		<tab name="tab_display">
+			<property type="style" name="property_visibility" valuetype="tworadiobuttons" defaultvalue="visible" constraint="normal">
+				<item name="item_visible" value="visible"/>
+				<item name="item_hidden" value="hidden"/>
+			</property>
+			<property type="style" name="property_opacity" valuetype="slider" defaultvalue="1" constraint="normal"/>
+		</tab>
+		<!--<tab name="tab_transform">
+			<property type="attribute" name="property_transform" valuetype="matrix" defaultvalue="matrix(1,0,0,1,0,0)"/>
+		</tab>-->
+		<tab name="tab_id">
+			<property type="attribute" name="property_id" valuetype="idmodifier" defaultvalue=""/>
+		</tab>
+		<tab name="tab_marker">
+			<property type="style" name="property_marker-start" valuetype="markerchooser" defaultvalue="none">
+				<item name="item_none" value="none"/>
+			</property>
+			<property type="style" name="property_marker-mid" valuetype="markerchooser" defaultvalue="none">
+				<item name="item_none" value="none"/>
+			</property>
+			<property type="style" name="property_marker-end" valuetype="markerchooser" defaultvalue="none">
+				<item name="item_none" value="none"/>
+			</property>			
+		</tab>
+	</define>
+
+	<!--the modules-->
+	
+	<module name="g">
+		<use name="tab_id"/>
+		<use name="tab_display"/>
+	</module>
+	
+	<module name="rect">
+		<use name="tab_fill"/>
+		<use name="tab_stroke"/>
+		<tab name="tab_geom">
+			<property type="attribute" name="property_x" valuetype="numberchooser" defaultvalue="0" constraint="required"/>
+			<property type="attribute" name="property_y" valuetype="numberchooser" defaultvalue="0" constraint="required"/>
+			<property type="attribute" name="property_width" valuetype="positivenumberchooser" defaultvalue="0" constraint="required"/>
+			<property type="attribute" name="property_height" valuetype="positivenumberchooser" defaultvalue="0" constraint="required"/>
+			<property type="attribute" name="property-rect_rx" valuetype="positivenumberchooser" defaultvalue="0" constraint="normal"/>
+			<property type="attribute" name="property-rect_ry" valuetype="positivenumberchooser" defaultvalue="0" constraint="normal"/>
+		</tab>
+		<use name="tab_id"/>
+		<use name="tab_display"/>
+		<use name="tab_transform"/>
+	</module>
+
+	<module name="text">
+		<tab name="tab_text">
+			<property type="child" name="property_#text" valuetype="entry" defaultvalue="" constraint="normal"/>
+			<property type="style" name="property_font-family" valuetype="combo" defaultvalue="" constraint="normal">
+				<item name="item_sans-serif" value="sans-serif"/>
+				<item name="item_serif" value="serif"/>
+				<item name="item_cursive" value="cursive"/>
+				<item name="item_fantasy" value="fantasy"/>
+				<item name="item_monospace" value="monospace"/>
+			</property>
+			<!--<property type="style" name="property_font-family" valuetype="fontchooser" defaultvalue="" constraint="normal"/>-->
+			<property type="style" name="property_font-size" valuetype="fontsizechooser" defaultvalue="" constraint="normal"/>
+			<property type="style" name="property_font-weight" valuetype="combo" defaultvalue="normal" constraint="normal">
+				<item name="item_normal" value="normal"/>
+				<item name="item_bold" value="bold"/>
+				<item name="item_bolder" value="bolder"/>
+				<item name="item_lighter" value="lighter"/>
+				<item name="item_100" value="100"/>
+				<item name="item_200" value="200"/>
+				<item name="item_300" value="300"/>
+				<item name="item_400" value="400"/>
+				<item name="item_500" value="500"/>
+				<item name="item_600" value="600"/>
+				<item name="item_700" value="700"/>
+				<item name="item_800" value="800"/>
+				<item name="item_900" value="900"/>
+			</property>
+			<property type="style" name="property_font-style" valuetype="combo" defaultvalue="normal" constraint="normal">
+				<item name="item_normal" value="normal"/>
+				<item name="item_italic" value="italic"/>
+				<item name="item_oblique" value="oblique"/>
+			</property>
+		</tab>
+		<tab name="tab_decorations">
+			<property type="style" name="property_font-stretch" valuetype="combo" defaultvalue="normal" constraint="normal">
+				<item name="item_normal" value="normal"/>
+				<item name="item_wider" value="wider"/>
+				<item name="item_narrower" value="narrower"/>
+				<item name="item_ultra-condensed" value="ultra-condensed"/>
+				<item name="item_extra-condensed" value="extra-condensed"/>
+				<item name="item_condensed" value="condensed"/>
+				<item name="item_semi-condensed" value="semi-condensed"/>
+				<item name="item_semi-expanded" value="semi-expanded"/>
+				<item name="item_expanded" value="expanded"/>
+				<item name="item_extra-expanded" value="extra-expanded"/>
+				<item name="item_ultra-expanded" value="ultra-expanded"/>
+			</property>
+			<!--<property type="style" name="property_font-variant" valuetype="combo" defaultvalue="normal" constraint="normal">
+				<item name="item_normal" value="normal"/>
+				<item name="item_small-caps" value="small-caps"/>
+			</property>-->
+			<property type="style" name="property_letter-spacing" valuetype="editablecombo" defaultvalue="normal" constraint="normal">
+				<item name="item_normal" value="normal"/>
+			</property>
+			<property type="style" name="property_word-spacing" valuetype="editablecombo" defaultvalue="normal" constraint="normal">
+				<item name="item_normal" value="normal"/>
+			</property>
+			<property type="style" name="property_text-decoration" valuetype="combo" defaultvalue="none" constraint="normal">
+				<item name="item_none" value="none"/>
+				<item name="item_underline" value="underline"/>
+				<item name="item_overline" value="overline"/>
+				<item name="item_line-through" value="line-through"/>
+			</property>
+		</tab>
+		<tab name="tab_orient">
+			<property type="style" name="property_writing-mode" valuetype="combo" defaultvalue="lr-tb" constraint="normal">
+				<item name="item_lr-tb" value="lr-tb"/>
+				<item name="item_lr" value="lr"/>
+				<item name="item_rl-tb" value="rl-tb"/>
+				<item name="item_rl" value="rl"/>
+				<item name="item_tb-rl" value="tb-rl"/>
+				<item name="item_tb" value="tb"/>
+			</property>
+			<!--<property type="style" name="property_glyph-orientation-vertical" valuetype="editablecombo" defaultvalue="0" constraint="normal">
+				<item name="item_0" value="0"/>
+				<item name="item_90" value="90"/>
+			</property>-->
+			<property type="style" name="property_glyph-orientation-horizontal" valuetype="editablecombo" defaultvalue="0" constraint="normal">
+				<item name="item_0" value="0"/>
+				<item name="item_90" value="90"/>
+			</property>
+			<property type="style" name="property_text-anchor" valuetype="combo" defaultvalue="start" constraint="normal">
+				<item name="item_start" value="start"/>
+				<item name="item_middle" value="middle"/>
+				<item name="item_end" value="end"/>
+			</property>
+		</tab>	
+		<use name="tab_fill"/>
+		<use name="tab_stroke"/>
+		<tab name="tab_geom">
+			<property type="attribute" name="property_x" valuetype="numberchooser" defaultvalue="0" constraint="required"/>
+			<property type="attribute" name="property_y" valuetype="numberchooser" defaultvalue="0" constraint="required"/>
+			<!--<property type="attribute" name="property_dx" valuetype="numberchooser" defaultvalue="0" constraint="normal"/>
+			<property type="attribute" name="property_dy" valuetype="numberchooser" defaultvalue="0" constraint="normal"/>
+			<property type="attribute" name="property_rotate" valuetype="numberchooser" defaultvalue="0" constraint="normal"/>-->
+		</tab>
+		<use name="tab_id"/>
+		<use name="tab_display"/>
+		<use name="tab_transform"/>
+	</module>
+	
+	<module name="circle">
+		<use name="tab_fill"/>
+		<use name="tab_stroke"/>
+		<tab name="tab_geom">
+			<property type="attribute" name="property_cx" valuetype="numberchooser" defaultvalue="0" constraint="required"/>
+			<property type="attribute" name="property_cy" valuetype="numberchooser" defaultvalue="0" constraint="required"/>
+			<property type="attribute" name="property_r" valuetype="positivenumberchooser" defaultvalue="0" constraint="required"/>
+		</tab>
+		<use name="tab_id"/>
+		<use name="tab_display"/>
+		<use name="tab_transform"/>
+	</module>
+	
+	<module name="ellipse">
+		<use name="tab_fill"/>
+		<use name="tab_stroke"/>
+		<tab name="tab_geom">
+			<property type="attribute" name="property_cx" valuetype="numberchooser" defaultvalue="0" constraint="required"/>
+			<property type="attribute" name="property_cy" valuetype="numberchooser" defaultvalue="0" constraint="required"/>
+			<property type="attribute" name="property-ellipse_rx" valuetype="positivenumberchooser" defaultvalue="0" constraint="required"/>
+			<property type="attribute" name="property-ellipse_ry" valuetype="positivenumberchooser" defaultvalue="0" constraint="required"/>
+		</tab>
+		<use name="tab_id"/>
+		<use name="tab_display"/>
+		<use name="tab_transform"/>
+	</module>
+	
+	<module name="line">
+		<use name="tab_fill"/>
+		<use name="tab_stroke"/>
+		<use name="tab_marker"/>
+		<tab name="tab_geom">
+			<property type="attribute" name="property_x1" valuetype="numberchooser" defaultvalue="0" constraint="required"/>
+			<property type="attribute" name="property_y1" valuetype="numberchooser" defaultvalue="0" constraint="required"/>
+			<property type="attribute" name="property_x2" valuetype="numberchooser" defaultvalue="0" constraint="required"/>
+			<property type="attribute" name="property_y2" valuetype="numberchooser" defaultvalue="0" constraint="required"/>
+		</tab>
+		<use name="tab_id"/>
+		<use name="tab_display"/>
+		<use name="tab_transform"/>
+	</module>
+	
+	<module name="polyline">
+		<use name="tab_fill"/>
+		<use name="tab_stroke"/>
+		<use name="tab_marker"/>
+		<tab name="tab_geom">
+			<property type="attribute" name="property_points" valuetype="validatedentry" defaultvalue="0,0" constraint="required"/>
+		</tab>
+		<use name="tab_id"/>
+		<use name="tab_display"/>
+		<use name="tab_transform"/>
+	</module>
+	
+	<module name="polygon">
+		<use name="tab_fill"/>
+		<use name="tab_stroke"/>
+		<use name="tab_marker"/>
+		<tab name="tab_geom">
+			<property type="attribute" name="property_points" valuetype="validatedentry" defaultvalue="0,0" constraint="required"/>
+		</tab>
+		<use name="tab_id"/>
+		<use name="tab_display"/>
+		<use name="tab_transform"/>
+	</module>
+	
+	<module name="path">
+		<use name="tab_fill"/>
+		<use name="tab_stroke"/>
+		<use name="tab_marker"/>
+		<tab name="tab_geom">
+			<property type="attribute" name="property_d" valuetype="validatedentry" defaultvalue="M 0 0" constraint="required"/>
+		</tab>
+		<use name="tab_id"/>
+		<use name="tab_display"/>
+		<use name="tab_transform"/>
+	</module>
+	
+	<module name="image">
+		<tab name="tab_geom">
+			<property type="attribute" name="property_x" valuetype="numberchooser" defaultvalue="0" constraint="required"/>
+			<property type="attribute" name="property_y" valuetype="numberchooser" defaultvalue="0" constraint="required"/>
+			<property type="attribute" name="property_width" valuetype="positivenumberchooser" defaultvalue="0" constraint="required"/>
+			<property type="attribute" name="property_height" valuetype="positivenumberchooser" defaultvalue="0" constraint="required"/>
+		</tab>
+		<use name="tab_id"/>
+		<tab name="tab_display">
+			<property type="style" name="property_visibility" valuetype="tworadiobuttons" defaultvalue="visible" constraint="normal">
+				<item name="item_visible" value="visible"/>
+				<item name="item_hidden" value="hidden"/>
+			</property>
+			<property type="style" name="property_opacity" valuetype="slider" defaultvalue="1" constraint="normal"/>
+			<property type="attribute" name="property_preserveAspectRatio" valuetype="preserveaspectratiochooser" defaultvalue="none meet" constraint="normal"/>
+		</tab>
+		<!--<use name="tab_transform"/>-->
+	</module>
+	
+</properties>
+

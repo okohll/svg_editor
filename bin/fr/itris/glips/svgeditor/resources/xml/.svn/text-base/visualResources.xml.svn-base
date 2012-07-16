@@ -1,0 +1,136 @@
+<?xml version="1.0" ?>
+
+<!--
+ =============================================
+                   GNU LESSER GENERAL PUBLIC LICENSE Version 2.1
+ =============================================
+GLIPS Graffiti Editor, a SVG Editor
+Copyright (C) 2003 Jordi SUC, Philippe Gil, SARL ITRIS
+
+This library is free software; you can redistribute it and/or
+modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either
+version 2.1 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public
+License along with this library; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+Contact : jordi.suc@itris.fr; philippe.gil@itris.fr
+
+ =============================================
+-->
+
+<resources>
+
+	<resource name="vresource_linearGradient">
+	
+		<group name="vresource_vectorchooser" type="vectorchooser">
+			<attribute name="vresource_gradientUnits" defaultValue="objectBoundingBox" type="none">
+				<item name="item_objectBoundingBox" value="objectBoundingBox"/>
+				<item name="item_userSpaceOnUse" value="userSpaceOnUse"/>			
+			</attribute>
+			<attribute name="vresource_x1" defaultvalue="0%" type="none"/>
+			<attribute name="vresource_y1" defaultvalue="0%" type="none"/>
+			<attribute name="vresource_x2" defaultvalue="100%" type="none"/>
+			<attribute name="vresource_y2" defaultvalue="0%" type="none"/>
+		</group>
+		<attribute name="vresource_spreadMethod" defaultvalue="pad" type="combo">
+			<item name="item_pad" value="pad"/>
+			<item name="item_repeat" value="repeat"/>
+			<item name="item_reflect" value="reflect"/>
+		</attribute>
+		<!--<attribute name="vresource_gradientTransform" type="matrix" defaultvalue=""/>-->	
+		<attribute name="vresource_id" type="entry" defaultvalue=""/>	
+			
+		<child name="vresource_stop" type="colorchooser">
+			<attribute name="vresource_offset" defaultvalue="0%"/>
+			<attribute name="vresource_style">
+				<content name="vresource_stop-color" defaultvalue="#ffffff"/>
+				<content name="vresource_stop-opacity" defaultvalue="1.0"/>
+			</attribute>
+		</child>
+		
+	</resource>
+	
+	<resource name="vresource_radialGradient">
+
+		<group name="vresource_circlechooser" type="circlechooser">
+			<attribute name="vresource_gradientUnits" defaultValue="objectBoundingBox" type="none">
+				<item name="item_objectBoundingBox" value="objectBoundingBox"/>
+				<item name="item_userSpaceOnUse" value="userSpaceOnUse"/>			
+			</attribute>
+			<attribute name="vresource_cx" defaultvalue="50%"/>
+			<attribute name="vresource_cy" defaultvalue="50%"/>
+			<attribute name="vresource_r" defaultvalue="50%"/>
+			<attribute name="vresource_fx" defaultvalue="50%"/>
+			<attribute name="vresource_fy" defaultvalue="50%"/>
+		</group>
+		<attribute name="vresource_spreadMethod" defaultvalue="pad" type="combo">
+			<item name="item_pad" value="pad"/>
+			<item name="item_repeat" value="repeat"/>
+			<item name="item_reflect" value="reflect"/>
+		</attribute>	
+		<!--<attribute name="vresource_gradientTransform" defaultvalue="" type="matrix"/>-->
+		<attribute name="vresource_id" type="entry" defaultvalue=""/>
+
+		<child name="vresource_stop" type="colorchooser">
+			<attribute name="vresource_offset"/>
+			<attribute name="vresource_style">
+				<content name="vresource_stop-color" defaultvalue="#ffffff"/>
+				<content name="vresource_stop-opacity" defaultvalue="1.0"/>
+			</attribute>
+		</child>
+		
+	</resource>
+
+	<resource name="vresource_pattern">
+
+		<group name="vresource_sizechooser" type="patternsizechooser">
+			<attribute name="vresource_patternUnits" defaultvalue="objectBoundingBox" type="none">
+				<item name="item_objectBoundingBox" value="objectBoundingBox"/>
+				<item name="item_userSpaceOnUse" value="userSpaceOnUse"/>
+			</attribute>
+			<attribute name="vresource_x" type="none" defaultvalue="0%"/>
+			<attribute name="vresource_y" type="none" defaultvalue="0%"/>		
+			<attribute name="vresource_width" type="none" defaultvalue="0%"/>
+			<attribute name="vresource_height" type="none" defaultvalue="0%"/>
+		</group>
+
+		<attribute name="vresource_patternContentUnits" defaultvalue="userSpaceOnUse" type="combo">
+			<item name="item_objectBoundingBox" value="objectBoundingBox"/>
+			<item name="item_userSpaceOnUse" value="userSpaceOnUse"/>
+		</attribute>
+		
+		<attribute name="vresource_id" type="entry" defaultvalue=""/>	
+		
+		<shape name="" type="elementchooser"/>
+
+	</resource>
+
+	<resource name="vresource_marker">
+		<attribute name="vresource_markerUnits" defaultvalue="strokeWidth" type="combo">
+			<item name="item_userSpaceOnUse" value="userSpaceOnUse"/>
+			<item name="item_strokeWidth" value="strokeWidth"/>
+		</attribute>
+		<attribute name="vresource_markerWidth" type="entry" defaultvalue="0"/>
+		<attribute name="vresource_markerHeight" type="entry" defaultvalue="0"/>
+		<attribute name="vresource_refX" type="entry" defaultvalue="0"/>
+		<attribute name="vresource_refY" type="entry" defaultvalue="0"/>
+		<attribute name="vresource_orient" defaultvalue="auto" type="editablecombo">
+			<item name="item_auto" value="auto"/>
+			<item name="item_0" value="0"/>
+			<item name="item_90" value="90"/>
+		</attribute>
+		<attribute name="vresource_id" type="entry" defaultvalue=""/>
+		
+		<shape name="" type="elementchooser"/>
+	
+	</resource>
+
+</resources>

@@ -1,0 +1,11 @@
+description=Barre d'outils
+orientationLabel=Orientation
+horizontalLabel=Horizontal
+verticalLabel=Vertical
+titleBorderLabel=Boutons à bascule
+idLabel=Bouton
+buttonLabel=Bouton
+sourceLabel=Choisir un bouton :
+lookLabel=Affichage
+isOpaqueLabel=Fond opaque
+sameSizeForButtonsLabel=Boutons de même taille

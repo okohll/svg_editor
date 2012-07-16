@@ -1,0 +1,28 @@
+<?xml version="1.0" ?> 
+<animations>
+
+	<animationgroup name="colorAnimations">
+	
+		<animation name="rtda:bargraph" type="analogic" restriction="1">
+		
+			<attribute name="tag" type="lowtagchooser" constraint="tag" tagtype="analogic"/>
+			<attribute name="tagMin" type="limit" tagtype="analogic"/>
+			<attribute name="tagMax" type="limit" tagtype="analogic"/>
+			
+		</animation>
+	
+	</animationgroup>
+	
+	<actiongroup name="customActions">
+	
+		<action name="rtda:class" type="none">
+			<attribute name="class" type="actionchooser"/>
+			<attribute name="confirmationDialog" type="entry"/>
+			<attribute name="authorizationLevel" type="integerchooser"/>
+			<attribute name="authorizationTag" type="lowtagchooser" tagtype="enumerated"/>
+			<attribute name="authorizationValue" type="tagvaluesmultichooser" ref="authorizationTag"/>
+		</action>
+	
+	</actiongroup>	
+
+</animations>

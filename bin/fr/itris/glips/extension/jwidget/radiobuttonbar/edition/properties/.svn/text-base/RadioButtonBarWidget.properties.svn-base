@@ -1,0 +1,9 @@
+description=Radio button group
+orientationLabel=Orientation
+horizontalLabel=Horizontal
+verticalLabel=Vertical
+titleBorderLabel=Radio buttons
+idLabel=Radio button
+buttonLabel=Radio button
+sourceLabel=Select a button :
+lookLabel=Display
