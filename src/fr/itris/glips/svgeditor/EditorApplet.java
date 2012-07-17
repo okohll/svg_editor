@@ -1,5 +1,7 @@
 package fr.itris.glips.svgeditor;
 
+import java.lang.reflect.InvocationTargetException;
+
 import javax.swing.*;
 
 /**
@@ -24,7 +26,11 @@ public class EditorApplet extends JApplet{
 	                createGUI();
 	            }
 	        });
-	    } catch (Exception e) {e.printStackTrace();}
+	    } catch (InterruptedException e) {
+	    		Thread.currentThread().interrupt();
+	    	} catch (InvocationTargetException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**

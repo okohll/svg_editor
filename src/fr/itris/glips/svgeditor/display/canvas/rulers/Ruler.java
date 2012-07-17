@@ -134,7 +134,9 @@ public class Ruler extends JPanel{
 			
 			try{
 				number=range.getRanges().getLast();
-			}catch (Exception ex){ex.printStackTrace();}
+			}catch (NoSuchElementException ex) {
+				ex.printStackTrace();
+			}
 		}
 		
 		return number;

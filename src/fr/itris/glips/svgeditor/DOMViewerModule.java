@@ -100,7 +100,9 @@ public class DOMViewerModule extends ModuleAdapter{
 		    
 		    try{
 		    	labelDOMViewer=bundle.getString("labeldomviewer");
-		    }catch (Exception ex){}
+		    }catch (MissingResourceException ex) {
+		    	ex.printStackTrace();
+		    }
 		}
 		
 		//a listener that listens to the changes of the svg handles

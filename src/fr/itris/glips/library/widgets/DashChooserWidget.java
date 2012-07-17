@@ -261,7 +261,11 @@ public class DashChooserWidget extends Widget {
 			//computing the float value of the found dash string
 			try{
 				dash=Float.parseFloat(val);
-			}catch (Exception ex){dash=Float.NaN;}
+			}catch (NumberFormatException ex) {
+				System.err.println("Error parsing float " + val + ": " + ex);
+				ex.printStackTrace();
+				dash=Float.NaN;
+			}
 			
 			if(! Float.isNaN(dash)){
 				

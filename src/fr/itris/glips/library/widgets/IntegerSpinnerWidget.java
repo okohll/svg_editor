@@ -86,7 +86,10 @@ public class IntegerSpinnerWidget extends Widget{
 					
 					try{
 						val=Integer.parseInt(value);
-					}catch (Exception ex){val=defaultValue;}
+					}catch (NumberFormatException ex) {
+						ex.printStackTrace();
+						val=defaultValue;
+					}
 					
 					//getting the value for the spinner
 					spinnerValue=val;
@@ -95,9 +98,9 @@ public class IntegerSpinnerWidget extends Widget{
 		}
 		
 		//setting the new value for the spinner
-		try{
+		//try{
 			spinner.setValue(spinnerValue);
-		}catch(Exception ex){ex.printStackTrace();}
+		//}catch(NumberFormatException ex){ex.printStackTrace();}
 		
 		//adding the listeners to the widgets
 		spinner.addChangeListener(changeListener);
@@ -136,7 +139,9 @@ public class IntegerSpinnerWidget extends Widget{
 				
 				try{
 					spinnerValue=Integer.parseInt(currentValue);
-				}catch (Exception ex){}
+				}catch (NumberFormatException ex) {
+					ex.printStackTrace();
+				}
 				
 				notifyListeners();
 			}
@@ -151,7 +156,9 @@ public class IntegerSpinnerWidget extends Widget{
 				
 				try{
 					spinnerValue=Integer.parseInt(currentValue);
-				}catch (Exception ex){}
+				}catch (NumberFormatException ex) {
+					ex.printStackTrace();
+				}
 
 				notifyListeners();
 			}

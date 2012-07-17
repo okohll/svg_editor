@@ -76,7 +76,10 @@ public class SVGVisualResourceVectorCircleChooserAttributeWidget extends SVGVisu
                 
                 try{
                     att=(SVGVisualResourceObjectAttribute)it.next();
-                }catch (Exception ex){att=null;}
+                }catch (NoSuchElementException ex) {
+                	ex.printStackTrace();
+                	att=null;
+                }
                 
                 if(att!=null){
                     
@@ -223,7 +226,10 @@ public class SVGVisualResourceVectorCircleChooserAttributeWidget extends SVGVisu
                         //checks if the current possible value is equals to the current value of the property
                         if(val!=null && val.equals(gradientUnitsAtt.getValue()))selectedItm=itm;
                         
-                    }catch (Exception ex){itm=null; nm="";}
+                    }catch (MissingResourceException ex) {
+                    	ex.printStackTrace();
+                    	itm=null; nm="";
+                    	}
                     
                     //adds the item to the list
                     if(itm!=null){
@@ -253,7 +259,9 @@ public class SVGVisualResourceVectorCircleChooserAttributeWidget extends SVGVisu
                         
                         try{
                             gradientUnitsLabel=bundle.getString(fgradientUnitsAtt.getModel().getAbsoluteName());
-                        }catch (Exception ex){}
+                        }catch (MissingResourceException ex) {
+                        	ex.printStackTrace();
+                        }
                     }
                 }
                 

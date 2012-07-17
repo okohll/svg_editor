@@ -3,146 +3,162 @@ package fr.itris.glips.library.geom;
 import java.awt.*;
 import java.awt.geom.*;
 import java.util.*;
+
+import com.gtwm.util.GlipsException;
+
 import fr.itris.glips.library.*;
 
 /**
  * the superclass of all the polyshapes
+ * 
  * @author ITRIS, Jordi SUC
  */
-public abstract class PolyShape2D implements Shape{
+public abstract class PolyShape2D implements Shape {
 
 	/**
 	 * the array of the points
 	 */
-	protected LinkedList<Point2D> points=new LinkedList<Point2D>();
-	
+	protected LinkedList<Point2D> points = new LinkedList<Point2D>();
+
 	/**
 	 * the path that will represent the polyshape
 	 */
-	protected GeneralPath path=new GeneralPath();
-	
+	protected GeneralPath path = new GeneralPath();
+
 	/**
 	 * the constructor of the class
 	 */
-	public PolyShape2D() {}
-	                       
+	public PolyShape2D() {
+	}
+
 	/**
 	 * the constructor of the class
-	 * @param coordinates the array of the coordinates of the points defining the polyshape,
-	 * the array size should be even
-	 * @throws Exception an exception raised if the array is null or empty and 
-	 * the array size is not even
+	 * 
+	 * @param coordinates
+	 *            the array of the coordinates of the points defining the
+	 *            polyshape, the array size should be even
+	 * @throws Exception
+	 *             an exception raised if the array is null or empty and the
+	 *             array size is not even
 	 */
-	public PolyShape2D(double[] coordinates) throws Exception{
-		
-		if(coordinates!=null && (coordinates.length%2)==0 && coordinates.length>0){
-			
-			//initializing the polyshape
+	public PolyShape2D(double[] coordinates) throws GlipsException {
+
+		if (coordinates != null && (coordinates.length % 2) == 0 && coordinates.length > 0) {
+
+			// initializing the polyshape
 			createPointsArray(coordinates);
 			fillPath();
-			
-		}else{
-			
-			throw new Exception(
+
+		} else {
+
+			throw new GlipsException(
 					"the array should not be null or empty and the array size should be even");
 		}
 	}
-	
+
 	/**
 	 * the constructor of the class
-	 * @param thePoints the array of the points defining the polyshape,
-	 * the array size should be even
-	 * @throws Exception an exception raised if the array is null or empty and 
-	 * the array size is not even
+	 * 
+	 * @param thePoints
+	 *            the array of the points defining the polyshape, the array size
+	 *            should be even
+	 * @throws Exception
+	 *             an exception raised if the array is null or empty and the
+	 *             array size is not even
 	 */
-	public PolyShape2D(Point2D[] thePoints) throws Exception{
-		
-		if(thePoints!=null && thePoints.length>0){
-			
-			//initializing the polyshape
-			for(int i=0; i<thePoints.length; i++){
-				
+	public PolyShape2D(Point2D[] thePoints) throws GlipsException {
+
+		if (thePoints != null && thePoints.length > 0) {
+
+			// initializing the polyshape
+			for (int i = 0; i < thePoints.length; i++) {
+
 				points.add(thePoints[i]);
 			}
 
 			fillPath();
-			
-		}else{
-			
-			throw new Exception(
-					"the array should not be null or empty");
+
+		} else {
+
+			throw new GlipsException("the array should not be null or empty");
 		}
 	}
-	
+
 	/**
 	 * the constructor of the class
-	 * @param thePoints the array of the points defining the polyshape,
-	 * the array size should be even
-	 * @throws Exception an exception raised if the array is null or empty and 
-	 * the array size is not even
+	 * 
+	 * @param thePoints
+	 *            the array of the points defining the polyshape, the array size
+	 *            should be even
+	 * @throws Exception
+	 *             an exception raised if the array is null or empty and the
+	 *             array size is not even
 	 */
-	public PolyShape2D(Point[] thePoints) throws Exception{
-		
-		if(thePoints!=null && thePoints.length>0){
-			
-			//initializing the polyshape
-			for(int i=0; i<thePoints.length; i++){
-				
+	public PolyShape2D(Point[] thePoints) throws GlipsException {
+
+		if (thePoints != null && thePoints.length > 0) {
+
+			// initializing the polyshape
+			for (int i = 0; i < thePoints.length; i++) {
+
 				points.add(thePoints[i]);
 			}
-			
+
 			fillPath();
-			
-		}else{
-			
-			throw new Exception(
-					"the array should not be null or empty");
+
+		} else {
+
+			throw new GlipsException("the array should not be null or empty");
 		}
 	}
-	
+
 	/**
 	 * the constructor of the class
-	 * @param shape the polyshape to clone
+	 * 
+	 * @param shape
+	 *            the polyshape to clone
 	 */
-	public PolyShape2D(PolyShape2D shape){
-		
+	public PolyShape2D(PolyShape2D shape) {
+
 		points.addAll(shape.getPoints());
 		fillPath();
 	}
-	
+
 	/**
-	 * create the array of the points defining the polyshape according 
-	 * to the given array of point coordinates
-	 * @param coordinates an array of coordinates
+	 * create the array of the points defining the polyshape according to the
+	 * given array of point coordinates
+	 * 
+	 * @param coordinates
+	 *            an array of coordinates
 	 */
-	protected void createPointsArray(double[] coordinates){
-		
-		//filling the points array
-		for(int i=0; i<coordinates.length; i+=2){
-			
-			points.add(new Point2D.Double(coordinates[i], coordinates[i+1]));
+	protected void createPointsArray(double[] coordinates) {
+
+		// filling the points array
+		for (int i = 0; i < coordinates.length; i += 2) {
+
+			points.add(new Point2D.Double(coordinates[i], coordinates[i + 1]));
 		}
 	}
-	
+
 	/**
 	 * fills the path with the points polyshape
 	 */
-	protected void fillPath(){
-		
-		int i=0;
-		
-		for(Point2D point : points){
-			
-			if(i==0){
-				
+	protected void fillPath() {
+
+		int i = 0;
+
+		for (Point2D point : points) {
+
+			if (i == 0) {
+
 				path.reset();
-				path.moveTo((float)point.getX(), (float)point.getY());
-				
-			}else{
-				
-				path.lineTo((float)point.getX(), (float)point.getY());
+				path.moveTo((float) point.getX(), (float) point.getY());
+
+			} else {
+
+				path.lineTo((float) point.getX(), (float) point.getY());
 			}
-			
+
 			i++;
 		}
 	}
@@ -153,101 +169,106 @@ public abstract class PolyShape2D implements Shape{
 	public LinkedList<Point2D> getPoints() {
 		return points;
 	}
-	
+
 	/**
-	 * sets a new point 
+	 * sets a new point
+	 * 
 	 * @param index
 	 * @param newPoint
 	 */
-	public void setPoint(int index, Point2D newPoint){
-		
-		if(index>=0 && index<points.size() && newPoint!=null){
-			
+	public void setPoint(int index, Point2D newPoint) {
+
+		if (index >= 0 && index < points.size() && newPoint != null) {
+
 			points.set(index, newPoint);
 			refresh();
 		}
 	}
-	
+
 	/**
 	 * adds a new point at the end of the path
-	 * @param point a point
+	 * 
+	 * @param point
+	 *            a point
 	 */
-	public void addPoint(Point2D point){
-		
+	public void addPoint(Point2D point) {
+
 		points.add(point);
 		refresh();
 	}
-	
+
 	/**
 	 * removes the last point
 	 */
-	public void removeLast(){
-		
+	public void removeLast() {
+
 		points.removeLast();
 		refresh();
 	}
-	
+
 	/**
 	 * refreshes the polyshape
 	 */
-	public void refresh(){
-		
-		//refreshing the path
+	public void refresh() {
+
+		// refreshing the path
 		path.reset();
 		fillPath();
 	}
-	
+
 	/**
 	 * resets the polyshape
 	 */
-	public void reset(){
-		
+	public void reset() {
+
 		points.clear();
 		path.reset();
 	}
-	
+
 	/**
 	 * applies an affine transform to the polyshape
-	 * @param transform an affine transform
+	 * 
+	 * @param transform
+	 *            an affine transform
 	 */
-	public void applyTransform(AffineTransform transform){
-		
-		//transforming each point
+	public void applyTransform(AffineTransform transform) {
+
+		// transforming each point
 		Point2D point;
-		
-		for(int i=0; i<points.size(); i++){
-			
-			point=transform.transform(points.get(i), new Point2D.Double());
-			
-			if(point!=null){
-				
+
+		for (int i = 0; i < points.size(); i++) {
+
+			point = transform.transform(points.get(i), new Point2D.Double());
+
+			if (point != null) {
+
 				points.set(i, point);
 			}
 		}
-		
-		//refreshing 
+
+		// refreshing
 		refresh();
 	}
-	
+
 	/**
 	 * @return a cloned instance of the shape
 	 */
 	public abstract PolyShape2D cloneShape();
-	
+
 	@Override
 	public String toString() {
 
-		String sval="";
-		
-		if(points!=null){
-			
-			for(Point2D point : points){
-				
-				sval+=FormatStore.format(point.getX())+","
-					+FormatStore.format(point.getY())+" ";
+		String sval = "";
+
+		if (points != null) {
+
+			for (Point2D point : points) {
+
+				sval += FormatStore.format(point.getX()) + "," + FormatStore.format(point.getY())
+						+ " ";
 			}
 		}
-		
+
 		return sval;
 	}
 
@@ -308,7 +329,8 @@ public abstract class PolyShape2D implements Shape{
 	}
 
 	/**
-	 * @see java.awt.Shape#getPathIterator(java.awt.geom.AffineTransform, double)
+	 * @see java.awt.Shape#getPathIterator(java.awt.geom.AffineTransform,
+	 *      double)
 	 */
 	public PathIterator getPathIterator(AffineTransform af, double flatness) {
 
@@ -330,63 +352,69 @@ public abstract class PolyShape2D implements Shape{
 
 		return path.intersects(x, y, w, h);
 	}
-	
+
 	/**
 	 * @return the path used to draw the shape
 	 */
 	public GeneralPath getPath() {
 		return path;
 	}
-	
+
 	/**
-	 * computes and returns the array of points coordinates 
-	 * corresponding to the provided string
-	 * @param value a string value
-	 * @return the array of points coordinates 
-	 * corresponding to the provided string
+	 * computes and returns the array of points coordinates corresponding to the
+	 * provided string
+	 * 
+	 * @param value
+	 *            a string value
+	 * @return the array of points coordinates corresponding to the provided
+	 *         string
 	 */
-	public static double[] getCoordinates(String value){
-		
-		//normalizing the string
-		value=new String(value);
-		value=value.replaceAll("\\s+", ",");
-		value=value.replaceAll("\\s+", ",");
-		value=value.replaceAll(",+", ",");
-		
-		//splitting the string value
-		String[] splitValue=value.split(",");
-				
-		//filling the list of the Double objects
-		LinkedList<Double> values=new LinkedList<Double>();
+	public static double[] getCoordinates(String value) {
+
+		// normalizing the string
+		value = new String(value);
+		value = value.replaceAll("\\s+", ",");
+		value = value.replaceAll("\\s+", ",");
+		value = value.replaceAll(",+", ",");
+
+		// splitting the string value
+		String[] splitValue = value.split(",");
+
+		// filling the list of the Double objects
+		LinkedList<Double> values = new LinkedList<Double>();
 		Double dVal;
-		
-		for(String val : splitValue){
-			
-			if(val!=null && ! val.equals("")){
-				
-				try{
-					dVal=Double.parseDouble(val);
-				}catch (Exception ex){dVal=null;}
-				
-				if(dVal!=null){
-					
+
+		for (String val : splitValue) {
+
+			if (val != null && !val.equals("")) {
+
+				try {
+					dVal = Double.parseDouble(val);
+				} catch (NumberFormatException ex) {
+					System.err.println("Error extracting coordinated from " + value
+							+ ". Caught on " + val + ": " + ex);
+					ex.printStackTrace();
+					dVal = null;
+				}
+
+				if (dVal != null) {
 					values.add(dVal);
 				}
 			}
 		}
-		
-		if(values.size()>0){
-			
-			//creating the array of the points coordinates
-			double[] coordinates=new double[values.size()];
-			int i=0;
-			
-			for(Double dvalue : values){
-				
-				coordinates[i]=dvalue.doubleValue();
+
+		if (values.size() > 0) {
+
+			// creating the array of the points coordinates
+			double[] coordinates = new double[values.size()];
+			int i = 0;
+
+			for (Double dvalue : values) {
+
+				coordinates[i] = dvalue.doubleValue();
 				i++;
 			}
-			
+
 			return coordinates;
 		}
 

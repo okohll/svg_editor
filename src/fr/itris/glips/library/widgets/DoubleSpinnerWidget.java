@@ -126,7 +126,9 @@ public class DoubleSpinnerWidget extends Widget{
 				
 				try{
 					spinnerValue=Double.parseDouble(spinner.getValue().toString());
-				}catch (Exception ex){}
+				}catch (NumberFormatException ex) {
+					ex.printStackTrace();
+				}
 				
 				notifyListeners();
 			}
@@ -139,7 +141,9 @@ public class DoubleSpinnerWidget extends Widget{
 				
 				try{
 					spinnerValue=Double.parseDouble(spinnerEditor.getText());
-				}catch (Exception ex){}
+				}catch (NumberFormatException ex) {
+					ex.printStackTrace();
+				}
 
 				notifyListeners();
 			}

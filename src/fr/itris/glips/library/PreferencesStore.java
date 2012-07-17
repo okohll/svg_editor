@@ -16,10 +16,10 @@ public class PreferencesStore {
     static{
     	
         //getting the preference node
-        try{
+        //try{
         	preferences=Preferences.userNodeForPackage(
         			PreferencesStore.class);
-        }catch(Exception ex){}
+        //}catch(Exception ex){}
     }
     
     /**
@@ -46,7 +46,7 @@ public class PreferencesStore {
      */
     public static String getPreference(String nodeId, String id){
     	
-    	try{
+    	//try{
         	Preferences node=null;
         	
         	if(nodeId==null || nodeId.equals("")){
@@ -60,9 +60,9 @@ public class PreferencesStore {
         	
         	return node.get(id, null);
         	
-    	}catch (Exception ex){}
+    	//}catch (Exception ex){}
 
-    	return null;
+    //	return null;
     }
     
     /**

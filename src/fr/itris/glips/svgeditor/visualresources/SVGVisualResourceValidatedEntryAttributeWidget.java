@@ -30,6 +30,8 @@ package fr.itris.glips.svgeditor.visualresources;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.MissingResourceException;
+
 import javax.swing.border.*;
 
 /**
@@ -83,7 +85,9 @@ public class SVGVisualResourceValidatedEntryAttributeWidget extends SVGVisualRes
             
             try{
                 okButton.setText(bundle.getString("labelok"));
-            }catch(Exception ex){}
+            }catch(MissingResourceException ex) {
+            	ex.printStackTrace();
+            }
         }
         
         final ActionListener listener=new ActionListener(){

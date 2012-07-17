@@ -40,267 +40,281 @@ import fr.itris.glips.svgeditor.resources.*;
 import java.util.*;
 
 /**
- * the panel enabling to choose a svg standard w3c color 
+ * the panel enabling to choose a svg standard w3c color
  * 
  * @author ITRIS, Jordi SUC
  */
-public class SVGW3CColorChooserPanel extends AbstractColorChooserPanel{
+public class SVGW3CColorChooserPanel extends AbstractColorChooserPanel {
 
-    /**
-     * the label of the panel
-     */
-    private String label="";
-    
-    /**
-     * the labels
-     */
-    private String memoryLabel="";
+	/**
+	 * the label of the panel
+	 */
+	private String label = "";
 
-    /**
-     * the bundle used to get labels
-     */
-    private ResourceBundle bundle=null;
+	/**
+	 * the labels
+	 */
+	private String memoryLabel = "";
 
-    /**
-     * the constructor of the class 
-     * @param editor the editor
-     */
-    public SVGW3CColorChooserPanel(Editor editor){
-        
-        //gets the labels from the resources
-        bundle=ResourcesManager.bundle;
-        
-        if(bundle!=null){
-            
-            try{
-                label=bundle.getString("svgColorChooserPanelLabel");
-                memoryLabel=bundle.getString("colorChooserMemoryLabel");
-            }catch (Exception ex){}
-        }
-    }
+	/**
+	 * the bundle used to get labels
+	 */
+	private ResourceBundle bundle = null;
 
-    @Override
-    protected void buildChooser() {
+	/**
+	 * the constructor of the class
+	 * 
+	 * @param editor
+	 *            the editor
+	 */
+	public SVGW3CColorChooserPanel(Editor editor) {
 
-        //the panel containing the color and memory panels
-        JPanel colorsAndMemoryPanel=new JPanel();
-        
-        //the panel containing the panels displaying the colors
-        JPanel colorsPanel=new JPanel();
-        int colorsNbPerLine=25;
-        
-        //the elements for the last colors panel functionnality
-        final int memoryNb=35, memoryRowNb=7;
-        
-        //creating the memory panel
-        final JPanel memoryPanel=new JPanel();
-        
-        //creating the list of the panels that will be contained in the memory panel
-        final LinkedList<JPanel> lastColorPanels=new LinkedList<JPanel>();
-        
-        //creating the list of the lastly selected colors
-        final LinkedList<Color> lastSelectedColors=new LinkedList<Color>();
-        
-        //the label panel displaying the name and the corresponding rgb values of a color
-        final JLabel colorLabel=new JLabel("", JLabel.CENTER);
-        
-        //the list of the colors
-        java.util.List<SVGW3CColor> colorsList=SVGColorsManager.getW3CColors();
-        
-        colorsPanel.setLayout(new GridLayout((int)(Math.floor(
-        		colorsList.size()/colorsNbPerLine)+1), colorsNbPerLine, 1, 1));
-        JPanel panel=null;
-        
-        for(SVGW3CColor color : colorsList){
+		// gets the labels from the resources
+		bundle = ResourcesManager.bundle;
 
-            if(color!=null){
-                
-                panel=new JPanel();
-                
-                //setting the properties of the panel
-                panel.setBorder(new LineBorder(Color.black, 1));
-                panel.setBackground(color);
-                panel.setPreferredSize(new Dimension(15, 15));
-                panel.setToolTipText(color.getStringRepresentation());
-                
-                final SVGW3CColor fcolor=color;
-                
-                //adding a listener to the clicks on the color panels
-                panel.addMouseListener(new MouseAdapter(){
+		if (bundle != null) {
 
-                	@Override
-                    public void mouseClicked(MouseEvent evt) {
+			try {
+				label = bundle.getString("svgColorChooserPanelLabel");
+				memoryLabel = bundle.getString("colorChooserMemoryLabel");
+			} catch (MissingResourceException ex) {
+				ex.printStackTrace();
+			}
+		}
+	}
 
-                        SVGW3CColor theColor=null, selectedColor=fcolor;
-                        JPanel thePanel=null;
-                        
-                        //sets the new selected color
-                        getColorSelectionModel().setSelectedColor(selectedColor);
-                        
-                        //removes the last color of the last selected colors, if the list is full
-                        if(lastSelectedColors.size()>0 && lastSelectedColors.size()>=memoryNb){
-                            
-                            lastSelectedColors.removeLast();
-                        }
-                        
-                        //adds the new selected color to the list
-                        lastSelectedColors.addFirst(selectedColor);
+	@Override
+	protected void buildChooser() {
 
-                        //for each panel contained in the memory, sets its new color and tooltip
-                        for(int i=0; i<lastColorPanels.size(); i++){
-                            
-                            thePanel=lastColorPanels.get(i);
-                            
-                            if(thePanel!=null){
-                                
-                                if(i<lastSelectedColors.size()){
-                                    
-                                    theColor=(SVGW3CColor)lastSelectedColors.get(i);
-                                    
-                                    if(theColor!=null){
-                                        
-                                        thePanel.setBorder(new LineBorder(Color.black, 1));
-                                        thePanel.setBackground(theColor);
-                                        thePanel.setToolTipText(theColor.getStringRepresentation());
-                                    }
-                                    
-                                }else{
-                                    
-                                    thePanel.setBorder(new LineBorder(Color.lightGray, 1));
-                                    thePanel.setBackground(getParent().getBackground());
-                                    thePanel.setToolTipText(null);
-                                }
-                            }
-                        }
-                        
-                        memoryPanel.repaint();
-                    }
+		// the panel containing the color and memory panels
+		JPanel colorsAndMemoryPanel = new JPanel();
 
-                	@Override
-                    public void mouseEntered(MouseEvent arg0){
+		// the panel containing the panels displaying the colors
+		JPanel colorsPanel = new JPanel();
+		int colorsNbPerLine = 25;
 
-                        colorLabel.setText(fcolor.getStringRepresentation());
-                    }
+		// the elements for the last colors panel functionnality
+		final int memoryNb = 35, memoryRowNb = 7;
 
-                	@Override
-                    public void mouseExited(MouseEvent arg0){
+		// creating the memory panel
+		final JPanel memoryPanel = new JPanel();
 
-                        colorLabel.setText("");
-                    }
-                });
-                
-                colorsPanel.add(panel);
-            }
-        }
-        
-        //filling the memory panel
-        memoryPanel.setLayout(new GridLayout(memoryRowNb, (int)(Math.floor(memoryNb/memoryRowNb))+1, 1, 1));
-        memoryPanel.setBorder(new TitledBorder(memoryLabel));
-        
-        JPanel memPanel=null;
-        
-        for(int i=0; i<memoryNb; i++){
-            
-            memPanel=new JPanel();
-            memPanel.setBorder(new LineBorder(Color.lightGray, 1));
-            memPanel.setPreferredSize(new Dimension(15, 15));
-            memPanel.setBackground(getParent().getBackground());
-            
-            lastColorPanels.add(memPanel);
-            memoryPanel.add(memPanel);
-            
-            final int fi=i;
+		// creating the list of the panels that will be contained in the memory
+		// panel
+		final LinkedList<JPanel> lastColorPanels = new LinkedList<JPanel>();
 
-            //adding a mouse listener to the panel
-            memPanel.addMouseListener(new MouseAdapter(){
- 
-            	@Override
+		// creating the list of the lastly selected colors
+		final LinkedList<Color> lastSelectedColors = new LinkedList<Color>();
+
+		// the label panel displaying the name and the corresponding rgb values
+		// of a color
+		final JLabel colorLabel = new JLabel("", JLabel.CENTER);
+
+		// the list of the colors
+		java.util.List<SVGW3CColor> colorsList = SVGColorsManager.getW3CColors();
+
+		colorsPanel
+				.setLayout(new GridLayout(
+						(int) (Math.floor(colorsList.size() / colorsNbPerLine) + 1),
+						colorsNbPerLine, 1, 1));
+		JPanel panel = null;
+
+		for (SVGW3CColor color : colorsList) {
+
+			if (color != null) {
+
+				panel = new JPanel();
+
+				// setting the properties of the panel
+				panel.setBorder(new LineBorder(Color.black, 1));
+				panel.setBackground(color);
+				panel.setPreferredSize(new Dimension(15, 15));
+				panel.setToolTipText(color.getStringRepresentation());
+
+				final SVGW3CColor fcolor = color;
+
+				// adding a listener to the clicks on the color panels
+				panel.addMouseListener(new MouseAdapter() {
+
+					@Override
+					public void mouseClicked(MouseEvent evt) {
+
+						SVGW3CColor theColor = null, selectedColor = fcolor;
+						JPanel thePanel = null;
+
+						// sets the new selected color
+						getColorSelectionModel().setSelectedColor(selectedColor);
+
+						// removes the last color of the last selected colors,
+						// if the list is full
+						if (lastSelectedColors.size() > 0 && lastSelectedColors.size() >= memoryNb) {
+
+							lastSelectedColors.removeLast();
+						}
+
+						// adds the new selected color to the list
+						lastSelectedColors.addFirst(selectedColor);
+
+						// for each panel contained in the memory, sets its new
+						// color and tooltip
+						for (int i = 0; i < lastColorPanels.size(); i++) {
+
+							thePanel = lastColorPanels.get(i);
+
+							if (thePanel != null) {
+
+								if (i < lastSelectedColors.size()) {
+
+									theColor = (SVGW3CColor) lastSelectedColors.get(i);
+
+									if (theColor != null) {
+
+										thePanel.setBorder(new LineBorder(Color.black, 1));
+										thePanel.setBackground(theColor);
+										thePanel.setToolTipText(theColor.getStringRepresentation());
+									}
+
+								} else {
+
+									thePanel.setBorder(new LineBorder(Color.lightGray, 1));
+									thePanel.setBackground(getParent().getBackground());
+									thePanel.setToolTipText(null);
+								}
+							}
+						}
+
+						memoryPanel.repaint();
+					}
+
+					@Override
+					public void mouseEntered(MouseEvent arg0) {
+
+						colorLabel.setText(fcolor.getStringRepresentation());
+					}
+
+					@Override
+					public void mouseExited(MouseEvent arg0) {
+
+						colorLabel.setText("");
+					}
+				});
+
+				colorsPanel.add(panel);
+			}
+		}
+
+		// filling the memory panel
+		memoryPanel.setLayout(new GridLayout(memoryRowNb,
+				(int) (Math.floor(memoryNb / memoryRowNb)) + 1, 1, 1));
+		memoryPanel.setBorder(new TitledBorder(memoryLabel));
+
+		JPanel memPanel = null;
+
+		for (int i = 0; i < memoryNb; i++) {
+
+			memPanel = new JPanel();
+			memPanel.setBorder(new LineBorder(Color.lightGray, 1));
+			memPanel.setPreferredSize(new Dimension(15, 15));
+			memPanel.setBackground(getParent().getBackground());
+
+			lastColorPanels.add(memPanel);
+			memoryPanel.add(memPanel);
+
+			final int fi = i;
+
+			// adding a mouse listener to the panel
+			memPanel.addMouseListener(new MouseAdapter() {
+
+				@Override
 				public void mouseClicked(MouseEvent evt) {
 
-				    SVGW3CColor theColor=null;
-				    
-				    if(fi<lastSelectedColors.size()){
-				        
-				        theColor=(SVGW3CColor)lastSelectedColors.get(fi);
-				        
-				        if(theColor!=null){
-				            
-				            getColorSelectionModel().setSelectedColor(theColor);
-				        }
-				    }
+					SVGW3CColor theColor = null;
+
+					if (fi < lastSelectedColors.size()) {
+
+						theColor = (SVGW3CColor) lastSelectedColors.get(fi);
+
+						if (theColor != null) {
+
+							getColorSelectionModel().setSelectedColor(theColor);
+						}
+					}
 				}
-				
-            	@Override
-                public void mouseEntered(MouseEvent arg0){
-                    
-				    SVGW3CColor theColor=null;
-				    
-				    if(fi<lastSelectedColors.size()){
-				        
-				        theColor=(SVGW3CColor)lastSelectedColors.get(fi);
-				        
-				        if(theColor!=null){
-				            
-		                    colorLabel.setText(theColor.getStringRepresentation());
-				        }
-				    }
-                }
 
-            	@Override
-                public void mouseExited(MouseEvent arg0){
+				@Override
+				public void mouseEntered(MouseEvent arg0) {
 
-				    SVGW3CColor theColor=null;
-				    
-				    if(fi<lastSelectedColors.size()){
-				        
-				        theColor=(SVGW3CColor)lastSelectedColors.get(fi);
-				        
-				        if(theColor!=null){
-				            
-		                    colorLabel.setText("");
-				        }
-				    }
-                }
-            });
-        }
-        
-        //adding the two panels
-        colorsAndMemoryPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 0));
-        colorsAndMemoryPanel.add(colorsPanel);
-        colorsAndMemoryPanel.add(memoryPanel);
-        
-        //adding the colors and memory panel and the color label widget to the color chooser panel
-        setLayout(new BorderLayout(10, 10));
-        add(colorsAndMemoryPanel, BorderLayout.CENTER);
-        
-        //the panel containing the label
-        JPanel colorLabelPanel=new JPanel();
-        colorLabelPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
-        colorLabelPanel.add(colorLabel);
-        colorLabelPanel.setPreferredSize(new Dimension(25, 30));
-        colorLabelPanel.setBorder(new CompoundBorder(new EmptyBorder(1, 10, 1, 10), new SoftBevelBorder(SoftBevelBorder.LOWERED)));
-        
-        add(colorLabelPanel, BorderLayout.SOUTH);
-    }
-    
-    @Override
-    public String getDisplayName() {
+					SVGW3CColor theColor = null;
 
-        return label;
-    }
-    
-    @Override
-    public Icon getLargeDisplayIcon() {
+					if (fi < lastSelectedColors.size()) {
 
-        return null;
-    }
-    
-    @Override
-    public Icon getSmallDisplayIcon() {
+						theColor = (SVGW3CColor) lastSelectedColors.get(fi);
 
-        return null;
-    }
-    
-    @Override
-    public void updateChooser() {}
+						if (theColor != null) {
+
+							colorLabel.setText(theColor.getStringRepresentation());
+						}
+					}
+				}
+
+				@Override
+				public void mouseExited(MouseEvent arg0) {
+
+					SVGW3CColor theColor = null;
+
+					if (fi < lastSelectedColors.size()) {
+
+						theColor = (SVGW3CColor) lastSelectedColors.get(fi);
+
+						if (theColor != null) {
+
+							colorLabel.setText("");
+						}
+					}
+				}
+			});
+		}
+
+		// adding the two panels
+		colorsAndMemoryPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 0));
+		colorsAndMemoryPanel.add(colorsPanel);
+		colorsAndMemoryPanel.add(memoryPanel);
+
+		// adding the colors and memory panel and the color label widget to the
+		// color chooser panel
+		setLayout(new BorderLayout(10, 10));
+		add(colorsAndMemoryPanel, BorderLayout.CENTER);
+
+		// the panel containing the label
+		JPanel colorLabelPanel = new JPanel();
+		colorLabelPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
+		colorLabelPanel.add(colorLabel);
+		colorLabelPanel.setPreferredSize(new Dimension(25, 30));
+		colorLabelPanel.setBorder(new CompoundBorder(new EmptyBorder(1, 10, 1, 10),
+				new SoftBevelBorder(SoftBevelBorder.LOWERED)));
+
+		add(colorLabelPanel, BorderLayout.SOUTH);
+	}
+
+	@Override
+	public String getDisplayName() {
+
+		return label;
+	}
+
+	@Override
+	public Icon getLargeDisplayIcon() {
+
+		return null;
+	}
+
+	@Override
+	public Icon getSmallDisplayIcon() {
+
+		return null;
+	}
+
+	@Override
+	public void updateChooser() {
+	}
 }

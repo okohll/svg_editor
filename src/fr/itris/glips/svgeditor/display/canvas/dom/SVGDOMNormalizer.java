@@ -6,6 +6,9 @@ import java.util.*;
 import org.apache.batik.ext.awt.geom.*;
 import org.w3c.dom.*;
 import org.w3c.dom.svg.*;
+
+import com.gtwm.util.GlipsException;
+
 import fr.itris.glips.library.Toolkit;
 import fr.itris.glips.library.geom.*;
 import fr.itris.glips.library.geom.Polygon2D;
@@ -427,7 +430,9 @@ public class SVGDOMNormalizer {
             		y1=Double.parseDouble(element.getAttribute(y1Att));
             		x2=Double.parseDouble(element.getAttribute(x2Att));
             		y2=Double.parseDouble(element.getAttribute(y2Att));
-        		}catch(Exception ex){}
+        		}catch(NumberFormatException ex) {
+        			ex.printStackTrace();
+        		}
         		
         		//creating a path shape corresponding to the line
         		path=new GeneralPath();
@@ -440,7 +445,9 @@ public class SVGDOMNormalizer {
         			PolyShape2D polygon=new Polygon2D(
         					PolyShape2D.getCoordinates(element.getAttribute(pointsAtt)));
         			path=polygon.getPath();
-        		}catch (Exception ex){}
+        		}catch (GlipsException ex) {
+        			ex.printStackTrace();
+        		}
         		
         	}else if(tagName.equals(polylineTagName)){
         		
@@ -448,7 +455,9 @@ public class SVGDOMNormalizer {
         			PolyShape2D polyline=new Polyline2D(
         					PolyShape2D.getCoordinates(element.getAttribute(pointsAtt)));
         			path=polyline.getPath();
-        		}catch (Exception ex){}
+        		}catch (GlipsException ex) {
+        			ex.printStackTrace();
+        		}
         	}
         	
     		//computing the "d" attribute for the path element

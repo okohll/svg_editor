@@ -35,6 +35,7 @@ public class URIEncoderDecoder {
 			bb = ThreadLocalCoders.encoderFor("UTF-8")
 			.encode(CharBuffer.wrap(ns));
 		} catch (CharacterCodingException x) {//TODO
+			x.printStackTrace();
 			assert false;
 		}
 
@@ -177,7 +178,9 @@ public class URIEncoderDecoder {
 						relURI=new URI(relPath);
 					}
 				}
-			}catch (Exception ex){}
+			}catch (URISyntaxException ex) {
+				ex.printStackTrace();
+			}
 		}
 		
 		return relURI;

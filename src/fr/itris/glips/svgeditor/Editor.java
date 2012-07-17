@@ -174,14 +174,16 @@ public class Editor {
 	 * The constructor of the class
 	 */
 	public Editor(){
-
+/*
 		try {
 			//PlasticXPLookAndFeel laf=new PlasticXPLookAndFeel();
 			//PlasticXPLookAndFeel.set3DEnabled(true);
 			WindowsLookAndFeel laf = new WindowsLookAndFeel();
 			UIManager.setLookAndFeel(laf);
-		 } catch (Exception e) {}
-		 
+		 } catch (UnsupportedLookAndFeelException e) {
+			 e.printStackTrace();
+		 }
+	*/	 
 		 editor=this;
 	}
 	
@@ -322,7 +324,9 @@ public class Editor {
 			//computing the file that should be opened
 			try{
 				initialFile=new File(new URI(fileToBeLoaded));
-			}catch (Exception ex){}
+			}catch (URISyntaxException ex) {
+				ex.printStackTrace();
+			}
 		}
 
 		if(initialFile!=null && initialFile.exists()){
@@ -470,7 +474,9 @@ public class Editor {
 								y=Integer.parseInt(strY);
 								width=Integer.parseInt(strW);
 								height=Integer.parseInt(strH);
-							}catch (Exception ex){}
+							}catch (NumberFormatException ex) {
+								ex.printStackTrace();
+							}
 							
 							//creating the rectangle
 							rectBounds=new Rectangle(x, y, width, height);
@@ -499,9 +505,9 @@ public class Editor {
 		
 		if(name!=null && ! name.equals("")){
 			
-			try{
+			//try{
 				rect=widgetBounds.get(name);
-			}catch (Exception ex){}
+			//}catch (Exception ex){}
 		}
 		
 		return rect;

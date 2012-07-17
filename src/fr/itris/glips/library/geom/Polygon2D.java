@@ -3,6 +3,8 @@ package fr.itris.glips.library.geom;
 import java.awt.*;
 import java.awt.geom.*;
 
+import com.gtwm.util.GlipsException;
+
 /**
  * the class defining a polygon with points having double coordinates
  * @author ITRIS, Jordi SUC
@@ -21,8 +23,7 @@ public class Polygon2D extends PolyShape2D{
 	 * @throws Exception an exception raised if the array is null or empty and 
 	 * the array size is not even
 	 */
-	public Polygon2D(double[] coordinates) throws Exception{
-		
+	public Polygon2D(double[] coordinates) throws GlipsException {
 		super(coordinates);
 	}
 	
@@ -31,7 +32,6 @@ public class Polygon2D extends PolyShape2D{
 	 * @param polygon the polygon to clone
 	 */
 	public Polygon2D(PolyShape2D polygon){
-		
 		super(polygon);
 	}
 	
@@ -42,8 +42,7 @@ public class Polygon2D extends PolyShape2D{
 	 * @throws Exception an exception raised if the array is null or empty and 
 	 * the array size is not even
 	 */
-	public Polygon2D(Point2D[] thePoints) throws Exception{
-		
+	public Polygon2D(Point2D[] thePoints) throws GlipsException {
 		super(thePoints);
 	}
 	
@@ -54,7 +53,7 @@ public class Polygon2D extends PolyShape2D{
 	 * @throws Exception an exception raised if the array is null or empty and 
 	 * the array size is not even
 	 */
-	public Polygon2D(Point[] thePoints) throws Exception{
+	public Polygon2D(Point[] thePoints) throws GlipsException {
 		
 		super(thePoints);
 	}

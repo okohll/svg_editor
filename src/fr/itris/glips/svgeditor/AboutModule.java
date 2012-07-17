@@ -88,7 +88,9 @@ public class AboutModule extends ModuleAdapter{
 		    
 		    try{
 		        labelAbout=bundle.getString("labelabout");
-		    }catch (Exception ex){}
+		    }catch (MissingResourceException ex) {
+		    	ex.printStackTrace();
+		    }
 		}
 		
 		//getting the icons
@@ -212,7 +214,9 @@ public class AboutModule extends ModuleAdapter{
 			    
 		        try{
 		            okLabel=bundle.getString("labelok");
-		        }catch (Exception ex){}
+		        }catch (MissingResourceException ex) {
+		        	ex.printStackTrace();
+		        }
 			}
 	        
 	        final JButton okButton=new JButton(okLabel);

@@ -33,6 +33,8 @@ import fr.itris.glips.svgeditor.actions.menubar.*;
 import fr.itris.glips.svgeditor.actions.popup.*;
 import fr.itris.glips.svgeditor.actions.toolbar.*;
 import org.w3c.dom.*;
+
+import java.lang.reflect.InvocationTargetException;
 import java.util.*;
 
 /**
@@ -207,7 +209,9 @@ public class ModuleManager {
 					}
 					
 					modules.add((Module)obj);
-				}catch (Exception ex){ex.printStackTrace();}	
+				} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException ex) {
+					ex.printStackTrace();
+				}
 			}
 		}
 	}
@@ -226,7 +230,10 @@ public class ModuleManager {
 			try{
 				cname=(String)module.getClass().getMethod(
 					"getName", (Class[])null).invoke(module, (Object[])null);
-			}catch (Exception e){cname=null;}
+			}catch (NoSuchMethodException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | SecurityException e) {
+				e.printStackTrace();
+				cname=null;
+			}
 			
 			if(cname!=null && cname.equals(name)){
 			    

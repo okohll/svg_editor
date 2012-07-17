@@ -133,20 +133,26 @@ public class GridParametersManager {
 	protected void initializeParameters(){
 		
 		//getting the parameters from the preference store
-		try{
+		//try{
 			gridEnabled=Boolean.parseBoolean(
 				PreferencesStore.getPreference(null, GRID_ENABLED_PREF_ID));
-		}catch (Exception ex){gridEnabled=defaultGridEnabled;}
+		//}catch (Exception ex){gridEnabled=defaultGridEnabled;}
 		
 		try{
 			horizontalDistance=Double.parseDouble(
 					PreferencesStore.getPreference(null, HORIZONTAL_DISTANCE_PREF_ID));
-		}catch (Exception ex){horizontalDistance=defaultHorizontalDistance;}
+		}catch (NumberFormatException ex) {
+			ex.printStackTrace();
+			horizontalDistance=defaultHorizontalDistance;
+		}
 		
 		try{
 			verticalDistance=Double.parseDouble(
 					PreferencesStore.getPreference(null, VERTICAL_DISTANCE_PREF_ID));
-		}catch (Exception ex){verticalDistance=defaultVerticalDistance;}
+		}catch (NumberFormatException ex) {
+			ex.printStackTrace();
+			verticalDistance=defaultVerticalDistance;
+		}
 		
 		gridColor=Editor.getColorChooser().getColor(null, 
 				PreferencesStore.getPreference(null, COLOR_PREF_ID));

@@ -58,10 +58,10 @@ public class SVGResourcesManager {
 			//checking if the id of the resource is contained in the map
 			if(usedResources.containsKey(resourceId)){
 				
-				try{
+				//try{
 					//getting the associated list of nodes
 					nodesList=usedResources.get(resourceId); 
-				}catch (Exception ex){}
+				//}catch (Exception ex){}
 			}
 			
 			if(nodesList==null){
@@ -90,10 +90,10 @@ public class SVGResourcesManager {
 			//checking if the id of the resource is contained in the map
 			if(usedResources.containsKey(resourceId)){
 				
-				try{
+				//try{
 					//getting the associated list of nodes
 					nodesList=usedResources.get(resourceId); 
-				}catch (Exception ex){}
+				//}catch (Exception ex){}
 			}
 			
 			if(nodesList==null){
@@ -128,10 +128,10 @@ public class SVGResourcesManager {
 			//checking if the id of the resource is contained in the map
 			if(usedResources.containsKey(resourceId)){
 				
-				try{
+				//try{
 					//getting the associated list of nodes
 					nodesList=usedResources.get(resourceId); 
-				}catch (Exception ex){}
+				//}catch (Exception ex){}
 			}
 			
 			if(nodesList!=null && nodesList.contains(node)){
@@ -156,10 +156,10 @@ public class SVGResourcesManager {
 			//checking if the id of the resource is contained in the map
 			if(usedResources.containsKey(resourceId)){
 				
-				try{
+				//try{
 					//getting the associated list of nodes
 					nodesList=usedResources.get(resourceId); 
-				}catch (Exception ex){}
+				//}catch (Exception ex){}
 			}
 			
 			if(nodesList!=null){
@@ -203,9 +203,9 @@ public class SVGResourcesManager {
 			
 			LinkedList<Element> list=null;
 			
-			try{
+			//try{
 				list=usedResources.get(id);
-			}catch (Exception ex){}
+			//}catch (Exception ex){}
 
 			if(list!=null){
 
@@ -234,9 +234,9 @@ public class SVGResourcesManager {
 			//getting the list of the nodes using the resource
 			LinkedList<Element> nodesList=null;
 			
-			try{
+			//try{
 				nodesList=usedResources.get(lastId);
-			}catch (Exception ex){}
+			//}catch (Exception ex){}
 			
 			if(nodesList!=null){
 				
@@ -277,9 +277,9 @@ public class SVGResourcesManager {
 			
 			LinkedList<Element> list=null;
 			
-			try{
+			//try{
 				list=usedResources.get(resourceId);
-			}catch (Exception ex){}
+			//}catch (Exception ex){}
 			
 			if(list!=null && list.size()>0){
 				
@@ -313,7 +313,11 @@ public class SVGResourcesManager {
 					
 					try{
 						nodesList=usedResourcesMap.get(id);
-					}catch (Exception ex){id=null; nodesList=null;}
+					}catch (NullPointerException ex) {
+						ex.printStackTrace();
+						id=null;
+						nodesList=null;
+					}
 					
 					//adds the node in the used resource map
 					if(id!=null && ! id.equals("") && style.indexOf("#".concat(id))!=-1 && 
@@ -358,7 +362,10 @@ public class SVGResourcesManager {
 					
 					try{
 						nodesList=usedResourcesMap.get(id);
-					}catch (Exception ex){id=null; nodesList=null;}
+					}catch (NullPointerException ex) {
+						ex.printStackTrace();
+						id=null; nodesList=null;
+					}
 					
 					//removes the node from the used resource map
 					if(id!=null && ! id.equals("") && style.indexOf("#".concat(id))!=-1 && 

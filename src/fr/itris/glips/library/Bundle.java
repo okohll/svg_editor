@@ -17,6 +17,9 @@ public class Bundle {
 		
         try{
             bundle=ResourceBundle.getBundle("fr.itris.glips.library.properties.LibraryStrings");
-        }catch (Exception ex){bundle=null;}
+        } catch (MissingResourceException ex) {
+        		ex.printStackTrace();
+        		bundle=null;
+        	}
 	}
 }

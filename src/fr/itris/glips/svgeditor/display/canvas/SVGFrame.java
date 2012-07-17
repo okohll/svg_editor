@@ -230,7 +230,7 @@ public class SVGFrame extends JInternalFrame{
 		
 		String label="";
 		
-		try{
+	    try{
 			File file=new File(name);
 			label=file.toURI().toASCIIString();
 			
@@ -243,7 +243,9 @@ public class SVGFrame extends JInternalFrame{
 			
 			label=URIEncoderDecoder.decode(label);
 			label=new String(label.getBytes(Charset.defaultCharset().name()));
-		}catch (Exception ex){}
+		}catch (UnsupportedEncodingException ex) {
+			ex.printStackTrace();
+		}
 		
 		if(label.equals("") && name!=null && 
 				! name.equals("")){
@@ -265,7 +267,9 @@ public class SVGFrame extends JInternalFrame{
 	 */
 	public void moveFrameToBack(){
 		
-		try{setSelected(false);}catch(Exception ex){}
+		try{setSelected(false);}catch(PropertyVetoException ex) {
+			ex.printStackTrace();
+		}
 	}
 	
 	/**
@@ -273,7 +277,9 @@ public class SVGFrame extends JInternalFrame{
 	 */
 	public void moveFrameToFront(){
 		
-		try{setSelected(true);}catch(Exception ex){}
+		try{setSelected(true);}catch(PropertyVetoException ex) {
+			ex.printStackTrace();
+		}
 	}
 	
 	/**

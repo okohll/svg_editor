@@ -21,7 +21,10 @@ public class Icons {
         try{
             bundle=ResourceBundle.getBundle(
             		"fr.itris.glips.library.properties.icons");
-        }catch (Exception ex){bundle=null;}
+        }catch (MissingResourceException ex) {
+        		ex.printStackTrace();
+        		bundle=null;
+        }
 	}
 	
 	/**
@@ -54,14 +57,18 @@ public class Icons {
 
                 String path="";
 
-                try{path=bundle.getString(iconName);}catch (Exception ex){}
+                try{path=bundle.getString(iconName);} catch (MissingResourceException | ClassCastException ex) {
+                		ex.printStackTrace();
+                }
                 
                 if(path!=null && ! path.equals("")){
                     
                     try{
                         icon=new ImageIcon(new URL(
                         		Icons.class.getResource("icons/"+path).toExternalForm()));
-                    }catch (Exception ex){}
+                    }catch (MalformedURLException ex) {
+                    		ex.printStackTrace();
+                    }
 
                     if(icon!=null){
                         

@@ -70,7 +70,9 @@ public class RulersModule extends ModuleAdapter{
 			try{
 				rulersHiddenLabel=bundle.getString("RulersHidden");
 				rulersShownLabel=bundle.getString("RulersShown");
-			}catch (Exception ex){}
+			}catch (MissingResourceException ex) {
+				ex.printStackTrace();
+			}
 		}
 		
 		//a listener that listens to the changes of the svg handles

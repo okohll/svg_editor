@@ -185,7 +185,10 @@ public class SVGVisualResourceToolkit {
                     baseId="vresourcename_".concat(baseId);
                     baseId=bundle.getString(baseId);
                     baseId=baseId.replaceAll("\\s+", "");
-                }catch (Exception ex){baseId=resource.getNodeName();}
+                }catch (MissingResourceException ex) {
+                	ex.printStackTrace();
+                	baseId=resource.getNodeName();
+                }
             }
             
             String id=handle.getSvgElementsManager().getId(baseId, null);
@@ -229,7 +232,9 @@ public class SVGVisualResourceToolkit {
                     
                     try{
                         suffix=bundle.getString("vresource_duplicatednodesuffix");
-                    }catch (Exception ex){}
+                    }catch (Exception ex) {
+                    	ex.printStackTrace();
+                    }
                 }
                 
                 //creating the new id
@@ -341,7 +346,10 @@ public class SVGVisualResourceToolkit {
                         baseId=bundle.getString(baseId);
                         baseId=importedLabel.concat(baseId);
                         baseId=baseId.replaceAll("\\s+", "");
-                    }catch (Exception ex){baseId=resourceNode.getNodeName();}
+                    }catch (MissingResourceException ex) {
+                    	ex.printStackTrace();
+                    	baseId=resourceNode.getNodeName();
+                    }
                 }
                 
                 String id=handle.getSvgElementsManager().getId(baseId, null);

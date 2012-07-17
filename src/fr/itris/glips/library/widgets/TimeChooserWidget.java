@@ -82,7 +82,9 @@ public class TimeChooserWidget extends Widget{
 			//setting the new value for the spinner
 			try{
 				spinner.init(Integer.parseInt(spinnerValue));
-			}catch (Exception ex){}
+			} catch (NumberFormatException ex) {
+				ex.printStackTrace();
+			}
 			
 			//getting the value for the combo
 			comboValue=value.substring(index+1, value.length());
@@ -210,9 +212,9 @@ public class TimeChooserWidget extends Widget{
 			
 			this.value=value;
 			
-			try{
+			//try{
 				label=Bundle.bundle.getString(labelPrefix+value);
-			}catch (Exception ex){}
+			//}catch (Exception ex){}
 		}
 		
 		/**

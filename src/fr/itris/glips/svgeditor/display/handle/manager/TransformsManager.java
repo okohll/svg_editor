@@ -47,12 +47,16 @@ public class TransformsManager {
 			try{
 				af.preConcatenate(
 					handle.getCanvas().getRenderingTransform().createInverse());
-			}catch (Exception ex){}
+			}catch (NoninvertibleTransformException ex) {
+				ex.printStackTrace();
+			}
 			
 			try{
 				af.preConcatenate(
 					handle.getCanvas().getViewingTransform().createInverse());
-			}catch (Exception ex){}
+			}catch (NoninvertibleTransformException ex) {
+				ex.printStackTrace();
+			}
 
 			returnShape=af.createTransformedShape(shape);
 
@@ -61,13 +65,13 @@ public class TransformsManager {
 			//applying the transforms
 			AffineTransform af=new AffineTransform();
 			
-			try{
+			//try{
 				af.preConcatenate(handle.getCanvas().getViewingTransform());
-			}catch (Exception ex){}
+			//}catch (Exception ex){}
 			
-			try{
+			//try{
 				af.preConcatenate(handle.getCanvas().getRenderingTransform());
-			}catch (Exception ex){}
+			//}catch (Exception ex){}
 
 			returnShape=af.createTransformedShape(shape);
 		}
@@ -98,12 +102,16 @@ public class TransformsManager {
 			try{
 				af.preConcatenate(
 						handle.getCanvas().getRenderingTransform().createInverse());
-			}catch (Exception ex){}
+			}catch (NoninvertibleTransformException ex) {
+				ex.printStackTrace();
+			}
 			
 			try{
 				af.preConcatenate(
 						handle.getCanvas().getViewingTransform().createInverse());
-			}catch (Exception ex){}
+			}catch (NoninvertibleTransformException ex) {
+				ex.printStackTrace();
+			}
 			
 			if(transform!=null){
 				

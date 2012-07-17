@@ -3,6 +3,8 @@ package fr.itris.glips.library.geom;
 import java.awt.*;
 import java.awt.geom.*;
 
+import com.gtwm.util.GlipsException;
+
 /**
  * the class defining a polyline with points having double coordinates
  * @author ITRIS, Jordi SUC
@@ -21,7 +23,7 @@ public class Polyline2D extends PolyShape2D{
 	 * @throws Exception an exception raised if the array is null or empty and 
 	 * the array size is not even
 	 */
-	public Polyline2D(double[] coordinates) throws Exception{
+	public Polyline2D(double[] coordinates) throws GlipsException{
 		
 		super(coordinates);
 	}

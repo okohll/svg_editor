@@ -749,7 +749,11 @@ public class ClipboardModule extends ModuleAdapter{
 				    try{
 				        res=(Element)doc.importNode(res, true);
 				        resId=res.getAttribute("id");
-				    }catch (Exception ex){res=null; resId=null;}
+				    }catch (DOMException ex) {
+				    		ex.printStackTrace();
+				    		res=null;
+				    		resId=null;
+				    	}
 				    
 				    if(res!=null && resId!=null){
 

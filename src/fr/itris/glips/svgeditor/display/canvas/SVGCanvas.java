@@ -277,7 +277,8 @@ public class SVGCanvas extends JPanel {
 				
 				initializeCanvas(monitor);
 			}
-		}catch(Exception ex){
+			
+		}catch(IOException ex){
 			
 			ex.printStackTrace();
 			getSVGHandle().dispose();
@@ -313,7 +314,7 @@ public class SVGCanvas extends JPanel {
 		}
 		
 		//creating the graphics node
-        try {
+        //try {
         	UserAgentAdapter userAgent=new UserAgentAdapter();
     		ctx=new BridgeContext(
     				userAgent, null, new DocumentLoader(userAgent));
@@ -325,7 +326,7 @@ public class SVGCanvas extends JPanel {
             	
             	gvtRoot=gvt.getRoot();
             }
-        }catch (Exception ex) {ex.printStackTrace();}
+        //}catch (Exception ex) {ex.printStackTrace();}
             
 		if(monitor!=null){
 
@@ -411,13 +412,17 @@ public class SVGCanvas extends JPanel {
 		
 		try{
 			theURI=new URI(uri);
-		}catch (Exception ex){}
+		}catch (URISyntaxException ex) {
+			ex.printStackTrace();
+		}
 		
 		if(theURI!=null){
 			
 			try{
 				((SVGOMDocument)getDocument()).setURLObject(theURI.toURL());
-			}catch (Exception ex){}
+			}catch (MalformedURLException ex) {
+				ex.printStackTrace();
+			}
 		}
 		
 		Editor.getEditor().getHandlesManager().handleChanged();
@@ -998,7 +1003,9 @@ public class SVGCanvas extends JPanel {
 				h=EditorToolkit.getPixelledNumber(root.getAttributeNS(null, "height"))*scale;
 				scaledSize.width=(int)w;
 				scaledSize.height=(int)h;
-			}catch (Exception ex){}
+			}catch (DOMException ex) {
+				ex.printStackTrace();
+			}
 		}
 		
 		return scaledSize;
@@ -1028,7 +1035,9 @@ public class SVGCanvas extends JPanel {
 					h=EditorToolkit.getPixelledNumber(root.getAttributeNS(null, "height"))*scale;
 					scaledSize.width=(int)w;
 					scaledSize.height=(int)h;
-				}catch (Exception ex){}
+				}catch (DOMException ex) {
+					ex.printStackTrace();
+				}
 			}
 		}
 		
@@ -1126,13 +1135,13 @@ public class SVGCanvas extends JPanel {
 	 */
 	public void removePaintListener(CanvasPainter l, boolean makeRepaint){
 		
-		try{
+		//try{
 			paintListeners.get(GRID_LAYER).remove(l);
 			paintListeners.get(BOTTOM_LAYER).remove(l);
 			paintListeners.get(SELECTION_LAYER).remove(l);
 			paintListeners.get(DRAW_LAYER).remove(l);
 			paintListeners.get(TOP_LAYER).remove(l);
-		}catch (Exception ex) {}
+		//} catch (Exception ex) {}
 
 		if(l!=null){
 			

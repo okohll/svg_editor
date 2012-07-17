@@ -505,9 +505,8 @@ public class PngEncoder extends Object {
                     width, nRows, pixels, 0, width);
                 try {
                     pg.grabPixels();
-                }
-                catch (Exception e) {
-                    System.err.println("interrupted waiting for pixels!");
+                } catch (InterruptedException iex) {
+                    System.err.println("interrupted waiting for pixels! " + iex);
                     return false;
                 }
                 if ((pg.getStatus() & ImageObserver.ABORT) != 0) {
@@ -579,8 +578,8 @@ public class PngEncoder extends Object {
             scrunch.finish();
             return true;
         }
-        catch (IOException e) {
-            System.err.println(e.toString());
+        catch (IOException ioex) {
+            System.err.println("Error writing image data. " + ioex.toString());
             return false;
         }
     }

@@ -30,6 +30,8 @@ package fr.itris.glips.svgeditor.actions.toolbar;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.MissingResourceException;
+
 import javax.swing.*;
 import javax.swing.event.*;
 import fr.itris.glips.svgeditor.*;
@@ -170,7 +172,7 @@ public class ToolsFrame{
         	try{
         		showFrameLabel=ResourcesManager.bundle.getString("label_hidden_"+id.toLowerCase());
         		hideFrameLabel=ResourcesManager.bundle.getString("label_shown_"+id.toLowerCase());
-        	}catch (Exception ex){ex.printStackTrace();}
+        	}catch (MissingResourceException ex){ex.printStackTrace();}
         }
         
         //getting the icon for this tool frame

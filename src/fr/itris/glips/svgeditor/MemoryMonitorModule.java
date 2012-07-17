@@ -82,7 +82,9 @@ public class MemoryMonitorModule extends ModuleAdapter{
 		    
 		    try{
 		        labelMemoryMonitor=bundle.getString("labelmemorymonitor");
-		    }catch (Exception ex){}
+		    } catch (MissingResourceException ex) {
+		    		ex.printStackTrace();
+		    }
 		}
 		
 		//the menuitem

@@ -771,7 +771,9 @@ public class Toolkit {
 
     			try{
     				number=Double.parseDouble((String)obj);
-    			}catch (Exception ex){}
+    			}catch (NumberFormatException ex) {
+    				ex.printStackTrace();
+    			}
     		}
     	}
     	
@@ -805,7 +807,9 @@ public class Toolkit {
     			
     			try{
     				number=Integer.parseInt((String)obj);
-    			}catch (Exception ex){}
+    			}catch (NumberFormatException ex) {
+    				ex.printStackTrace();
+    			}
     		}
     	}
     	
@@ -832,7 +836,10 @@ public class Toolkit {
     			
     			try{
     				value=Double.parseDouble((String)obj);
-    			}catch (Exception ex){value=null;}
+    			} catch (NumberFormatException ex) {
+    				ex.printStackTrace();
+    				value=null;
+    			}
     		}
     	}
     	
