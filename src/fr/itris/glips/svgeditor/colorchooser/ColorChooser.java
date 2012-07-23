@@ -80,7 +80,6 @@ public class ColorChooser extends JColorChooser {
 					+ ";class=java.awt.Color");
 			w3cSVGColorFlavor = new DataFlavor(DataFlavor.javaJVMLocalObjectMimeType
 					+ ";class=fr.itris.glips.library.color.SVGW3CColor");
-//					+ ";class=fr.itris.glips.svgeditor.colorchooser.SVGW3CColor");
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			colorFlavor = DataFlavor.stringFlavor;

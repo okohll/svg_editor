@@ -35,11 +35,13 @@
 	<module class="fr.itris.glips.svgeditor.properties.SVGProperties" />
 	<module class="fr.itris.glips.svgeditor.visualresources.SVGVisualResources" />
 
+<!-- removed RTDA modules 
 	<module class="fr.itris.glips.rtdaeditor.shape.RtdaViewShape" />
 	<module class="fr.itris.glips.rtdaeditor.shape.RtdaWidgetShape" />
 	<module class="fr.itris.glips.rtdaeditor.colorchooser.RtdaColorChooserModule" />
 	<module class="fr.itris.glips.rtdaeditor.dbeditor.DataBaseEditorModule" />
 	<module class="fr.itris.glips.rtdaeditor.jwidget.JWidgetManager" />
 	<module class="fr.itris.glips.rtdaeditor.anim.components.RtdaAnimationsAndActionsModule" />
+-->
 </modules>
 
