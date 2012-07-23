@@ -45,8 +45,10 @@ Contact : jordi.suc@itris.fr; philippe.gil@itris.fr
 		<button name="TextShape"/>
 		<button name="JWidgetManager"/>
 		<separator/>
+		<!--
 		<button name="RtdaViewShape"/>
 		<button name="RtdaWidgetShape"/>
+		-->
 	</toolbar>
 	
 	<toolbar exclusive="false">
@@ -60,8 +62,10 @@ Contact : jordi.suc@itris.fr; philippe.gil@itris.fr
 		<toolbar exclusive="false">
 		<button name="Properties"/>
 		<button name="VisualResources"/>
+		<!--
 		<button name="RtdaDataBaseEditor"/>
 		<button name="RtdaAnimationsAndActions"/>
+		-->
 	</toolbar>
 
 </toolbars> 

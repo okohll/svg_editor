@@ -46,7 +46,6 @@ public class PreferencesStore {
      */
     public static String getPreference(String nodeId, String id){
     	
-    	//try{
         	Preferences node=null;
         	
         	if(nodeId==null || nodeId.equals("")){
@@ -60,9 +59,6 @@ public class PreferencesStore {
         	
         	return node.get(id, null);
         	
-    	//}catch (Exception ex){}
-
-    //	return null;
     }
     
     /**
@@ -89,6 +85,8 @@ public class PreferencesStore {
         	node.put(id, value);
         	node.flush();
         	
-    	}catch (Exception ex){ex.printStackTrace();}
+    	} catch (BackingStoreException ex) {
+    		ex.printStackTrace();
+    	}
     }
 }

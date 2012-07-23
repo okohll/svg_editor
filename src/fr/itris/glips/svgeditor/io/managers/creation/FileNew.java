@@ -39,7 +39,9 @@ public class FileNew {
 		    
 			try{
 				untitledLabel=bundle.getString("FileNewUntitled");
-			}catch (Exception ex){}
+			}catch (MissingResourceException ex) {
+				ex.printStackTrace();
+			}
 		}
 		
 		//creating the dialog used to specify the parameters for the new files to create

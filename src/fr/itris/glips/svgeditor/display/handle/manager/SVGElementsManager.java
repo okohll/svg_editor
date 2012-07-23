@@ -56,13 +56,10 @@ public class SVGElementsManager {
 				//gets the graphics node corresponding to the given node
 				GraphicsNode gnode=null;
 				
-				//try {
 					gnode=ctxt.getGraphicsNode(shape);
-				//}catch (Exception e){}
 				
 				if(gnode!=null){
 
-					//try{
 						AffineTransform transform=gnode.getTransform();
 						bounds=gnode.getSensitiveBounds();
 						
@@ -70,7 +67,6 @@ public class SVGElementsManager {
 							
 							bounds=transform.createTransformedShape(bounds).getBounds2D();
 						}
-					//}catch (Exception ex){}
 				}
 			}
 		}
@@ -98,9 +94,7 @@ public class SVGElementsManager {
 				//gets the graphics node corresponding to the given node
 				GraphicsNode gnode=null;
 				
-				//try {
 					gnode=ctxt.getGraphicsNode(shape);
-				//}catch (Exception e){}
 				
 				if(gnode!=null){
 					
@@ -123,9 +117,7 @@ public class SVGElementsManager {
 						affine.preConcatenate(handle.getCanvas().getRenderingTransform());
 					}
 
-					//try{
 						bounds=affine.createTransformedShape(bounds).getBounds2D();
-					//}catch (Exception ex) {}
 				}
 			}
 		}
@@ -154,9 +146,7 @@ public class SVGElementsManager {
 				//gets the graphics node corresponding to the given node
 				GraphicsNode gnode=null;
 				
-				//try {
 					gnode=ctxt.getGraphicsNode(shape);
-				//}catch (Exception e){}
 				
 				if(gnode!=null){
 
@@ -169,9 +159,7 @@ public class SVGElementsManager {
 						
 						if(af!=null) {
 							
-							//try {
 								bounds2D=af.createTransformedShape(bounds2D).getBounds2D();
-							//}catch (Exception ex) {}
 						}
 						
 						bounds=new Rectangle2D.Double(bounds2D.getX(), bounds2D.getY(), 
@@ -209,9 +197,7 @@ public class SVGElementsManager {
 				//gets the graphics node corresponding to the given node
 				GraphicsNode gnode=null;
 				
-				//try {
 					gnode=ctxt.getGraphicsNode(shapeNode);
-				//}catch (Exception e){}
 				
 				if(gnode!=null){
 
@@ -280,9 +266,7 @@ public class SVGElementsManager {
 				//gets the graphics node corresponding to the given node
 				GraphicsNode gnode=null;
 				
-				//try {
 					gnode=ctxt.getGraphicsNode(shapeElement);
-				//}catch (Exception e){}
 				
 				if(gnode!=null){
 
@@ -362,9 +346,7 @@ public class SVGElementsManager {
 				//gets the graphics node corresponding to the given node
 				GraphicsNode gnode=null;
 				
-				//try {
 					gnode=ctxt.getGraphicsNode((Element)node);
-				//}catch (Exception e){}
 				
 				if(gnode!=null){
 					
@@ -375,9 +357,7 @@ public class SVGElementsManager {
 						affine.preConcatenate(gnode.getTransform());
 					}
 					
-					//try{
 						shape=affine.createTransformedShape(getGeometryShape(gnode));
-					//}catch (Exception ex){}
 				}
 			}
 		}
@@ -404,15 +384,11 @@ public class SVGElementsManager {
 				//gets the graphics node corresponding to the given node
 				GraphicsNode gnode=null;
 				
-				//try {
 					gnode=ctxt.getGraphicsNode((Element)node);
-				//}catch (Exception e) {}
 				
 				if(gnode!=null){
 
-					//try{
 						shape=getGeometryShape(gnode);
-					//}catch (Exception ex){}
 				}
 			}
 		}
@@ -461,9 +437,7 @@ public class SVGElementsManager {
 				
 				GraphicsNode gparentNode=null;
 				
-				//try{
 					gparentNode=ctxt.getGraphicsNode((Element)parent);
-				//}catch (Exception e){}
 				
 				if(gparentNode!=null){
 					
@@ -487,9 +461,7 @@ public class SVGElementsManager {
 							if(EditorToolkit.isElementAShape(element)){
 								
 								//getting the graphics node corresponding to this element
-								//try{
 									gnode=ctxt.getGraphicsNode(element);
-								//}catch (Exception e){}
 								
 								if(intersects(gnode, zone)){
 									

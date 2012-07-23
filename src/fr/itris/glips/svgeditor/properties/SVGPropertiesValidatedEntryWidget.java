@@ -84,9 +84,9 @@ public class SVGPropertiesValidatedEntryWidget extends SVGPropertiesWidget{
 		
 		if(bundle!=null){
 		    
-			try{
+			//try{
 				okButton.setText(bundle.getString("labelok"));
-			}catch(Exception ex){}
+			//}catch(Exception ex){}
 		}
 			
 		final ActionListener listener=new ActionListener(){

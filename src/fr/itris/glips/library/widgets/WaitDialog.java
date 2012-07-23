@@ -425,8 +425,7 @@ public class WaitDialog extends JDialog{
 	 */
 	public void disposeDialog(){
 
-		//try{
-			cancelButton.removeActionListener(basicCancelButtonListener);
+		cancelButton.removeActionListener(basicCancelButtonListener);
 			
 			if(cancelButtonListener!=null){
 				
@@ -446,6 +445,5 @@ public class WaitDialog extends JDialog{
 			buttonsPanel=null;
 			cancelButton=null;
 			cancelButtonListener=null;
-		//}catch (Exception ex){}
 	}
 }

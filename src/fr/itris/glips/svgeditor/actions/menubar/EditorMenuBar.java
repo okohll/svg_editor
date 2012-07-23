@@ -238,9 +238,7 @@ public class EditorMenuBar extends JMenuBar {
 											attParent=((Element)parent).getAttribute("name");
 											parentMenu=null;
 											
-											//try{
 												parentMenu=menus.get(attParent);
-											//}catch (Exception ex){}
 										
 											if(parentMenu!=null){
 											    
@@ -283,9 +281,7 @@ public class EditorMenuBar extends JMenuBar {
 										attParent=((Element)parent).getAttribute("name");
 										parentMenu=null;
 										
-										//try{
 											parentMenu=menus.get(attParent);
-										//}catch (Exception ex){}
 									
 										if(parentMenu!=null){
 										    
@@ -308,9 +304,7 @@ public class EditorMenuBar extends JMenuBar {
 									attParent=((Element)parent).getAttribute("name");
 									parentMenu=null;
 									
-									//try{
 										parentMenu=menus.get(attParent);
-									//}catch (Exception ex){}
 								
 									if(parentMenu!=null){
 									    

@@ -212,9 +212,7 @@ public class TimeChooserWidget extends Widget{
 			
 			this.value=value;
 			
-			//try{
 				label=Bundle.bundle.getString(labelPrefix+value);
-			//}catch (Exception ex){}
 		}
 		
 		/**

@@ -133,10 +133,8 @@ public class GridParametersManager {
 	protected void initializeParameters(){
 		
 		//getting the parameters from the preference store
-		//try{
 			gridEnabled=Boolean.parseBoolean(
 				PreferencesStore.getPreference(null, GRID_ENABLED_PREF_ID));
-		//}catch (Exception ex){gridEnabled=defaultGridEnabled;}
 		
 		try{
 			horizontalDistance=Double.parseDouble(

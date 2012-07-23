@@ -3,6 +3,7 @@ package fr.itris.glips.svgeditor.display.selection;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.geom.*;
+import java.lang.reflect.InvocationTargetException;
 import java.util.*;
 import java.util.Timer;
 import javax.swing.*;
@@ -247,7 +248,12 @@ public class KeySelectionListener extends KeyAdapter {
 								translate(currentKeyCode, (int)Math.floor(fcurrentLoopNumber/2+1));
 							}
 						});	
-					}catch (Exception ex){}
+					}catch (InvocationTargetException ex) {
+						System.err.println("TranslationThread exception: " + ex);
+					} catch (InterruptedException e) {
+						System.out.println("Interrupted while translating: " + e);
+						Thread.currentThread().interrupt();
+					}
 
 					currentLoopNumber++;
 				
@@ -256,7 +262,10 @@ public class KeySelectionListener extends KeyAdapter {
 					currentLoopNumber=1;
 				}
 				
-				try{sleep(150);}catch (Exception ex){}
+				try{sleep(150);}catch (InterruptedException ex) {
+					System.out.println("Sleep interrupted while translating: " + ex);
+					Thread.currentThread().interrupt();
+				}
 			}
 		}
 		

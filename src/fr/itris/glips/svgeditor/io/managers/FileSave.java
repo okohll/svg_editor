@@ -3,6 +3,7 @@ package fr.itris.glips.svgeditor.io.managers;
 import java.awt.*;
 import java.io.*;
 import java.net.*;
+
 import javax.swing.*;
 import org.w3c.dom.*;
 import fr.itris.glips.library.monitor.*;
@@ -184,9 +185,12 @@ public class FileSave {
 		
 		File file=null;
 		
-		try{
-			file=new File(new URI(handle.getName()));
-		}catch(Exception ex){}
+			try {
+				file=new File(new URI(handle.getName()));
+			} catch (URISyntaxException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		
 		if(file!=null && ! file.exists()){
 			

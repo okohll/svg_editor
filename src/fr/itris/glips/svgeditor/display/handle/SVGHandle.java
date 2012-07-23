@@ -39,6 +39,8 @@ import fr.itris.glips.svgeditor.display.handle.manager.*;
 import fr.itris.glips.svgeditor.display.selection.*;
 import fr.itris.glips.svgeditor.display.undoredo.*;
 import java.io.*;
+import java.lang.reflect.InvocationTargetException;
+
 import org.w3c.dom.*;
 
 /**
@@ -259,10 +261,12 @@ public class SVGHandle {
 		
 		String shortName="";
 		
-		try{
+		if (name == null) {
+			//TODO: check if this check is necessary
+			return null;
+		}
 			File file=new File(name);
 			shortName=file.getName();
-		}catch (Exception ex){shortName=null;}
 		
 		return shortName;
 	}
@@ -471,7 +475,13 @@ public class SVGHandle {
 						enqueue(runnable, elements);
 					}
 				});
-			}catch (Exception ex) {}
+			}catch (InterruptedException ex) {
+				System.out.println("Interrupted while enqueueing: " + ex);
+				Thread.currentThread().interrupt();
+			} catch (InvocationTargetException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 	

@@ -180,10 +180,13 @@ public class FileChooserDialog extends TitledDialog {
 						
 						File file=null;
 						
-						try{
-							file=new File(new URI(
-							fileChooser.getCurrentDirectory().toURI().toASCIIString()+content));
-						}catch (Exception ex){}
+							try {
+								file=new File(new URI(
+								fileChooser.getCurrentDirectory().toURI().toASCIIString()+content));
+							} catch (URISyntaxException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+							}
 						
 						if(file!=null){
 

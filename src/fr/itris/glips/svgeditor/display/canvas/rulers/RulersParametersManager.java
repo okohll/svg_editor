@@ -61,15 +61,11 @@ public class RulersParametersManager {
 	protected void initializeParameters(){
 		
 		//getting the parameters from the preference store
-		//try{
 			rulersEnabled=Boolean.parseBoolean(
 					PreferencesStore.getPreference(null, RULERS_ENABLED_PREF_ID));
-		//}catch (Exception ex){rulersEnabled=defaultRulersEnabled;}
 		
-		//try{
 			alignWithRulers=Boolean.parseBoolean(
 					PreferencesStore.getPreference(null, ALIGN_WITH_RULERS_PREF_ID));
-		//}catch (Exception ex){alignWithRulers=defaultAlignWithRulers;}
 	}
 	
 	/**

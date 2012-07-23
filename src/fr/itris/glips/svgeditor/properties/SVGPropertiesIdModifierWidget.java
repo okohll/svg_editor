@@ -78,7 +78,9 @@ public class SVGPropertiesIdModifierWidget extends SVGPropertiesWidget{
 				okButton.setText(bundle.getString("labelok"));
 				errorTitle=bundle.getString("property_errortitle");
 				errorIdMessage=bundle.getString("property_erroridmessage");
-			}catch(Exception ex){}
+			}catch(MissingResourceException ex) {
+				System.err.println("Missing resource when building component: " + ex);
+			}
 		}
 		
 		final String ferrorTitle=errorTitle;

@@ -65,13 +65,9 @@ public class TransformsManager {
 			//applying the transforms
 			AffineTransform af=new AffineTransform();
 			
-			//try{
 				af.preConcatenate(handle.getCanvas().getViewingTransform());
-			//}catch (Exception ex){}
 			
-			//try{
 				af.preConcatenate(handle.getCanvas().getRenderingTransform());
-			//}catch (Exception ex){}
 
 			returnShape=af.createTransformedShape(shape);
 		}
@@ -130,13 +126,9 @@ public class TransformsManager {
 				af.preConcatenate(transform);
 			}
 			
-			try{
 				af.preConcatenate(handle.getCanvas().getViewingTransform());
-			}catch (Exception ex){}
 			
-			try{
 				af.preConcatenate(handle.getCanvas().getRenderingTransform());
-			}catch (Exception ex){}
 
 			returnShape=af.createTransformedShape(shape);
 		}
@@ -167,12 +159,16 @@ public class TransformsManager {
 			try{
 				af.preConcatenate(
 					handle.getCanvas().getRenderingTransform().createInverse());
-			}catch (Exception ex){}
+			}catch (NoninvertibleTransformException ex) {
+				System.err.println("Error getting scaled rectangle: " + ex);
+			}
 			
 			try{
 				af.preConcatenate(
 					handle.getCanvas().getViewingTransform().createInverse());
-			}catch (Exception ex){}
+			}catch (NoninvertibleTransformException ex) {
+				System.err.println("Error getting scaled rectangle: " + ex);
+			}
 			
 			if(transform!=null){
 				
@@ -192,15 +188,11 @@ public class TransformsManager {
 				af.preConcatenate(transform);
 			}
 			
-			try{
 				af.preConcatenate(
 					handle.getCanvas().getViewingTransform());
-			}catch (Exception ex){}
 			
-			try{
 				af.preConcatenate(
 					handle.getCanvas().getRenderingTransform());
-			}catch (Exception ex){}
 
 			Rectangle2D rect2=af.createTransformedShape(rect).getBounds2D();
 			rect=new Rectangle2D.Double(rect2.getX(), rect2.getY(), rect2.getWidth(), rect2.getHeight());
@@ -229,12 +221,16 @@ public class TransformsManager {
 			try{
 				af.preConcatenate(
 					handle.getCanvas().getRenderingTransform().createInverse());
-			}catch (Exception ex){}
+			}catch (NoninvertibleTransformException ex) {
+				System.err.println("Error getting scaled rectangle: " + ex);
+			}
 			
 			try{
 				af.preConcatenate(
 					handle.getCanvas().getViewingTransform().createInverse());
-			}catch (Exception ex){}
+			}catch (NoninvertibleTransformException ex) {
+				System.err.println("Error getting scaled rectangle: " + ex);
+			}
 
 			Rectangle2D rect2=af.createTransformedShape(rect).getBounds2D();
 			rect=new Rectangle2D.Double(rect2.getX(), rect2.getY(), rect2.getWidth(), rect2.getHeight());
@@ -244,15 +240,10 @@ public class TransformsManager {
 			//applying the transforms
 			AffineTransform af=new AffineTransform();
 			
-			try{
 				af.preConcatenate(
 					handle.getCanvas().getViewingTransform());
-			}catch (Exception ex){}
-			
-			try{
 				af.preConcatenate(
 					handle.getCanvas().getRenderingTransform());
-			}catch (Exception ex){}
 
 			Rectangle2D rect2=af.createTransformedShape(rect).getBounds2D();
 			rect=new Rectangle2D.Double(rect2.getX(), rect2.getY(), rect2.getWidth(), rect2.getHeight());
@@ -280,12 +271,16 @@ public class TransformsManager {
 			try{
 				af.preConcatenate(
 					handle.getCanvas().getRenderingTransform().createInverse());
-			}catch (Exception ex){}
+			}catch (NoninvertibleTransformException ex) {
+				System.err.println("Error getting scaled point: " + ex);
+			}
 			
 			try{
 				af.preConcatenate(
 					handle.getCanvas().getViewingTransform().createInverse());
-			}catch (Exception ex){}
+			}catch (NoninvertibleTransformException ex) {
+				System.err.println("Error getting scaled point: " + ex);
+			}
 			
 			point2D=af.transform(point, new Point2D.Double());
 
@@ -294,15 +289,10 @@ public class TransformsManager {
 			//applying the inverse of the transforms
 			AffineTransform af=new AffineTransform();
 			
-			try{
 				af.preConcatenate(
 					handle.getCanvas().getViewingTransform());
-			}catch (Exception ex){}
-			
-			try{
 				af.preConcatenate(
 					handle.getCanvas().getRenderingTransform());
-			}catch (Exception ex){}
 			
 			point2D=af.transform(point, new Point2D.Double());
 		}
@@ -330,12 +320,16 @@ public class TransformsManager {
 			try{
 				af.preConcatenate(
 					handle.getCanvas().getRenderingTransform().createInverse());
-			}catch (Exception ex){}
+			}catch (NoninvertibleTransformException ex) {
+				System.err.println("Error getting scaled point: " + ex);
+			}
 			
 			try{
 				af.preConcatenate(
 					handle.getCanvas().getViewingTransform().createInverse());
-			}catch (Exception ex){}
+			}catch (NoninvertibleTransformException ex) {
+				System.err.println("Error getting scaled point: " + ex);
+			}
 			
 			if(transform!=null){
 				
@@ -354,15 +348,10 @@ public class TransformsManager {
 				af.preConcatenate(transform);
 			}
 			
-			try{
 				af.preConcatenate(
 					handle.getCanvas().getViewingTransform());
-			}catch (Exception ex){}
-			
-			try{
 				af.preConcatenate(
 					handle.getCanvas().getRenderingTransform());
-			}catch (Exception ex){}
 			
 			point2D=af.transform(point, new Point2D.Double());
 		}

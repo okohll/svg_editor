@@ -58,9 +58,7 @@ public class ToolBar {
 	 */
 	protected void build(Map<String, AbstractButton> toolItems, Element element){
 		
-		//try{
 			isExclusive=Boolean.parseBoolean(element.getAttribute(exclusiveAtt));
-		//}catch (Exception ex){}
 		
 		//filling the toolbar
 		Element childEl;

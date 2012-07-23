@@ -58,10 +58,8 @@ public class SVGResourcesManager {
 			//checking if the id of the resource is contained in the map
 			if(usedResources.containsKey(resourceId)){
 				
-				//try{
 					//getting the associated list of nodes
 					nodesList=usedResources.get(resourceId); 
-				//}catch (Exception ex){}
 			}
 			
 			if(nodesList==null){
@@ -90,10 +88,8 @@ public class SVGResourcesManager {
 			//checking if the id of the resource is contained in the map
 			if(usedResources.containsKey(resourceId)){
 				
-				//try{
 					//getting the associated list of nodes
 					nodesList=usedResources.get(resourceId); 
-				//}catch (Exception ex){}
 			}
 			
 			if(nodesList==null){
@@ -128,10 +124,8 @@ public class SVGResourcesManager {
 			//checking if the id of the resource is contained in the map
 			if(usedResources.containsKey(resourceId)){
 				
-				//try{
 					//getting the associated list of nodes
 					nodesList=usedResources.get(resourceId); 
-				//}catch (Exception ex){}
 			}
 			
 			if(nodesList!=null && nodesList.contains(node)){
@@ -156,10 +150,8 @@ public class SVGResourcesManager {
 			//checking if the id of the resource is contained in the map
 			if(usedResources.containsKey(resourceId)){
 				
-				//try{
 					//getting the associated list of nodes
 					nodesList=usedResources.get(resourceId); 
-				//}catch (Exception ex){}
 			}
 			
 			if(nodesList!=null){
@@ -203,9 +195,7 @@ public class SVGResourcesManager {
 			
 			LinkedList<Element> list=null;
 			
-			//try{
 				list=usedResources.get(id);
-			//}catch (Exception ex){}
 
 			if(list!=null){
 
@@ -234,9 +224,7 @@ public class SVGResourcesManager {
 			//getting the list of the nodes using the resource
 			LinkedList<Element> nodesList=null;
 			
-			//try{
 				nodesList=usedResources.get(lastId);
-			//}catch (Exception ex){}
 			
 			if(nodesList!=null){
 				
@@ -277,9 +265,7 @@ public class SVGResourcesManager {
 			
 			LinkedList<Element> list=null;
 			
-			//try{
 				list=usedResources.get(resourceId);
-			//}catch (Exception ex){}
 			
 			if(list!=null && list.size()>0){
 				

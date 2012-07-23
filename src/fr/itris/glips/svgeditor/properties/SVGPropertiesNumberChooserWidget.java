@@ -59,7 +59,10 @@ public class SVGPropertiesNumberChooserWidget extends SVGPropertiesWidget{
 	    
 	    try{
 	        val=Double.parseDouble(propertyItem.getGeneralPropertyValue());
-	    }catch(Exception ex){val=0;}
+	    }catch(NumberFormatException ex) {
+	    		ex.printStackTrace();
+	    		val=0;
+	    	}
 	    
 	    if(valueType.equals("positivenumberchooser")){
 	        

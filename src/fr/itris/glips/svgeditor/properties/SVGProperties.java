@@ -469,7 +469,7 @@ public class SVGProperties extends ModuleAdapter{
 						    
 							if(use.getNodeName().equals("use")){
 							    
-								try{name=((Element)use).getAttribute("name");}catch(Exception ex){name="";}
+								name=((Element)use).getAttribute("name");
 							
 								//adds the tab node to the list
 								if(name!=null && !name.equals("")){

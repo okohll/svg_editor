@@ -213,7 +213,7 @@ public class SVGVisualResourceListsPanel extends JPanel{
             
             for(Iterator it=disposers.iterator(); it.hasNext();){
                 
-                try{disposer=(Runnable)it.next();}catch(Exception ex){disposer=null;}
+                disposer=(Runnable)it.next();
                 
                 if(disposer!=null){
                     

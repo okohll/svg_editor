@@ -163,7 +163,7 @@ public class UndoRedo extends ModuleAdapter{
 
 				for(int i=actionList.size()-1; i>=0; i--){
 				    
-					try{current=actionList.get(i);}catch (Exception ex){}
+					current=actionList.get(i);
 					
 					if(current!=null){
 					    

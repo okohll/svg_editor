@@ -273,9 +273,7 @@ public class LineInterpolationChooserWidget extends Widget {
 						AffineTransform af=AffineTransform.getTranslateInstance(location.x, location.y);
 						
 						//applying the affine transform to the shape
-						//try{
 							shape=af.createTransformedShape(shape);
-						//}catch (Exception ex){}
 						
 						//drawing the shape
 						g2.draw(shape);

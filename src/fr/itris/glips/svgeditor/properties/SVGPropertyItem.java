@@ -306,7 +306,7 @@ public class SVGPropertyItem{
 			
 			for(Iterator it=propertyValues.keySet().iterator(); it.hasNext();){
 			    
-				try{node=(Node)it.next();}catch(Exception ex){node=null;}
+				node=(Node)it.next();
 				
 				if(node!=null){
 				    

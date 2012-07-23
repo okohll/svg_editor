@@ -28,6 +28,8 @@ Contact : jordi.suc@itris.fr; philippe.gil@itris.fr
 package fr.itris.glips.svgeditor.display.handle;
 
 import javax.swing.*;
+
+import java.lang.reflect.InvocationTargetException;
 import java.util.*;
 import java.util.concurrent.*;
 import java.awt.event.*;
@@ -185,9 +187,15 @@ public class HandlesManager {
 			
 		}else{
 			
-	        try{
-	        	SwingUtilities.invokeAndWait(runnable);
-	        }catch (Exception ex){}
+	        	try {
+					SwingUtilities.invokeAndWait(runnable);
+				} catch (InvocationTargetException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (InterruptedException e) {
+					System.out.println("Interrupted while invoking " + runnable + ": " + e);
+					Thread.currentThread().interrupt();
+				}
 		}
 	}
 	

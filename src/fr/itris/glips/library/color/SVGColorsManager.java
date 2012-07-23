@@ -129,7 +129,6 @@ public class SVGColorsManager {
 
 		if (color == null) {
 
-			// try{color=Color.getColor(colorString);}catch (Exception ex){}
 			color = Color.getColor(colorString);
 
 			if (color == null && colorString.length() == 7) {
@@ -165,8 +164,6 @@ public class SVGColorsManager {
 					b = new Integer(tmp).intValue();
 
 					color = new Color(r, g, b);
-				//} catch (Exception ex) {
-				//}
 			}
 		}
 

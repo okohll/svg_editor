@@ -314,7 +314,6 @@ public class SVGCanvas extends JPanel {
 		}
 		
 		//creating the graphics node
-        //try {
         	UserAgentAdapter userAgent=new UserAgentAdapter();
     		ctx=new BridgeContext(
     				userAgent, null, new DocumentLoader(userAgent));
@@ -326,7 +325,6 @@ public class SVGCanvas extends JPanel {
             	
             	gvtRoot=gvt.getRoot();
             }
-        //}catch (Exception ex) {ex.printStackTrace();}
             
 		if(monitor!=null){
 
@@ -1135,13 +1133,11 @@ public class SVGCanvas extends JPanel {
 	 */
 	public void removePaintListener(CanvasPainter l, boolean makeRepaint){
 		
-		//try{
 			paintListeners.get(GRID_LAYER).remove(l);
 			paintListeners.get(BOTTOM_LAYER).remove(l);
 			paintListeners.get(SELECTION_LAYER).remove(l);
 			paintListeners.get(DRAW_LAYER).remove(l);
 			paintListeners.get(TOP_LAYER).remove(l);
-		//} catch (Exception ex) {}
 
 		if(l!=null){
 			

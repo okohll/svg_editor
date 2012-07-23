@@ -58,20 +58,13 @@ public class ImageShape extends RectangularShape {
 	
 	@Override
 	protected boolean isDrawingEnabled(SVGHandle handle) {
-
-		boolean isDrawingEnabled=false;
-		
 		if(handle!=null){
-			
 			String canvasURI=handle.getCanvas().getURI();
-			
 			if(canvasURI!=null && ! canvasURI.equals("")){
-				
-				isDrawingEnabled=true;
+				return true;
 			}
 		}
-		
-		return isDrawingEnabled;
+		return false;
 	}
 	
 	@Override
@@ -85,7 +78,7 @@ public class ImageShape extends RectangularShape {
 	 * @param handle a svg handle
 	 * @return an image file path relative to the canvas path denoted by the provided handle
 	 */
-	public String getImageFile(SVGHandle handle){
+	private String getImageFile(SVGHandle handle){
 		
 		//the found file path
 		String foundFilePath="";
