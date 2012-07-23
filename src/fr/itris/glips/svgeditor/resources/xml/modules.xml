@@ -26,8 +26,9 @@
 	<module class="fr.itris.glips.svgeditor.actions.dom.CanvasSizeModule"/>
 	
 	<module class="fr.itris.glips.svgeditor.AboutModule" />
+<!-- We don't need a DOM viewer
 	<module class="fr.itris.glips.svgeditor.DOMViewerModule" />
-
+-->
 	<module class="fr.itris.glips.svgeditor.display.canvas.zoom.ZoomModule" />
 	<module class="fr.itris.glips.svgeditor.display.canvas.rulers.RulersModule" />
 	<module class="fr.itris.glips.svgeditor.display.canvas.grid.GridModule" />

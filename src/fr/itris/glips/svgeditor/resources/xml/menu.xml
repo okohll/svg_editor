@@ -116,11 +116,13 @@ Contact : jordi.suc@itris.fr; philippe.gil@itris.fr
 		<menuitem name="ToolFrame_Properties"/>
 		<menuitem name="ToolFrame_VisualResources"/>
 		<separator/>
+		<!--
 		<menuitem name="ToolFrame_RtdaDataBaseEditor"/>
 		<menuitem name="ToolFrame_RtdaAnimationsAndActions"/>
 		<menuitem name="RtdaAnimationsAndActionsTestLauncher"/>
 		<separator/>
 		<menuitem name="DOMViewer"/>
+		-->
 		<menuitem name="MemoryMonitor"/>
 	</menu>
 
