@@ -30,6 +30,7 @@ package fr.itris.glips.svgeditor.properties;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
+
 import javax.swing.*;
 import fr.itris.glips.svgeditor.*;
 
@@ -74,7 +75,9 @@ public class SVGPropertiesPreserveAspectRatioChooser extends SVGPropertiesWidget
 		try{
 			meetOrSliceLabel=bundle.getString("property_meetOrSlice");
 			alignLabel=bundle.getString("property_preserveAspectRatioAlign");
-		}catch (Exception ex){}
+		}catch (MissingResourceException ex) {
+			ex.printStackTrace();
+		}
 		
 		//creating the label for the combo box
 		final JLabel alignLbl=new JLabel(alignLabel+" : ");
@@ -103,7 +106,10 @@ public class SVGPropertiesPreserveAspectRatioChooser extends SVGPropertiesWidget
 			//getting the label for this item and creating the item
 			try{
 				label=bundle.getString("item_"+alignValues[i]);
-			}catch (Exception ex){label=alignValues[i];}
+			}catch (MissingResourceException ex) {
+				ex.printStackTrace();
+				label=alignValues[i];
+			}
 			
 			if(label!=null){
 				

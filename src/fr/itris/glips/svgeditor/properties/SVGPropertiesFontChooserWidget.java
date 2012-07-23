@@ -83,7 +83,10 @@ public class SVGPropertiesFontChooserWidget extends SVGPropertiesWidget{
 				    
 					try{
 						value=(String)(fontFamilyList.get(((Integer)combo.getSelectedItem()).intValue()));
-					}catch (Exception ex){value="";}
+					}catch (IndexOutOfBoundsException ex) {
+						ex.printStackTrace();
+						value="";
+					}
 				}
 						
 				//modifies the widgetValue of the property item

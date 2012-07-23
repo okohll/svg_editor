@@ -9,6 +9,7 @@ import org.apache.batik.gvt.*;
 import org.w3c.dom.Document;
 
 import com.itextpdf.awt.DefaultFontMapper;
+import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.pdf.*;
 import fr.itris.glips.svgeditor.*;
 import fr.itris.glips.svgeditor.io.managers.export.*;
@@ -169,7 +170,7 @@ public class PDFExport extends Export{
 	                    	@Override
 	                        public void close() {
 	                            
-	                            try{super.close();}catch (Exception ex) {}
+	                            super.close();
 	                            synchronized(PDFExport.this) {pdfDocOpen=false;}
 	                        }
 	                    };
@@ -205,16 +206,16 @@ public class PDFExport extends Export{
 
 	                    				synchronized(PDFExport.this) {pdfDocOpen=false;}
 
-	                    				try {
 	                    					tp.reset();
 	                    					pdfDoc.close();
-	                    				}catch (Exception ex) {ex.printStackTrace();}
 
 	                    				monitor.stop();
 	                    				break;
 	                    			}
 
-	                    			try {sleep(500);}catch (Exception ex) {}
+	                    			try {sleep(500);}catch (InterruptedException ex) {
+	                    				Thread.currentThread().interrupt();
+	                    			}
 	                    		}
 	                    	} 
 	                    };
@@ -239,7 +240,7 @@ public class PDFExport extends Export{
 
 					ctx.dispose();
 					
-				}catch (Exception ex) {
+				}catch (IOException | DocumentException ex) {
 					
 					handleExportFailure();
 					

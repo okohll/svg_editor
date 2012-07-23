@@ -307,10 +307,13 @@ public class FileChooserDialog extends TitledDialog {
 				//if the file has no extension, one is added
 				if(file.getName().indexOf(".")==-1){
 					
-					try{
-						file=new File(new URI(
-							file.toURI().toASCIIString()+fileFilter.getDefaultExtension()));
-					}catch (Exception ex){}
+						try {
+							file=new File(new URI(
+								file.toURI().toASCIIString()+fileFilter.getDefaultExtension()));
+						} catch (URISyntaxException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 				}
 				
 				if(file.exists()){
@@ -507,9 +510,6 @@ public class FileChooserDialog extends TitledDialog {
 			
 			if(! name.equals("")){
 				
-//				try{
-//					file=new File(new URI(baseURI+name));
-//				}catch (Exception ex){file=null;}
 				// Alteration by Oliver: only add files which actually exist to the fileSet
 				try {
 					file=new File(new URI(baseURI+name));

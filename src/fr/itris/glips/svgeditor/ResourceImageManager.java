@@ -339,10 +339,8 @@ public class ResourceImageManager {
 
 			Element resourceElement = null;
 
-			// try{
 			resourceElement = svgHandle.getScrollPane().getSVGCanvas().getDocument()
 					.getElementById(resourceId);
-			// }catch (Exception ex) {}
 
 			final String fresourceId = resourceId;
 

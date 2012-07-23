@@ -16,10 +16,8 @@ public class PreferencesStore {
     static{
     	
         //getting the preference node
-        //try{
         	preferences=Preferences.userNodeForPackage(
         			PreferencesStore.class);
-        //}catch(Exception ex){}
     }
     
     /**

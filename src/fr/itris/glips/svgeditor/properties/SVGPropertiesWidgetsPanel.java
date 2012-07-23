@@ -127,8 +127,7 @@ import javax.swing.event.*;
 				//disposes the widgets
 				for(Iterator it=widgets.iterator(); it.hasNext();){
 				    
-				    try{widget=(SVGPropertiesWidget)it.next();}catch (Exception ex){}
-				    
+				    widget=(SVGPropertiesWidget)it.next();
 				    if(widget!=null){
 				        
 				        widget.dispose();
@@ -179,12 +178,10 @@ import javax.swing.event.*;
 				//for each tab
 				for(Iterator it=new LinkedList(propertyItemsMap.keySet()).iterator(); it.hasNext();){
 				    
-					try{
 						//gets the name and the label of the tab, and the list of the property items linked with it
 						cur=(String)it.next();
 						list=(LinkedList)propertyItemsMap.get(cur);
 						label=(String)tabMap.get(cur);
-					}catch (Exception ex){cur=null; list=null; label=null;}
 					
 					if(label==null || (label!=null && label.equals(""))){
 					    
@@ -234,7 +231,7 @@ import javax.swing.event.*;
 				//for each property item, the linked panel is added to the tab panel
 				for(Iterator it=propertyItemsList.iterator(); it.hasNext();){
 				    
-					try{cur=(SVGPropertyItem)it.next();}catch (Exception ex){cur=null;}
+					cur=(SVGPropertyItem)it.next();
 					
 					if(cur!=null){
 					    

@@ -72,12 +72,10 @@ public class SVGPropertiesTwoRadioButtonsWidget extends SVGPropertiesWidget{
 			
 			for(Iterator it=propertyItem.getPropertyValuesMap().keySet().iterator(); it.hasNext();){
 			    
-				try{
 					key=(String)it.next();
 					values[i]=(String)propertyItem.getPropertyValuesMap().get(key);
 					labels[i]=(String)propertyItem.getPropertyValuesLabelMap().get(key);
 					i++;
-				}catch (Exception ex){break;}
 			}
 
 			if(values[0]!=null && labels[0]!=null && values[1]!=null && labels[1]!=null){

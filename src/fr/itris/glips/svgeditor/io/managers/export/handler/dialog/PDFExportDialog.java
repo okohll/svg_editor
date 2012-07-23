@@ -65,7 +65,7 @@ public class PDFExportDialog extends ExportDialog{
 
 			try{
 				exportDialogTitle=bundle.getString("labelpdfexport");
-			}catch (Exception ex){ex.printStackTrace();}
+			}catch (MissingResourceException ex){ex.printStackTrace();}
 		}
 
 		//setting the title of the dialog
@@ -90,7 +90,9 @@ public class PDFExportDialog extends ExportDialog{
 			try{
 				pageTabLabel=bundle.getString("labelexportpdftabpage");
 				infoTabLabel=bundle.getString("labelexportpdftabinfo");
-			}catch (Exception ex){}
+			} catch (MissingResourceException ex) {
+				ex.printStackTrace();
+			}
 		}
 
 		//adding the tabs
@@ -175,7 +177,9 @@ public class PDFExportDialog extends ExportDialog{
 				exportSizeLabel=bundle.getString("labelexportsize");
 				widthLabel=bundle.getString("labelwidth");
 				heightLabel=bundle.getString("labelheight");
-			}catch (Exception ex){}
+			}catch (MissingResourceException ex) {
+				ex.printStackTrace();
+			}
 		}
 
 		//creating the spinners that will be used to choose the custom size chooser
@@ -244,9 +248,7 @@ public class PDFExportDialog extends ExportDialog{
 				if(combo.getSelectedItem()!=null) {
 
 					//setting the new size
-					try {
 						pageSize=((PredefinedPageSizeItem)combo.getSelectedItem()).getSize();
-					}catch (Exception ex) {}
 				}
 			}
 		});
@@ -278,7 +280,6 @@ public class PDFExportDialog extends ExportDialog{
 						widthSpinner.setEnabled(false);
 						heightSpinner.setEnabled(false);
 
-						try {
 							//setting the new value for the combo
 							if(combo.getSelectedItem()!=null) {
 
@@ -291,8 +292,6 @@ public class PDFExportDialog extends ExportDialog{
 
 							//setting the new size
 							pageSize=((PredefinedPageSizeItem)combo.getSelectedItem()).getSize();
-
-						}catch (Exception ex) {}
 
 					}else if(evt.getSource().equals(customRadioButton) && customRadioButton.isSelected()){
 
@@ -431,7 +430,9 @@ public class PDFExportDialog extends ExportDialog{
 				orientationLabel=bundle.getString("labelexportorientation");
 				portraitLabel=bundle.getString("labelexportportrait");
 				landscapeLabel=bundle.getString("labelexportlandscape");
-			}catch (Exception ex){}
+			}catch (MissingResourceException ex) {
+				ex.printStackTrace();
+			}
 		}
 
 		//creating the radio buttons
@@ -485,7 +486,9 @@ public class PDFExportDialog extends ExportDialog{
 				bottomLabel=bundle.getString("labelexportmarginbottom");
 				leftLabel=bundle.getString("labelexportmarginleft");
 				rightLabel=bundle.getString("labelexportmarginright");
-			}catch (Exception ex){}
+			}catch (MissingResourceException ex) {
+				ex.printStackTrace();
+			}
 		}
 
 		//creating the spinners that will be used to choose the margins
@@ -665,7 +668,9 @@ public class PDFExportDialog extends ExportDialog{
 				subjectLabel=bundle.getString("labelexportsubject");
 				keywordsLabel=bundle.getString("labelexportkeywords");
 				creatorLabel=bundle.getString("labelexportcreator");
-			}catch (Exception ex){}
+			}catch (MissingResourceException ex) {
+				ex.printStackTrace();
+			}
 		}
 
 		//creating the jlabels
@@ -851,7 +856,9 @@ public class PDFExportDialog extends ExportDialog{
 					labelLEGAL=bundle.getString("labelexportpdfLEGAL"); 
 					labelLETTER=bundle.getString("labelexportpdfLETTER"); 
 					labelNOTE=bundle.getString("labelexportpdfNOTE");
-				}catch (Exception ex){}
+				}catch (MissingResourceException ex) {
+					ex.printStackTrace();
+				}
 			}
 
 			//filling the map of the sizes

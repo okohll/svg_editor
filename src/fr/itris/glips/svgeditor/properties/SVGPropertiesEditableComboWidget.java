@@ -68,7 +68,6 @@ public class SVGPropertiesEditableComboWidget extends SVGPropertiesWidget{
 		//builds the array of items for the combo
 		for(Iterator it=propertyItem.getPropertyValuesMap().keySet().iterator(); it.hasNext();){
 
-			try{
 				cur=(String)it.next();
 				String value=(String)propertyItem.getPropertyValuesMap().get(cur);
 				item=new SVGPropertiesComboItem(value, (String)propertyItem.getPropertyValuesLabelMap().get(cur));
@@ -78,9 +77,7 @@ public class SVGPropertiesEditableComboWidget extends SVGPropertiesWidget{
 				    
 				    selectedItem=item;
 				}
-				
-			}catch (Exception ex){item=null;}
-			
+							
 			if(item!=null){
 			    
 			    itemList.add(item);
@@ -112,9 +109,7 @@ public class SVGPropertiesEditableComboWidget extends SVGPropertiesWidget{
 				
 				if(combo.getSelectedItem()!=null){
 				    
-					try{
 						value=((SVGPropertiesComboItem)combo.getSelectedItem()).getValue();
-					}catch (Exception ex){value="";}
 						
 					if(value==null || (value!=null && value.equals(""))){
 					    

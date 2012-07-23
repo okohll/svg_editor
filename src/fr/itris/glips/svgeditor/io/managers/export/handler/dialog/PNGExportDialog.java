@@ -2,6 +2,8 @@ package fr.itris.glips.svgeditor.io.managers.export.handler.dialog;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.MissingResourceException;
+
 import javax.swing.*;
 import javax.swing.event.*;
 import javax.swing.border.*;
@@ -61,7 +63,9 @@ public class PNGExportDialog extends ExportDialog{
                 imageSettingsLabel=bundle.getString("labelimagesettings");
                 compressionLevelLabel=bundle.getString("labelpngCompressionLevel");
                 encodeAlphaLabel=bundle.getString("labelpngEncodeAlpha");
-            }catch (Exception ex){}
+            } catch (MissingResourceException ex) {
+            		ex.printStackTrace();
+            }
         }
         
         //creating the size chooser panel

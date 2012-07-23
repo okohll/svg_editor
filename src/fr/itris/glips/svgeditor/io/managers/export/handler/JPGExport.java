@@ -170,7 +170,7 @@ public class JPGExport extends Export{
 					monitor.stop();
 					writer.dispose();
 					out.close();
-				}catch (Exception ex) {
+				}catch (IOException ex) {
 					
 					handleExportFailure();
 				}

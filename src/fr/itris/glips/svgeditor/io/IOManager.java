@@ -77,7 +77,10 @@ public class IOManager {
 					}else{
 						
 						//sleeping
-						try{sleep(100);}catch (Exception ex){}
+						try{sleep(100);}catch (InterruptedException ex) {
+							ex.printStackTrace();
+							Thread.currentThread().interrupt();
+						}
 					}
 				}
 			}

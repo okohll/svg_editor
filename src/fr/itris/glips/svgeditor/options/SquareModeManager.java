@@ -37,10 +37,8 @@ public class SquareModeManager {
 	protected void initializeParameters(){
 
 		//getting the parameters from the preference store
-		try{
 			isSquareMode=Boolean.parseBoolean(
 					PreferencesStore.getPreference(null, MODE_PREF_ID));
-		}catch (Exception ex){isSquareMode=defaultSquareModeEnabled;}
 	}
 	
 	/**

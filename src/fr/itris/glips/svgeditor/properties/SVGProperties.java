@@ -115,7 +115,9 @@ public class SVGProperties extends ModuleAdapter{
 		    
 			try{
 				labelproperties=bundle.getString("label_properties");
-			}catch (Exception ex){}
+			}catch (MissingResourceException ex) {
+				ex.printStackTrace();
+			}
 		}
 
 		//a listener that listens to the changes of the svg handles
@@ -328,7 +330,8 @@ public class SVGProperties extends ModuleAdapter{
 								//gets the label of the tab and puts it into the map
 								if(bundle!=null){
 								    
-									try{label=bundle.getString(name);}catch (Exception ex){label=null;}
+									try{label=bundle.getString(name);}catch (MissingResourceException ex) {
+										ex.printStackTrace(); label=null;}
 								}
 								
 								if(label==null || (label!=null && label.equals(""))){
@@ -388,7 +391,9 @@ public class SVGProperties extends ModuleAdapter{
 				    
 				    message=bundle.getString("property_empty_dialog_many");
 				}
-			}catch (Exception ex){}
+			}catch (MissingResourceException ex) {
+				ex.printStackTrace();
+			}
 
 			JLabel label=new JLabel(message);
             label.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -436,7 +441,7 @@ public class SVGProperties extends ModuleAdapter{
 						    
 							if(tab.getNodeName().equals("tab")){
 
-								try{name=((Element)tab).getAttribute("name");}catch (Exception ex){name="";}
+								name=((Element)tab).getAttribute("name");
 							
 								if(name!=null && ! name.equals("")){
 								    
@@ -450,7 +455,9 @@ public class SVGProperties extends ModuleAdapter{
 				//removes all the "define" nodes from the root node
 				for(Iterator it=defineList.iterator(); it.hasNext();){
 				    
-					try{root.removeChild((Node)it.next());}catch (Exception ex){}
+					try{root.removeChild((Node)it.next());}catch (DOMException ex) {
+						ex.printStackTrace();
+					}
 				}
 				
 				defineList.clear();
@@ -498,7 +505,9 @@ public class SVGProperties extends ModuleAdapter{
 						
 						for(Iterator it=tabList.iterator(); it.hasNext();){
 						    
-							try{cur.appendChild((Node)it.next());}catch (Exception ex){}
+							try{cur.appendChild((Node)it.next());}catch (DOMException ex) {
+								ex.printStackTrace();
+							}
 						}
 					}
 					
@@ -526,17 +535,17 @@ public class SVGProperties extends ModuleAdapter{
 			String name="";
 			Iterator it=list.iterator();
 			
-			try{
+			if (it.hasNext()) {
 				current=(Node)it.next();
 				subTree=getXMLProperties(current);
 				name=current.getNodeName();
-			}catch (Exception ex){return null;}
+			} else {
+				return null;
+			}
 			
 			while(it.hasNext()){
 			    
-				try{
-					current=(Node)it.next();
-				}catch (Exception ex){current=null;}
+				current=(Node)it.next();
 				
 				if(current!=null){
 					
@@ -629,10 +638,8 @@ public class SVGProperties extends ModuleAdapter{
 			String tabName="";
 			
 			//gets the value of the name attribute of the tab
-			try{
 				Element element=(Element)tab;
 				tabName=element.getAttribute("name");
-			}catch (Exception ex){tabName="";}
 			
 			if(tabName!=null && ! tabName.equals("")){
 				
@@ -644,10 +651,8 @@ public class SVGProperties extends ModuleAdapter{
 					if(tab2.getNodeName().equals("tab")){
 					    
 						//gets the value of the name attribute of the tab
-						try{
-							Element element=(Element)tab2;
+							element=(Element)tab2;
 							name=element.getAttribute("name");
-						}catch (Exception ex){name="";}
 						
 						if(name!=null && name.equals(tabName)){
 						    
@@ -675,11 +680,9 @@ public class SVGProperties extends ModuleAdapter{
 			String propertyName="", propertyType="", propertyName2="", propertyType2="";
 			
 			//gets the name and type of the given property
-			try{
 				Element element=(Element)property;
 				propertyName=element.getAttribute("name");
 				propertyType=element.getAttribute("type");
-			}catch (Exception ex){return null;}
 			
 			if(propertyName!=null && ! propertyName.equals("") && propertyType!=null && ! propertyType.equals("")){
 
@@ -688,11 +691,9 @@ public class SVGProperties extends ModuleAdapter{
 					//if the node is a property node
 					if(prop.getNodeName().equals("property")){
 						//gets the name and type of the current node
-						try{
-							Element element=(Element)prop;
+							element=(Element)prop;
 							propertyName2=element.getAttribute("name");
 							propertyType2=element.getAttribute("type");
-						}catch (Exception ex){propertyName2=null; propertyType2=null;}
 						
 						//tests if the current property name and type are equal to the gievn property name and type
 						if(propertyName2!=null && propertyType2!=null 

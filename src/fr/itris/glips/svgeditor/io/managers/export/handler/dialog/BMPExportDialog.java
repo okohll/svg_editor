@@ -2,12 +2,16 @@ package fr.itris.glips.svgeditor.io.managers.export.handler.dialog;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.MissingResourceException;
+
 import javax.swing.*;
 import javax.swing.border.*;
 
 /**
  * the class of the dialog used to choose the parameters of the bmp export action
  * @author ITRIS, Jordi SUC
+ * 
+ * TODO: Oliver - delete this class
  */
 public class BMPExportDialog extends ExportDialog{
 
@@ -54,7 +58,9 @@ public class BMPExportDialog extends ExportDialog{
 				exportDialogTitle=bundle.getString("labelbmpexport");
 				imageSettingsLabel=bundle.getString("labelimagesettings");
 				usePaletteLabel=bundle.getString("labelexportpalette");
-			}catch (Exception ex){}
+			}catch (MissingResourceException ex) {
+				ex.printStackTrace();
+			}
 		}
 
 		//creating the size chooser panel

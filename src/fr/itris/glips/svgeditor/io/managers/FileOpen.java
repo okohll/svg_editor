@@ -68,7 +68,9 @@ public class FileOpen {
 				warningNotNullMessage=bundle.getString("OpenFailedErrorFileNotNullMessage");
 				warningNullMessage=bundle.getString("OpenFailedErrorFileNullMessage");
 				warningTitle=bundle.getString("OpenFailedErrorTitle");
-			}catch (Exception ex){}
+			} catch (MissingResourceException ex) {
+				ex.printStackTrace();
+			}
 		}
 	}
 	
@@ -181,11 +183,9 @@ public class FileOpen {
 			
 			try{
 				file=new File(new URI(path));
-			}catch (Exception ex){file=null;}
-			
-			if(file!=null){
-				
 				recentFiles.add(file);
+			} catch (URISyntaxException ex) {
+				ex.printStackTrace();
 			}
 		}	
 

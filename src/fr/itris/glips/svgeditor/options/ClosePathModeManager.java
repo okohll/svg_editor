@@ -37,10 +37,8 @@ public class ClosePathModeManager {
 	protected void initializeParameters(){
 		
 		//getting the parameters from the preference store
-		try{
 			shouldClosePath=Boolean.parseBoolean(
 					PreferencesStore.getPreference(null, MODE_PREF_ID));
-		}catch (Exception ex){shouldClosePath=defaultShouldClosePathEnabled;}
 	}
 	
 	/**

@@ -88,7 +88,9 @@ public class OpenRecentMenuManager {
 				//getting the file corresponding to the path and checking its existence
 				try{
 					file=new File(new URI(recentFilePath));
-				}catch (Exception ex){}
+				}catch (URISyntaxException ex) {
+					ex.printStackTrace();
+				}
 				
 				if(file!=null/* && file.exists()*/){
 					

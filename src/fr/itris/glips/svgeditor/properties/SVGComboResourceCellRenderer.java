@@ -45,12 +45,9 @@ public class SVGComboResourceCellRenderer implements ListCellRenderer{
         JPanel panel=new JPanel();
         
         SVGComboResourceItem item=null;
-        
-        try{
-            item=(SVGComboResourceItem)value;
-        }catch (Exception ex){}
 
-        if(item!=null){
+        if(value instanceof SVGComboResourceItem){
+            item=(SVGComboResourceItem)value;
             
             panel.setLayout(new BorderLayout(0, 0));
             //getting the resource image panel

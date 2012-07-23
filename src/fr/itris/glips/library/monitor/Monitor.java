@@ -286,9 +286,7 @@ public class Monitor {
 			
 		}else{
 			
-			//try{
 				SwingUtilities.invokeLater(runnable);
-			//}catch(Exception ex){}
 		}
 	}
 }

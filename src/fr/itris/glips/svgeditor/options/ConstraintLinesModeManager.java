@@ -37,10 +37,8 @@ public class ConstraintLinesModeManager {
 	protected void initializeParameters(){
 		
 		//getting the parameters from the preference store
-		try{
 			constraintLines=Boolean.parseBoolean(
 					PreferencesStore.getPreference(null, MODE_PREF_ID));
-		}catch (Exception ex){constraintLines=defaultConstraintLinesEnabled;}
 	}
 	
 	/**

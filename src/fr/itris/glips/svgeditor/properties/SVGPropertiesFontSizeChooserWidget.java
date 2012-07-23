@@ -95,9 +95,7 @@ public class SVGPropertiesFontSizeChooserWidget extends SVGPropertiesWidget{
 				
 				if(combo.getSelectedItem()!=null){
 				    
-					try{
 						value=(String)combo.getSelectedItem();
-					}catch (Exception ex){value="";}
 				}
 					
 				//modifies the widgetValue of the property item

@@ -30,6 +30,7 @@ package fr.itris.glips.svgeditor.properties;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
+
 import javax.swing.*;
 import javax.swing.border.*;
 import org.w3c.dom.*;
@@ -129,7 +130,9 @@ public class SVGPropertiesRenderChooserWidget extends SVGPropertiesWidget {
 				labels[0]=bundle.getString("renderchooser_color");
 				labels[1]=bundle.getString("renderchooser_uri");
 				labelColorPicker=bundle.getString("labelcolorpicker");
-			}catch (Exception ex){}
+			}catch (MissingResourceException ex) {
+				ex.printStackTrace();
+			}
 		}
 		
 		//the icons

@@ -60,7 +60,10 @@ public class SVGPropertiesSliderWidget extends SVGPropertiesWidget{
 		String value=propertyItem.getGeneralPropertyValue();
 		int val=100;
 			
-		try{val=(int)(Double.parseDouble(value)*100);}catch (Exception ex){val=100;}
+		try{val=(int)(Double.parseDouble(value)*100);}catch (NumberFormatException ex) {
+			ex.printStackTrace();
+			val=100;
+		}
 			
 		final JSlider slider=new JSlider(0, 100, val);
 		slider.setPreferredSize(new Dimension(100, 19));
@@ -98,7 +101,10 @@ public class SVGPropertiesSliderWidget extends SVGPropertiesWidget{
 				
 				try{
 					newVal=Double.parseDouble(textField.getText());
-				}catch (Exception ex){newVal=Double.NaN;}
+				}catch (NumberFormatException ex) {
+					ex.printStackTrace();
+					newVal=Double.NaN;
+				}
 				
 				if(! Double.isNaN(newVal)){
 					

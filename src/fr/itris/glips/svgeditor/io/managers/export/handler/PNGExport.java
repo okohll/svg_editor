@@ -111,7 +111,7 @@ public class PNGExport extends Export{
 					//stopping the monitor
 					monitor.stop();
 					
-				}catch (Exception ex) {
+				}catch (IOException ex) {
 					
 					ex.printStackTrace();
 					handleExportFailure();

@@ -1,5 +1,7 @@
 package fr.itris.glips.svgeditor.io.managers;
 
+import java.awt.print.PrinterException;
+
 import javax.swing.*;
 import org.apache.batik.transcoder.*;
 import org.apache.batik.transcoder.print.*;
@@ -56,8 +58,8 @@ public class FilePrint {
         try{
             transcoder.transcode(input, output);
             transcoder.print();
-        }catch (Exception ex){
-        
+        } catch (PrinterException ex){
+        		ex.printStackTrace();
             JOptionPane.showMessageDialog(
             	Editor.getParent(), errorMessage, errorTitle, 
             		JOptionPane.WARNING_MESSAGE);

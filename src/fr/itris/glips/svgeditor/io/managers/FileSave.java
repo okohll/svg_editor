@@ -170,7 +170,9 @@ public class FileSave {
 			//creating the new file
 			try{
 				newFile=new File(new URI(filePath));
-			}catch (Exception ex){}
+			}catch (URISyntaxException ex) {
+				ex.printStackTrace();
+			}
 		}
 		
 		return newFile;

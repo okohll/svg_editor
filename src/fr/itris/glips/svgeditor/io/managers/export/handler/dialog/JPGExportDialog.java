@@ -2,6 +2,8 @@ package fr.itris.glips.svgeditor.io.managers.export.handler.dialog;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.MissingResourceException;
+
 import javax.swing.*;
 import javax.swing.border.*;
 import javax.swing.event.*;
@@ -64,7 +66,9 @@ public class JPGExportDialog extends ExportDialog{
 				jpgQualityLabel=bundle.getString("labeljpegquality");
 				optimizedLabel=bundle.getString("labeljpegoptimized");
 				progressiveLabel=bundle.getString("labeljpegprogressive");
-			}catch (Exception ex){}
+			}catch (MissingResourceException ex) {
+				ex.printStackTrace();
+			}
 		}
 
 		//setting the title of the dialog

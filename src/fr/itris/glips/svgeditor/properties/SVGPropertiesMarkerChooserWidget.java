@@ -94,9 +94,7 @@ public class SVGPropertiesMarkerChooserWidget extends SVGPropertiesWidget{
 			//fills the map with the values of the resource ids
 			for(Iterator it=resources.keySet().iterator(); it.hasNext();){
 			    
-			    try{
 			        cur=(String)it.next();
-			    }catch (Exception ex){cur=null;}
 			    
 			    if(cur!=null){
 			        
@@ -113,7 +111,6 @@ public class SVGPropertiesMarkerChooserWidget extends SVGPropertiesWidget{
 		//builds the array of items for the combo
 		for(Iterator it=values.keySet().iterator(); it.hasNext();){
 			
-			try{
 				cur=(String)it.next();
 				value=(String)values.get(cur);
 				resource=(Element)resources.get(cur);
@@ -124,8 +121,6 @@ public class SVGPropertiesMarkerChooserWidget extends SVGPropertiesWidget{
 				    
 				    selectedItem=item;
 				}
-				
-			}catch (Exception ex){item=null;}
 				
 			if(item!=null){
 			    
@@ -152,9 +147,7 @@ public class SVGPropertiesMarkerChooserWidget extends SVGPropertiesWidget{
 			    
 			    for(Iterator it=nodesList.iterator(); it.hasNext();){
 			        
-			        try{
 			            cur=(Node)it.next();
-			        }catch (Exception ex){cur=null;}
 			        
 			        if(cur!=null){
 			            

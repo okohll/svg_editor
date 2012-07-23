@@ -112,7 +112,10 @@ public class SVGPropertyItem{
 		
 		try{
 			this.propertyName=propName.substring(propName.indexOf("_")+1, propName.length());
-		}catch (Exception ex){this.propertyName=propName;}
+		}catch (IndexOutOfBoundsException ex){
+			ex.printStackTrace();
+			this.propertyName=propName;
+		}
 		
 		this.propertyValueType=propertyValueType;
 		this.defaultPropertyValue=defaultPropertyValue;
@@ -127,7 +130,9 @@ public class SVGPropertyItem{
 			try{
 				propertyLabel=bundle.getString(propName);
 				undoredoproperties=bundle.getString("undoredoproperties");
-			}catch (Exception ex){}
+			}catch (MissingResourceException ex) {
+				ex.printStackTrace();
+			}
 			
 			if(propertyLabel==null || (propertyLabel!=null && propertyLabel.equals(""))){
 			    
@@ -143,15 +148,14 @@ public class SVGPropertyItem{
 			
 			for(Iterator it=valuesMap.keySet().iterator(); it.hasNext();){
 			    
-				try{
 					name=(String)it.next();
-				}catch (Exception ex){name=null;}
 				
 				if(name!=null && ! name.equals("")){
 				    
 					try{
 						label=bundle.getString(name);
-					}catch (Exception ex){label="";}
+					}catch (MissingResourceException ex) {
+						ex.printStackTrace(); label="";}
 					
 					//if no label has been found, the label is set to the name
 					if(label==null || (label!=null && label.equals(""))){
@@ -249,10 +253,7 @@ public class SVGPropertyItem{
 	    
 	    if(node!=null){
 	        
-	        try{
-	            
 	            val=(String)propertyValues.get(node);
-	        }catch (Exception ex){}
 	    }
 	    
 	    return val;
@@ -460,7 +461,7 @@ public class SVGPropertyItem{
 			//for each node in the list
 			for(Iterator it=nodeList.iterator(); it.hasNext();){
 			    
-				try{element=(Element)it.next();}catch (Exception ex){element=null;}
+				element=(Element)it.next();
 			
 				value=properties.getSVGEditor().getSVGToolkit().getStyleProperty(element, name);
 				
@@ -484,7 +485,10 @@ public class SVGPropertyItem{
 		    
 			try{
 				returnedValue=(String)propertyValues.get(nodeList.getFirst());
-			}catch (Exception ex){returnedValue="";}
+			}catch (NoSuchElementException ex) {
+				ex.printStackTrace();
+				returnedValue="";
+			}
 		}
 
 		return returnedValue;
@@ -505,9 +509,7 @@ public class SVGPropertyItem{
 		//for each node in the list
 		for(Iterator it=nodeList.iterator(); it.hasNext();){
 		    
-			try{
 				element=(Element)it.next();
-			}catch (Exception ex){element=null;}
 			
 			if(element!=null && name!=null && ! name.equals("")){
 			    
@@ -532,7 +534,10 @@ public class SVGPropertyItem{
 		    
 			try{
 				returnedValue=(String)propertyValues.get(nodeList.getFirst());
-			}catch (Exception ex){returnedValue="";}
+			}catch (NoSuchElementException ex) {
+				ex.printStackTrace();
+				returnedValue="";
+			}
 		}
 
 		return returnedValue;
@@ -553,7 +558,7 @@ public class SVGPropertyItem{
 		//for each node in the list
 		for(Iterator it=nodeList.iterator(); it.hasNext();){
 		    
-			try{node=(Node)it.next();}catch (Exception ex){node=null;}
+			node=(Node)it.next();
 			
 			if(node!=null && name!=null && ! name.equals("")){
 				

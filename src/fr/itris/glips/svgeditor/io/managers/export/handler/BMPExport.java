@@ -161,7 +161,7 @@ public class BMPExport extends Export{
 					writer.dispose();
 					out.close();
 					
-				}catch (Exception ex) {
+				} catch (IOException ex) {
 					
 					handleExportFailure();
 				}
