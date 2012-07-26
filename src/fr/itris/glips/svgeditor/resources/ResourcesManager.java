@@ -32,11 +32,7 @@ import fr.itris.glips.svgeditor.*;
 import org.apache.batik.dom.svg.*;
 import org.w3c.dom.*;
 import org.xml.sax.SAXException;
-
-import com.gtwm.util.GlipsException;
-
 import javax.xml.parsers.*;
-
 import java.util.*;
 import java.io.*;
 import javax.swing.*;
@@ -69,11 +65,19 @@ public class ResourcesManager {
 	static {
 
 		try {
+			// Try to load plugin
 			bundle = ResourceBundle
-					.getBundle("fr.itris.glips.svgeditor.resources.properties.SVGEditorStrings");
-		} catch (MissingResourceException ex) {
-			ex.printStackTrace();
-			bundle = null;
+					.getBundle("com.gtwm.svgeditor.plugins.resources.properties.SVGEditorStrings");
+			System.out.println("Loaded plugin SVGEditorStrings");
+		} catch (MissingResourceException mrex) {
+			// Fall back to built in
+			try {
+				bundle = ResourceBundle
+						.getBundle("fr.itris.glips.svgeditor.resources.properties.SVGEditorStrings");
+			} catch (MissingResourceException ex) {
+				ex.printStackTrace();
+				bundle = null;
+			}
 		}
 	}
 
@@ -186,7 +190,7 @@ public class ResourcesManager {
 		String path = "";
 		URL resourceURL = ResourcesManager.class.getResource(resource);
 		if (resourceURL == null) {
-			System.err.println("Icon not found for " + resource);
+			System.err.println("Resource not found for " + resource);
 		} else {
 			path = resourceURL.toExternalForm();
 		}
@@ -224,12 +228,18 @@ public class ResourcesManager {
 
 				// gets the name of the icons from the resources
 				ResourceBundle iconsBundle = null;
-
 				try {
-					iconsBundle = ResourceBundle
-							.getBundle("fr.itris.glips.svgeditor.resources.properties.SVGEditorIcons");
-				} catch (MissingResourceException ex) {
-					ex.printStackTrace();
+					// Try plugins first
+					iconsBundle = ResourceBundle.getBundle("com.gtwm.svgeditor.plugins.resources.properties.SVGEditorIcons");
+					System.out.println("Loaded plugin icons");
+				} catch (MissingResourceException mrex) {
+					try {
+						// Fall back to built in
+						iconsBundle = ResourceBundle
+								.getBundle("fr.itris.glips.svgeditor.resources.properties.SVGEditorIcons");
+					} catch (MissingResourceException ex) {
+						ex.printStackTrace();
+					}
 				}
 
 				String path = "";
@@ -246,7 +256,6 @@ public class ResourcesManager {
 					if (path != null && !path.equals("")) {
 
 						try {
-							System.out.println("Loading icon " + path);
 							String iconPath = getPath("icons/" + path);
 							if (iconPath != null) {
 								icon = new ImageIcon(new URL(iconPath));
@@ -275,7 +284,6 @@ public class ResourcesManager {
 				}
 			}
 		}
-		System.out.println("Returning " + icon + " for " + name);
 		return icon;
 	}
 
@@ -297,7 +305,7 @@ public class ResourcesManager {
 	}
 
 	/**
-	 * create a document from tthe given file in the resource files
+	 * create a document from the given file in the resource files
 	 * 
 	 * @param name
 	 *            the name of the xml file
@@ -322,7 +330,12 @@ public class ResourcesManager {
 				try {
 					// parses the XML file
 					DocumentBuilder docBuild = docBuildFactory.newDocumentBuilder();
-					path = getPath("xml/" + name);
+					if (name.contains("/")) {
+						// Plugins are defined absolutely
+						path = getPath(name);
+					} else {
+						path = getPath("xml/" + name);
+					}
 					doc = docBuild.parse(path);
 				} catch (IOException | SAXException | ParserConfigurationException ex) {
 					ex.printStackTrace();
