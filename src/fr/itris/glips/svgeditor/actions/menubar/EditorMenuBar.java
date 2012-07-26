@@ -90,7 +90,9 @@ public class EditorMenuBar extends JMenuBar {
 	public void init(){
 		
 		docMenu = ResourcesManager.getXMLDocument("/com/gtwm/svgeditor/plugins/resources/xml/menu.xml");
-		docMenu=ResourcesManager.getXMLDocument("menu.xml");		
+		System.out.println("Plugin menu is " + docMenu);
+		docMenu=ResourcesManager.getXMLDocument("menu.xml");
+		System.out.println("Built in menu is " + docMenu);
 		parseXMLMenu();
 		findModuleMenuItems();
 		build();

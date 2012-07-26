@@ -206,6 +206,8 @@ public class ResourcesManager {
 	 * @param isGrayIcon
 	 *            true if the icon should be used for a disabled widget
 	 * @return an image icon
+	 * 
+	 * TODO: use a cache for the bundle
 	 */
 	public static ImageIcon getIcon(String name, boolean isGrayIcon) {
 
@@ -231,7 +233,6 @@ public class ResourcesManager {
 				try {
 					// Try plugins first
 					iconsBundle = ResourceBundle.getBundle("com.gtwm.svgeditor.plugins.resources.properties.SVGEditorIcons");
-					System.out.println("Loaded plugin icons");
 				} catch (MissingResourceException mrex) {
 					try {
 						// Fall back to built in
