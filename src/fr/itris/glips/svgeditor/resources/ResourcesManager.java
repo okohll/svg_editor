@@ -184,11 +184,11 @@ public class ResourcesManager {
 	public static String getPath(String resource) {
 
 		String path = "";
-		try {
-			path = ResourcesManager.class.getResource(resource).toExternalForm();
-		} catch (NullPointerException ex) {
-			//getResource throws a NPE in this case! Seems odd
+		URL resourceURL = ResourcesManager.class.getResource(resource);
+		if (resourceURL == null) {
 			System.err.println("Icon not found for " + resource);
+		} else {
+			path = resourceURL.toExternalForm();
 		}
 		return path;
 	}
@@ -275,7 +275,7 @@ public class ResourcesManager {
 				}
 			}
 		}
-		System.out.println("Returning " + icon+ " for " + name);
+		System.out.println("Returning " + icon + " for " + name);
 		return icon;
 	}
 
