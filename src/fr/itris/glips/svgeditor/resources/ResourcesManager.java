@@ -31,7 +31,10 @@ import fr.itris.glips.library.*;
 import fr.itris.glips.svgeditor.*;
 import org.apache.batik.dom.svg.*;
 import org.w3c.dom.*;
+import org.xml.sax.SAXException;
+
 import javax.xml.parsers.*;
+
 import java.util.*;
 import java.io.*;
 import javax.swing.*;
@@ -59,14 +62,17 @@ public class ResourcesManager {
     /**
      * the resource bundle
      */
-   public static ResourceBundle bundle;
+   public static ResourceBundle bundle = null;
    
    static{
 	   
 	   try{
 	       bundle=ResourceBundle.getBundle(
 	    		"fr.itris.glips.svgeditor.resources.properties.SVGEditorStrings");
-	   }catch (Exception ex){bundle=null;}
+	   }catch (MissingResourceException ex) {
+		   ex.printStackTrace();
+		   bundle=null;
+	   }
    }
 
     /**
@@ -140,7 +146,9 @@ public class ResourcesManager {
         
         try{
             keys=recentFilesPreferences.keys();
-        }catch (Exception ex){}
+        } catch (IllegalStateException | BackingStoreException ex) {
+        		ex.printStackTrace();
+        }
         
         if(keys!=null){
             
@@ -175,9 +183,7 @@ public class ResourcesManager {
         
         String path="";
         
-        try{
             path=ResourcesManager.class.getResource(resource).toExternalForm();
-        }catch (Exception ex){path="";}
         
         return path;
     }
@@ -210,22 +216,29 @@ public class ResourcesManager {
                 //gets the name of the icons from the resources
                 ResourceBundle iconsBundle=null;
                 
-                try{
+                try {
                     iconsBundle=ResourceBundle.getBundle(
                     		"fr.itris.glips.svgeditor.resources.properties.SVGEditorIcons");
-                }catch (Exception ex){}
+                } catch (MissingResourceException ex) {
+                		ex.printStackTrace();
+                }
                 
                 String path="";
                 
                 if(iconsBundle!=null){
                     
-                    try{path=iconsBundle.getString(name);}catch (Exception ex){path="";}
+                    try{path=iconsBundle.getString(name);}catch (MissingResourceException ex) {
+                    		ex.printStackTrace();
+                    		path="";
+                    }
                     
                     if(path!=null && ! path.equals("")){
                         
                         try{
                             icon=new ImageIcon(new URL(getPath("icons/"+path)));
-                        }catch (Exception ex){}
+                        }catch (MalformedURLException ex) {
+                        	ex.printStackTrace();
+                        }
 
                         if(icon!=null){
                             
@@ -290,7 +303,9 @@ public class ResourcesManager {
                     DocumentBuilder docBuild=docBuildFactory.newDocumentBuilder();
                     path=getPath("xml/"+name);
                     doc=docBuild.parse(path);
-                }catch (Exception ex){}
+                }catch (IOException | SAXException | ParserConfigurationException ex) {
+                		ex.printStackTrace();
+                }
                 
                 if(doc!=null){
                     
@@ -314,7 +329,10 @@ public class ResourcesManager {
             
             try{
             	resourceStore=factory.createDocument(getPath("xml/visualResourceStore.xml"));
-            }catch (Exception ex){resourceStore=null;}
+            }catch (IOException ex) {
+            		ex.printStackTrace();
+            		resourceStore=null;
+            	}
     	}
     	
         return resourceStore;
@@ -339,7 +357,9 @@ public class ResourcesManager {
                 
                 byte[] result=new byte[0];
                 
-                try{result=res.getBytes("UTF-8");}catch (Exception e) {}
+                try{result=res.getBytes("UTF-8");}catch (UnsupportedEncodingException e) {
+                	e.printStackTrace();
+                }
                 
                 //writes the string
                 OutputStream writer=null;
@@ -347,7 +367,9 @@ public class ResourcesManager {
                 try{
                     writer=new BufferedOutputStream(
                     	new FileOutputStream(new URI(getPath("xml/"+path)).getPath()));
-                }catch (Exception ex){}
+                }catch (IOException | URISyntaxException ex) {
+                		ex.printStackTrace();
+                }
                 
                 if(writer!=null){
                     
@@ -355,7 +377,9 @@ public class ResourcesManager {
                         writer.write(result, 0, result.length);
                         writer.flush();
                         writer.close();
-                    }catch (Exception ex){}
+                    }catch (IOException ex) {
+                    		ex.printStackTrace();
+                    }
                 }
             }
         }
@@ -501,7 +525,9 @@ public class ResourcesManager {
                     
                     recentFilesPreferences.flush();
                 }
-        	}catch (Exception ex){}
+          }catch (BackingStoreException ex) {
+        	  	ex.printStackTrace();
+          }
         }
         
         notifyListeners();
@@ -577,7 +603,7 @@ public class ResourcesManager {
                     //for each property npde
                     for(NodeIterator it=new NodeIterator(root); it.hasNext();){
                         
-                        try{node=it.next();}catch (Exception ex){node=null;}
+                        node=it.next();
                         
                         if(node!=null && node instanceof Element && 
                         		node.getNodeName().equals("property")){

@@ -49,7 +49,9 @@ public class UndoRedoModule extends ModuleAdapter{
 			try{
 				labelundo=bundle.getString("labelundo");
 				labelredo=bundle.getString("labelredo");
-			}catch (Exception ex){}
+			}catch (MissingResourceException ex) {
+				ex.printStackTrace();
+			}
 		}
 		
 		//getting the icons

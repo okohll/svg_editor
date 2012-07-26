@@ -94,7 +94,10 @@ public class SVGVisualResourceEditableComboAttributeWidget extends SVGVisualReso
                         selectedItem=item;
                     }
                     
-                }catch (Exception ex){item=null; nm="";}
+                }catch (MissingResourceException ex) {
+                		ex.printStackTrace();
+                		item=null; nm="";
+                	}
                 
                 //adds the item to the list
                 if(item!=null){
@@ -130,9 +133,7 @@ public class SVGVisualResourceEditableComboAttributeWidget extends SVGVisualReso
 					
 					if(combo.getSelectedItem()!=null){
 					    
-						try{
 							val=((SVGComboItem)combo.getSelectedItem()).getValue();
-						}catch (Exception ex){val="";}
 							
 						if(val==null || (val!=null && val.equals(""))){
 						    

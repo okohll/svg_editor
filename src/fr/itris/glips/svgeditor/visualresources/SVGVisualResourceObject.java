@@ -111,9 +111,7 @@ public class SVGVisualResourceObject{
         
         for(Iterator it=attributes.iterator(); it.hasNext();){
             
-            try{
                 att=(SVGVisualResourceObjectAttribute)it.next();
-            }catch (Exception ex){}
         }
         
         canCreateChildren=(! resourceNode.hasAttributeNS(EditorToolkit.xmlnsXLinkNS, "href"));
@@ -168,9 +166,7 @@ public class SVGVisualResourceObject{
         
         for(it=attributes.iterator(); it.hasNext();){
             
-            try{
                 resAtt=(SVGVisualResourceObjectAttribute)it.next();
-            }catch (Exception ex){resAtt=null;}
             
             if(resAtt!=null){
                 
@@ -183,9 +179,7 @@ public class SVGVisualResourceObject{
         
         for(it=children.iterator(); it.hasNext();){
             
-            try{
                 resChild=(SVGVisualResourceObjectChild)it.next();
-            }catch (Exception ex){resChild=null;}
             
             if(resChild!=null){
                 
@@ -205,9 +199,7 @@ public class SVGVisualResourceObject{
         
         for(Iterator it=attributes.iterator(); it.hasNext();){
             
-            try{
                 att=(SVGVisualResourceObjectAttribute)it.next();
-            }catch (Exception ex){att=null;}
             
             if(att!=null){
                 

@@ -94,7 +94,10 @@ public class SVGVisualResourceComboAttributeWidget extends SVGVisualResourceAttr
                         selectedItem=item;
                     }
                     
-                }catch (Exception ex){item=null; nm="";}
+                }catch (MissingResourceException ex) {
+                		ex.printStackTrace();
+                		item=null; nm="";
+                	}
                 
                 //adds the item to the list
                 if(item!=null){

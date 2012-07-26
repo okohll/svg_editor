@@ -92,7 +92,9 @@ public class ImageShape extends RectangularShape {
 		try{
 			canvasFile=new File(new URI(handle.getCanvas().getURI()));
 			initialFile=canvasFile.getParentFile();
-		}catch (Exception ex){}
+		}catch (URISyntaxException ex) {
+			ex.printStackTrace();
+		}
 
 		if(canvasFile!=null){
 			

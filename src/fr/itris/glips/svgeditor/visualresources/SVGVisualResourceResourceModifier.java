@@ -86,7 +86,8 @@ public class SVGVisualResourceResourceModifier {
 			try {
 				okLabel = bundle.getString("labelok");
 				cancelLabel = bundle.getString("labelcancel");
-			} catch (Exception ex) {
+			} catch (MissingResourceException ex) {
+				ex.printStackTrace();
 			}
 		}
 	}
@@ -127,11 +128,7 @@ public class SVGVisualResourceResourceModifier {
 			// resource object
 			for (it = resourceObject.getAttributes().iterator(); it.hasNext();) {
 
-				try {
 					att = (SVGVisualResourceObjectAttribute) it.next();
-				} catch (Exception ex) {
-					att = null;
-				}
 
 				if (att != null) {
 
@@ -151,7 +148,8 @@ public class SVGVisualResourceResourceModifier {
 					title = bundle.getString(resourceObject.getResourceModel().getVisualResources()
 							.getAbsoluteString(resourceObject.getResourceModel().getName()));
 					title = title.concat(" ".concat(bundle.getString("vresource_properties")));
-				} catch (Exception ex) {
+				} catch (MissingResourceException ex) {
+					ex.printStackTrace();
 				}
 			}
 
@@ -186,11 +184,7 @@ public class SVGVisualResourceResourceModifier {
 
 			for (it = widgets.iterator(); it.hasNext();) {
 
-				try {
 					widget = (SVGVisualResourceWidget) it.next();
-				} catch (Exception ex) {
-					widget = null;
-				}
 
 				if (widget != null) {
 
@@ -245,11 +239,7 @@ public class SVGVisualResourceResourceModifier {
 
 					for (Iterator it = widgets.iterator(); it.hasNext();) {
 
-						try {
 							widget = (SVGVisualResourceWidget) it.next();
-						} catch (Exception ex) {
-							widget = null;
-						}
 
 						if (widget != null) {
 
@@ -308,8 +298,10 @@ public class SVGVisualResourceResourceModifier {
 			while (dialog.isVisible()) {
 
 				try {
-					Thread.sleep((long) 100.0);
-				} catch (Exception ex) {
+					Thread.sleep(100);
+				} catch (InterruptedException ex) {
+					ex.printStackTrace();
+					Thread.currentThread().interrupt();
 				}
 			}
 		}

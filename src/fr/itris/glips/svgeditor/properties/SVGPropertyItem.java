@@ -591,7 +591,7 @@ public class SVGPropertyItem{
 		//if the list contains a single element, its value will be returned, otherwise the empty string is returned
 		if(nodeList.size()==1){
 		    
-			try{returnedValue=(String)propertyValues.get(nodeList.getFirst());}catch (Exception ex){returnedValue="";}
+			returnedValue=(String)propertyValues.get(nodeList.getFirst());
 		}
 
 		return returnedValue;
@@ -612,11 +612,9 @@ public class SVGPropertyItem{
 			//for each node in the list
 			for(Iterator it=nodeList.iterator(); it.hasNext();){
 			    
-				try{
 					element=(Element)it.next();
 					value=(String)values.get(element);
 					oldValue=(String)propertyValues.get(element);
-				}catch (Exception ex){element=null;value=null;oldValue="";}
 			
 				if(element!=null && name!=null && ! name.equals("") && value!=null && ! value.equals(oldValue)){
 						
@@ -643,11 +641,9 @@ public class SVGPropertyItem{
 			//for each node in the list
 			for(Iterator it=nodeList.iterator(); it.hasNext();){
 			    
-				try{
 					element=(Element)it.next();
 					value=(String)values.get(element);
 					oldValue=(String)propertyValues.get(element);
-				}catch (Exception ex){element=null;value=null;oldValue="";}
 			
 				if(element!=null && name!=null && ! name.equals("") && value!=null && ! value.equals(oldValue)){
 				    
@@ -675,11 +671,9 @@ public class SVGPropertyItem{
 			//for each node in the list
 			for(Iterator it=nodeList.iterator(); it.hasNext();){
 			    
-				try{
 					element=(Element)it.next();
 					value=(String)values.get(element);
 					oldValue=(String)propertyValues.get(element);
-				}catch (Exception ex){element=null;value=null;oldValue="";}
 			
 				if(element!=null && name!=null && ! name.equals("") && value!=null && ! value.equals(oldValue)){
 						

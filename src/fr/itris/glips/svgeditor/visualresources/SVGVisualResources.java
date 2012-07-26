@@ -305,10 +305,7 @@ public class SVGVisualResources extends ModuleAdapter {
 
 		if (handle != null) {
 
-			// try{
-
 			defs = handle.getSvgResourcesManager().getDefsElement();
-			// }catch(Exception ex){defs=null;}
 		}
 
 		return defs;

@@ -463,7 +463,9 @@ public class PathShape extends AbstractShape {
 			//can directy modify a path point that has a transform applied to it
 			try{
 				point=transform.createInverse().transform(point, null);
-			}catch (Exception ex){}
+			}catch (NoninvertibleTransformException ex) {
+				ex.printStackTrace();
+			}
 		}
 		
 		//getting the shape that will be modified
@@ -901,7 +903,9 @@ public class PathShape extends AbstractShape {
 			//transforming the value for the new point
 			try{
 				newPoint=transform.createInverse().transform(currentPoint, null);
-			}catch (Exception ex){}
+			}catch (NoninvertibleTransformException ex) {
+				ex.printStackTrace();
+			}
 		}
 		
 		//modifying a point

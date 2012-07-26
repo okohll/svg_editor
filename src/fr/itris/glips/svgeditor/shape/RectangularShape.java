@@ -833,7 +833,9 @@ public abstract class RectangularShape extends AbstractShape {
 					//transforming the points
 					currentPoint=inverseTransform.transform(currentPoint, null);
 				}
-			}catch (Exception ex){}
+			}catch (NoninvertibleTransformException ex) {
+				ex.printStackTrace();
+			}
 		}
 		
 		//getting the new factor for the axis defined by the provided selection item

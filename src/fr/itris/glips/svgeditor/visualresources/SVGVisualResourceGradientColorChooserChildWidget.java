@@ -83,7 +83,9 @@ public class SVGVisualResourceGradientColorChooserChildWidget extends SVGVisualR
                     offset=bundle.getString("vresource_offset");
                     labelAddStop=bundle.getString("vresource_addstop");
                     labelRemoveStop=bundle.getString("vresource_removestop");
-                }catch (Exception ex){}
+                }catch (MissingResourceException ex) {
+                	ex.printStackTrace();
+                }
             }
             
             this.label=widgetLabel;
@@ -110,9 +112,7 @@ public class SVGVisualResourceGradientColorChooserChildWidget extends SVGVisualR
                     
                     for(Iterator it=gradientItems.iterator(); it.hasNext();){
                         
-                        try{
                             item=(SVGGradientChooserItem)it.next();
-                        }catch (Exception ex){item=null;}
                         
                         if(item!=null){
                             
@@ -177,9 +177,7 @@ public class SVGVisualResourceGradientColorChooserChildWidget extends SVGVisualR
                     
                     for(Iterator it=gradientItems.iterator(); it.hasNext();){
                         
-                        try{
                             item=(SVGGradientChooserItem)it.next();
-                        }catch (Exception ex){item=null;}
                         
                         if(item!=null){
                             
@@ -532,9 +530,7 @@ public class SVGVisualResourceGradientColorChooserChildWidget extends SVGVisualR
                         
                         for(int i=gradientItems.size()-1;i>=0;i--){
                             
-                            try{
                                 item=(SVGGradientChooserItem)gradientItems.get(i);
-                            }catch (Exception ex){item=null;}
                             
                             if(item!=null && item.belongsToThisItem(point)){
                                 
@@ -555,9 +551,7 @@ public class SVGVisualResourceGradientColorChooserChildWidget extends SVGVisualR
                         //deselects all the items
                         for(Iterator it=gradientItems.iterator(); it.hasNext();){
                             
-                            try{
                                 item=(SVGGradientChooserItem)it.next();
-                            }catch (Exception ex){item=null;}
                             
                             if(item!=null){
                                 
@@ -588,9 +582,7 @@ public class SVGVisualResourceGradientColorChooserChildWidget extends SVGVisualR
 
             for(Iterator it=resourceObject.getChildren().iterator(); it.hasNext();){
                 
-                try{
                     resChild=(SVGVisualResourceObjectChild)it.next();
-                }catch (Exception ex){resChild=null;}
                 
                 if(resChild!=null && arrowsListener!=null){
                     
@@ -806,11 +798,9 @@ public class SVGVisualResourceGradientColorChooserChildWidget extends SVGVisualR
 
                         for(Iterator it=gradientItems.iterator(); it.hasNext();){
                             
-                            try{
                                 item=(SVGGradientChooserItem)it.next();
                                 resChild=item.getResourceChildObject();
                                 cur=resChild.getChildElement();
-                            }catch (Exception ex){cur=null;}
                             
                             if(cur!=null){
                                 
@@ -989,9 +979,7 @@ public class SVGVisualResourceGradientColorChooserChildWidget extends SVGVisualR
                     //for each attribute, checks if it has one of the following names and then stores it
                     for(int i=0;i<attributes.size();i++){
                         
-                        try{
                             att=(SVGVisualResourceObjectAttribute)attributes.get(i);
-                        }catch (Exception ex){att=null;}
                         
                         if(att!=null){
                             

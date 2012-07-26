@@ -462,9 +462,7 @@ public class SVGVisualResourceListsPanel extends JPanel{
         
         for(it=new LinkedList(vresourceModels.values()).iterator(); it.hasNext();){
             
-            try{
                 model=(SVGVisualResourceModel)it.next();
-            }catch (Exception ex){model=null;}
             
             if(model!=null){
                 
@@ -501,9 +499,7 @@ public class SVGVisualResourceListsPanel extends JPanel{
         for(Iterator it=resourceObjects.iterator(); it.hasNext();){
             
             //gets the id and the index for the list item
-            try{
                 resObj=(SVGVisualResourceObject)it.next();
-            }catch (Exception ex){resObj=null;}
             
             if(resObj!=null){
             	
@@ -683,9 +679,7 @@ public class SVGVisualResourceListsPanel extends JPanel{
                 //getting the list item
                 if(list.getModel().getSize()>0){
                     
-                    try{
                         item=(SVGVisualResourceListItem)list.getSelectedValue();
-                    }catch (Exception ex){}
                 }
                 
                 //enables or disables the buttons

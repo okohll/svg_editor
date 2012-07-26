@@ -108,7 +108,9 @@ public class SVGVisualResourceModel{
                 
                 try{
                     tabName=visualResources.getBundle().getString(tabName);
-                }catch (Exception ex){}
+                }catch (MissingResourceException ex) {
+                		ex.printStackTrace();
+                }
             }
             
             Node cur;
@@ -298,9 +300,7 @@ public class SVGVisualResourceModel{
             //creates the list of the resource object attribute
             for(Iterator it=attributes.iterator(); it.hasNext();){
                 
-                try{
                     attModel=(SVGVisualResourceModelAttribute)it.next();
-                }catch (Exception ex){attModel=null;}
                 
                 if(attModel!=null){
 

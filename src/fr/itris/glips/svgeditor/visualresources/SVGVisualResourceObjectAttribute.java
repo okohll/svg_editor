@@ -116,9 +116,7 @@ public class SVGVisualResourceObjectAttribute{
         
         for(Iterator it=groupAttributes.iterator(); it.hasNext();){
             
-            try{
                 resAtt=(SVGVisualResourceObjectAttribute)it.next();
-            }catch (Exception ex){resAtt=null;}
             
             if(resAtt!=null){
                 

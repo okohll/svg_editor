@@ -505,9 +505,7 @@ public class Editor {
 		
 		if(name!=null && ! name.equals("")){
 			
-			//try{
 				rect=widgetBounds.get(name);
-			//}catch (Exception ex){}
 		}
 		
 		return rect;

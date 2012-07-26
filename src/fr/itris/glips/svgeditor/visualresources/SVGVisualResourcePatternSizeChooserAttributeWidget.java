@@ -76,9 +76,7 @@ public class SVGVisualResourcePatternSizeChooserAttributeWidget extends SVGVisua
             
             for(Iterator it=resourceObjectAttribute.getGroupAttributes().iterator();it.hasNext();){
                 
-                try{
                     att=(SVGVisualResourceObjectAttribute)it.next();
-                }catch (Exception ex){att=null;}
                 
                 if(att!=null){
                     
@@ -188,7 +186,10 @@ public class SVGVisualResourcePatternSizeChooserAttributeWidget extends SVGVisua
                             selectedItm=itm;
                         }
                         
-                    }catch (Exception ex){itm=null; nm="";}
+                    }catch (MissingResourceException ex) {
+                    		ex.printStackTrace();
+                    		itm=null; nm="";
+                    	}
                     
                     //adds the item to the list
                     if(itm!=null){
@@ -215,7 +216,9 @@ public class SVGVisualResourcePatternSizeChooserAttributeWidget extends SVGVisua
                         
                         try{
                             patternUnitsLabel=bundle.getString(fpatternUnitsAtt.getModel().getAbsoluteName());
-                        }catch (Exception ex){}
+                        }catch (MissingResourceException ex) {
+                        		ex.printStackTrace();
+                        }
                     }
                 }
                 
@@ -250,7 +253,9 @@ public class SVGVisualResourcePatternSizeChooserAttributeWidget extends SVGVisua
                         strY=bundle.getString("vresource_".concat(strY));
                         strW=bundle.getString("vresource_".concat(strW));
                         strH=bundle.getString("vresource_".concat(strH));
-                    }catch (Exception ex){}
+                    }catch (MissingResourceException ex) {
+                    		ex.printStackTrace();
+                    }
                 }
 
                 //the labels corresponding to the entries

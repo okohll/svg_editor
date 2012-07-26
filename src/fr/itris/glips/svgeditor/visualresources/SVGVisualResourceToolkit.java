@@ -232,7 +232,7 @@ public class SVGVisualResourceToolkit {
                     
                     try{
                         suffix=bundle.getString("vresource_duplicatednodesuffix");
-                    }catch (Exception ex) {
+                    }catch (MissingResourceException ex) {
                     	ex.printStackTrace();
                     }
                 }

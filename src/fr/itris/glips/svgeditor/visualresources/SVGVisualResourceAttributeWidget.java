@@ -27,6 +27,8 @@
  */
 package fr.itris.glips.svgeditor.visualresources;
 
+import java.util.MissingResourceException;
+
 /**
  * the class of the widgets that will be displayed in the properties dialog, and enabling to modify the properties
  * of an attribute (or a group of attributes) of a resource node
@@ -57,7 +59,9 @@ public class SVGVisualResourceAttributeWidget extends SVGVisualResourceWidget {
                 
                 try{
                     label=bundle.getString(name);
-                }catch (Exception ex){}
+                }catch (MissingResourceException ex) {
+                		ex.printStackTrace();
+                }
             }
         }
     }

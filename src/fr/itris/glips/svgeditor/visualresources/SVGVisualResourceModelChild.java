@@ -144,9 +144,7 @@ public class SVGVisualResourceModelChild{
             //creates the list of the resource object attribute
             for(Iterator it=attributes.iterator(); it.hasNext();){
                 
-                try{
                     attModel=(SVGVisualResourceModelAttribute)it.next();
-                }catch (Exception ex){attModel=null;}
                 
                 if(attModel!=null){
                     
