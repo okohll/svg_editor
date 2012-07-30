@@ -274,7 +274,7 @@ public class Editor {
 			//handling the frame content
 			parentFrame.getContentPane().setLayout(new BorderLayout());
 			parentFrame.getContentPane().add(
-					moduleManager.getToolBarManager().getToolsBar(), BorderLayout.NORTH);
+					moduleManager.getToolBarManager().getToolsBar(), BorderLayout.WEST);
 			parentFrame.getContentPane().add(desktop, BorderLayout.CENTER);
 			parentFrame.setJMenuBar(moduleManager.getMenuBar());
 			

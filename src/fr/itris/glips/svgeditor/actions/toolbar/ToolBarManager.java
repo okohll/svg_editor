@@ -31,8 +31,9 @@ public class ToolBarManager {
 	public void initializeParts() {
 
 		// setting the properties of the menu bar
-		toolsBar.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
-
+		//toolsBar.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
+		toolsBar.setLayout(new BoxLayout(toolsBar, BoxLayout.Y_AXIS));
+		toolsBar.setFloatable(false);
 		// getting all the tool items of the application
 		Collection<Module> modules = Editor.getEditor().getSVGModuleLoader().getModules();
 		Map<String, AbstractButton> toolItems = new HashMap<String, AbstractButton>();
@@ -66,9 +67,8 @@ public class ToolBarManager {
 
 				// creating the toolbar
 				toolBar = new ToolBar(toolItems, (Element) node);
-
 				// adding the tool bar to the menubar
-				toolsBar.add(toolBar.getToolBar());
+				toolsBar.add(toolBar.getToolBar(), BorderLayout.WEST);
 			}
 		}
 	}

@@ -41,10 +41,11 @@ public class ToolBar {
 		//setting the properties of the toolbar
 		toolBar.setOpaque(false);
 		toolBar.setRollover(true);
-		toolBar.setFloatable(true);
+		toolBar.setFloatable(false);
 		toolBar.setBorderPainted(false);
 		toolBar.setMargin(new Insets(0, 0, 0, 0));
-		toolBar.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
+		//toolBar.setLayout(new FlowLayout(FlowLayout.TRAILING, 0, 0));
+		toolBar.setOrientation(JToolBar.VERTICAL);
 		
 		//build the tool bar items
 		build(toolItems, element);
