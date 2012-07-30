@@ -74,6 +74,7 @@ public class ResourcesManager {
 			try {
 				bundle = ResourceBundle
 						.getBundle("fr.itris.glips.svgeditor.resources.properties.SVGEditorStrings");
+				System.out.println("Loaded built in SVGEditorStrings");
 			} catch (MissingResourceException ex) {
 				ex.printStackTrace();
 				bundle = null;
@@ -183,12 +184,20 @@ public class ResourcesManager {
 	 * 
 	 * @param resource
 	 *            the name of a resource
-	 * @return the full path of a resource
+	 * @return the full path of a resource or an empty string if the resource
+	 *         wasn't found
 	 */
 	public static String getPath(String resource) {
-
+		String pluginResourceFolder = "/com/gtwm/svgeditor/plugins/resources";
 		String path = "";
-		URL resourceURL = ResourcesManager.class.getResource(resource);
+		URL resourceURL = null;
+		// Try plugin first
+		resourceURL = ResourcesManager.class.getResource(pluginResourceFolder + "/" + resource);
+		if (resourceURL == null) {
+			resourceURL = ResourcesManager.class.getResource(resource);
+		} else {
+			System.out.println("Plugin resource found: " + resource);
+		}
 		if (resourceURL == null) {
 			System.err.println("Resource not found for " + resource);
 		} else {
@@ -207,7 +216,7 @@ public class ResourcesManager {
 	 *            true if the icon should be used for a disabled widget
 	 * @return an image icon
 	 * 
-	 * TODO: use a cache for the bundle
+	 *         TODO: use a cache for the bundle
 	 */
 	public static ImageIcon getIcon(String name, boolean isGrayIcon) {
 
@@ -232,7 +241,8 @@ public class ResourcesManager {
 				ResourceBundle iconsBundle = null;
 				try {
 					// Try plugins first
-					iconsBundle = ResourceBundle.getBundle("com.gtwm.svgeditor.plugins.resources.properties.SVGEditorIcons");
+					iconsBundle = ResourceBundle
+							.getBundle("com.gtwm.svgeditor.plugins.resources.properties.SVGEditorIcons");
 				} catch (MissingResourceException mrex) {
 					try {
 						// Fall back to built in
@@ -258,7 +268,7 @@ public class ResourcesManager {
 
 						try {
 							String iconPath = getPath("icons/" + path);
-							if (iconPath != null) {
+							if (!iconPath.equals("")) {
 								icon = new ImageIcon(new URL(iconPath));
 							} else {
 								System.err.println("Icon file not found: icons/" + path);
@@ -331,13 +341,10 @@ public class ResourcesManager {
 				try {
 					// parses the XML file
 					DocumentBuilder docBuild = docBuildFactory.newDocumentBuilder();
-					if (name.contains("/")) {
-						// Plugins are defined absolutely
-						path = getPath(name);
-					} else {
-						path = getPath("xml/" + name);
+					path = getPath("xml/" + name);
+					if (path.length() > 0) {
+						doc = docBuild.parse(path);
 					}
-					doc = docBuild.parse(path);
 				} catch (IOException | SAXException | ParserConfigurationException ex) {
 					ex.printStackTrace();
 				}

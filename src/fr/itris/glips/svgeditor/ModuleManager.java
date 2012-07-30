@@ -38,52 +38,50 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.*;
 
 /**
- * @author ITRIS, Jordi SUC
- * the class loading the modules 
+ * @author ITRIS, Jordi SUC the class loading the modules
  */
 public class ModuleManager {
-	
+
 	/**
 	 * the editor
 	 */
 	private Editor editor;
-	
+
 	/**
 	 * the menu bar
 	 */
 	private EditorMenuBar menubar;
-	
+
 	/**
 	 * the popup manager
 	 */
 	private PopupManager popupManager;
-	
+
 	/**
 	 * the color manager
 	 */
 	private ColorManager colorManager;
-	
+
 	/**
 	 * the toolBar manager
 	 */
 	private ToolBarManager toolBarManager;
-	
+
 	/**
 	 * the list of the modules
 	 */
-	private LinkedList<Module> modules=new LinkedList<Module>();
-	
+	private LinkedList<Module> modules = new LinkedList<Module>();
+
 	/**
 	 * the list of the shape modules
 	 */
-	private Set<fr.itris.glips.svgeditor.shape.AbstractShape> shapeModules=
-			new HashSet<fr.itris.glips.svgeditor.shape.AbstractShape>();
-	
+	private Set<fr.itris.glips.svgeditor.shape.AbstractShape> shapeModules = new HashSet<fr.itris.glips.svgeditor.shape.AbstractShape>();
+
 	/**
 	 * the list of the classes of the modules
 	 */
-	private LinkedList<String> moduleClasses=new LinkedList<String>();
-	
+	private LinkedList<String> moduleClasses = new LinkedList<String>();
+
 	/**
 	 * the resource image manager
 	 */
@@ -91,58 +89,60 @@ public class ModuleManager {
 
 	/**
 	 * the constructor of the class
-	 * @param editor the editor
+	 * 
+	 * @param editor
+	 *            the editor
 	 */
 	public ModuleManager(Editor editor) {
-	    
-		this.editor=editor;
+
+		this.editor = editor;
 	}
-	
+
 	/**
 	 * initializes the object
 	 */
-	public void init(){
-		
-		//the menu bar
-		menubar=new EditorMenuBar(editor);
-		
-		//the color manager
-		colorManager=new ColorManager(editor);
-		
-		//the resource image manager 
-		resourceImageManager=new ResourceImageManager(editor);
-		
-		//gets the module's classes
+	public void init() {
+
+		// the menu bar
+		menubar = new EditorMenuBar(editor);
+
+		// the color manager
+		colorManager = new ColorManager(editor);
+
+		// the resource image manager
+		resourceImageManager = new ResourceImageManager(editor);
+
+		// gets the module's classes
 		parseXMLModules();
-		
-		//creates the static modules
+
+		// creates the static modules
 		createModuleObjects();
-		
-		//the popup menu manager
-		popupManager=new PopupManager(editor);
-		
-		//the toolBar manager
-		toolBarManager=new ToolBarManager();
-		
-		//initializes the menu bar
+
+		// the popup menu manager
+		popupManager = new PopupManager(editor);
+
+		// the toolBar manager
+		toolBarManager = new ToolBarManager();
+
+		// initializes the menu bar
 		menubar.init();
 	}
-	
+
 	/**
 	 * initializes some parts
 	 */
-	public void initializeParts(){
+	public void initializeParts() {
 
-		Collection<Module> mds=getModules();
+		Collection<Module> mds = getModules();
 
-		for(Module module : mds){
+		for (Module module : mds) {
 
-			if(module!=null){
-			    
+			if (module != null) {
+
 				module.initialize();
 			}
 		}
-		
+
 		toolBarManager.initializeParts();
 		editor.getHandlesManager().initializeParts();
 	}
@@ -150,161 +150,174 @@ public class ModuleManager {
 	/**
 	 * parses the XML document to get the modules
 	 */
-	protected void parseXMLModules(){
-		
-		Document doc=null;
-		doc=ResourcesManager.getXMLDocument("modules.xml");	
-		if(doc==null)return;
-		
-		Element root=doc.getDocumentElement();
-		Node current=null;
-		NamedNodeMap attributes=null;
-		String name=null, sclass=null;
-		
-		for(NodeIterator it=new NodeIterator(root); it.hasNext();){
-		    
-			current=it.next();
-			
-			if(current!=null){	
-			    
-				name=current.getNodeName();
-				attributes=current.getAttributes();	
-				
-				if(name!=null && name.equals("module") && attributes!=null){
-				    
-					//adds the string representing a class in the list linked with static items
-					sclass=attributes.getNamedItem("class").getNodeValue();
-					
-					if(sclass!=null && ! sclass.equals("")){
-					    
-					    moduleClasses.add(sclass);
+	protected void parseXMLModules() {
+
+		Document doc = null;
+		// Try plugin
+		doc = ResourcesManager.getXMLDocument("modules.xml");
+		if (doc == null) {
+			return;
+		}
+
+		Element root = doc.getDocumentElement();
+		Node current = null;
+		NamedNodeMap attributes = null;
+		String name = null, sclass = null;
+
+		for (NodeIterator it = new NodeIterator(root); it.hasNext();) {
+
+			current = it.next();
+
+			if (current != null) {
+
+				name = current.getNodeName();
+				attributes = current.getAttributes();
+
+				if (name != null && name.equals("module") && attributes != null) {
+
+					// adds the string representing a class in the list linked
+					// with static items
+					sclass = attributes.getNamedItem("class").getNodeValue();
+
+					if (sclass != null && !sclass.equals("")) {
+
+						moduleClasses.add(sclass);
 					}
 				}
 			}
 		}
 	}
-	
+
 	/**
 	 * creates the objects corresponding to the modules
 	 */
-	protected void createModuleObjects(){
+	protected void createModuleObjects() {
 
-		Object obj=null;
-		
-		for(String current : moduleClasses){
-			
-			if(current!=null && ! current.equals("")){
-			    
-				try{
-					Class<?>[] classargs={Editor.class};
-					Object[] args={editor};
-					
-					//creates instances of each static module
-					System.out.println("About to instantiate " + current + ", classargs " + classargs + ", " + " args " + args);
-					obj=Class.forName(current).getConstructor(classargs).newInstance(args);
-					
-					//if it is a shape module, it is added to the list of the shape module				
-					if(obj instanceof AbstractShape) {
-						
-						shapeModules.add((AbstractShape)obj);
+		Object obj = null;
+
+		for (String current : moduleClasses) {
+
+			if (current != null && !current.equals("")) {
+
+				try {
+					Class<?>[] classargs = { Editor.class };
+					Object[] args = { editor };
+
+					// creates instances of each static module
+					System.out.println("About to instantiate " + current + ", classargs "
+							+ classargs + ", " + " args " + args);
+					obj = Class.forName(current).getConstructor(classargs).newInstance(args);
+
+					// if it is a shape module, it is added to the list of the
+					// shape module
+					if (obj instanceof AbstractShape) {
+
+						shapeModules.add((AbstractShape) obj);
 					}
-					
-					modules.add((Module)obj);
-				} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException ex) {
+
+					modules.add((Module) obj);
+				} catch (ClassNotFoundException | InstantiationException | IllegalAccessException
+						| IllegalArgumentException | InvocationTargetException
+						| NoSuchMethodException | SecurityException ex) {
 					ex.printStackTrace();
 				}
 			}
 		}
 	}
-	
+
 	/**
 	 * gets the module given its name
-	 * @param name the module's name
+	 * 
+	 * @param name
+	 *            the module's name
 	 * @return a module
 	 */
-	public Object getModule(String name){
+	public Object getModule(String name) {
 
-		String cname=null;
-		
-		for(Module module : modules){
-			
-			try{
-				cname=(String)module.getClass().getMethod(
-					"getName", (Class[])null).invoke(module, (Object[])null);
-			}catch (NoSuchMethodException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | SecurityException e) {
+		String cname = null;
+
+		for (Module module : modules) {
+
+			try {
+				cname = (String) module.getClass().getMethod("getName", (Class[]) null)
+						.invoke(module, (Object[]) null);
+			} catch (NoSuchMethodException | IllegalAccessException | IllegalArgumentException
+					| InvocationTargetException | SecurityException e) {
 				e.printStackTrace();
-				cname=null;
+				cname = null;
 			}
-			
-			if(cname!=null && cname.equals(name)){
-			    
-			    return module;
+
+			if (cname != null && cname.equals(name)) {
+
+				return module;
 			}
 		}
 		return null;
 	}
-	
+
 	/**
 	 * @return the collection of the objects corresponding to the modules
 	 */
-	public Collection<Module> getModules(){
+	public Collection<Module> getModules() {
 		return modules;
 	}
-	
+
 	/**
 	 * returns a shape module given its id
-	 * @param moduleId the id of a module
+	 * 
+	 * @param moduleId
+	 *            the id of a module
 	 * @return a shape module given its id
 	 */
-	public AbstractShape getShapeModule(String moduleId){
-		
-		for(AbstractShape shape : shapeModules){
-			
-			if(shape.getId().equals(moduleId)){
-				
+	public AbstractShape getShapeModule(String moduleId) {
+
+		for (AbstractShape shape : shapeModules) {
+
+			if (shape.getId().equals(moduleId)) {
+
 				return shape;
 			}
 		}
-		
+
 		return null;
 	}
-	
+
 	/**
 	 * @return the collection of the objects corresponding to the shape modules
 	 */
-	public Set<AbstractShape> getShapeModules(){
+	public Set<AbstractShape> getShapeModules() {
 		return shapeModules;
 	}
 
-    /**
-     * @return Returns the color manager.
-     */
-    public ColorManager getColorManager() {
-        return colorManager;
-    }
-    
+	/**
+	 * @return Returns the color manager.
+	 */
+	public ColorManager getColorManager() {
+		return colorManager;
+	}
+
 	/**
 	 * @return the menubar
 	 */
-	public EditorMenuBar getMenuBar(){
+	public EditorMenuBar getMenuBar() {
 		return menubar;
 	}
-	
+
 	/**
 	 * @return the tool bar manager
 	 */
-	public ToolBarManager getToolBarManager(){
-		
+	public ToolBarManager getToolBarManager() {
+
 		return toolBarManager;
 	}
-	
+
 	/**
 	 * @return the popup manager
 	 */
 	public PopupManager getPopupManager() {
 		return popupManager;
 	}
-	
+
 	/**
 	 * @return Returns the resourceImageManager.
 	 */
