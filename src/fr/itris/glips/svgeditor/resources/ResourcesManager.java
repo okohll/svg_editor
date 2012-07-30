@@ -188,6 +188,7 @@ public class ResourcesManager {
 	 *         wasn't found
 	 */
 	public static String getPath(String resource) {
+		// TODO: extract plugin folder into properties file or other source
 		String pluginResourceFolder = "/com/gtwm/svgeditor/plugins/resources";
 		String path = "";
 		URL resourceURL = null;

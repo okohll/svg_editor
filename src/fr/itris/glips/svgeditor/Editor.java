@@ -184,6 +184,7 @@ public class Editor {
 			 e.printStackTrace();
 		 }
 	*/	 
+		System.setProperty("apple.laf.useScreenMenuBar", "true");
 		 editor=this;
 	}
 	
