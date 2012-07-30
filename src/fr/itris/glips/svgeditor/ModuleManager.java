@@ -204,14 +204,11 @@ public class ModuleManager {
 					Object[] args = { editor };
 
 					// creates instances of each static module
-					System.out.println("About to instantiate " + current + ", classargs "
-							+ classargs + ", " + " args " + args);
 					obj = Class.forName(current).getConstructor(classargs).newInstance(args);
 
 					// if it is a shape module, it is added to the list of the
 					// shape module
 					if (obj instanceof AbstractShape) {
-
 						shapeModules.add((AbstractShape) obj);
 					}
 

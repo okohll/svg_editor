@@ -68,7 +68,7 @@ public class XMLPrinter {
 
 			out.close();
 		} catch (IOException ex) {
-			System.out.println("Error creating XML file: " + ex);
+			System.err.println("Error creating XML file: " + ex);
 		}
 
 		if (monitor != null) {

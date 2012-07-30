@@ -253,13 +253,15 @@ public class SVGCanvas extends JPanel {
 			SVGDocument doc=factory.createSVGDocument(uri);
 
 			if(doc!=null){
-				// Debug
+				// Debug 
+				/*
 				NodeList childNodes = doc.getChildNodes();
 				int numNodes = childNodes.getLength();
 				for (int i=0; i < numNodes; i++) {
 					Node item = childNodes.item(i);
 					System.out.println("There are " + item.getChildNodes().getLength() + " child nodes");
 				}
+				*/
 				//normalizing the document
 				Dimension scaledCanvasSize=
 					getScaledCanvasSize(doc.getDocumentElement());

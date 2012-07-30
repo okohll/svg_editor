@@ -398,7 +398,6 @@ public class FileChooserDialog extends TitledDialog {
 				//enabling the ok button
 				okButton.setEnabled(true);
 				setMessage(messageLabel, INFORMATION_TYPE);
-				System.out.println("OK enabled");
 				return;
 			}
 			
@@ -410,7 +409,6 @@ public class FileChooserDialog extends TitledDialog {
 		
 		setMessage(message, ERROR_TYPE);
 		okButton.setEnabled(false);
-		System.out.println("OK disabled");
 	}
 	
 	/**
