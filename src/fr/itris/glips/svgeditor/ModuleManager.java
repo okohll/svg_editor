@@ -34,6 +34,9 @@ import fr.itris.glips.svgeditor.actions.popup.*;
 import fr.itris.glips.svgeditor.actions.toolbar.*;
 import org.w3c.dom.*;
 
+import com.gtwm.glips.plugin.Plugin;
+import com.gtwm.glips.plugin.PluginManager;
+
 import java.lang.reflect.InvocationTargetException;
 import java.util.*;
 
@@ -67,6 +70,8 @@ public class ModuleManager {
 	 */
 	private ToolBarManager toolBarManager;
 
+	private PluginManager pluginManager;
+
 	/**
 	 * the list of the modules
 	 */
@@ -80,7 +85,7 @@ public class ModuleManager {
 	/**
 	 * the list of the classes of the modules
 	 */
-	private LinkedList<String> moduleClasses = new LinkedList<String>();
+	private LinkedList<String> moduleAndPluginClasses = new LinkedList<String>();
 
 	/**
 	 * the resource image manager
@@ -112,8 +117,12 @@ public class ModuleManager {
 		// the resource image manager
 		resourceImageManager = new ResourceImageManager(editor);
 
+		pluginManager = new PluginManager(editor);
+
 		// gets the module's classes
-		parseXMLModules();
+		parseXMLModules("modules.xml");
+		// gets the plugins and instantiates them
+		parseXMLModules("plugins.xml");
 
 		// creates the static modules
 		createModuleObjects();
@@ -150,11 +159,11 @@ public class ModuleManager {
 	/**
 	 * parses the XML document to get the modules
 	 */
-	protected void parseXMLModules() {
+	protected void parseXMLModules(String xmlName) {
 
 		Document doc = null;
 		// Try plugin
-		doc = ResourcesManager.getXMLDocument("modules.xml");
+		doc = ResourcesManager.getXMLDocument(xmlName);
 		if (doc == null) {
 			return;
 		}
@@ -173,15 +182,17 @@ public class ModuleManager {
 				name = current.getNodeName();
 				attributes = current.getAttributes();
 
-				if (name != null && name.equals("module") && attributes != null) {
+				if ((name != null) && (attributes != null)) {
+					if (name.equals("module") || name.equals("plugin")) {
+						// adds the string representing a class in the list
+						// linked
+						// with static items
+						sclass = attributes.getNamedItem("class").getNodeValue();
 
-					// adds the string representing a class in the list linked
-					// with static items
-					sclass = attributes.getNamedItem("class").getNodeValue();
+						if (sclass != null && !sclass.equals("")) {
 
-					if (sclass != null && !sclass.equals("")) {
-
-						moduleClasses.add(sclass);
+							moduleAndPluginClasses.add(sclass);
+						}
 					}
 				}
 			}
@@ -195,7 +206,7 @@ public class ModuleManager {
 
 		Object obj = null;
 
-		for (String current : moduleClasses) {
+		for (String current : moduleAndPluginClasses) {
 
 			if (current != null && !current.equals("")) {
 
@@ -206,13 +217,17 @@ public class ModuleManager {
 					// creates instances of each static module
 					obj = Class.forName(current).getConstructor(classargs).newInstance(args);
 
-					// if it is a shape module, it is added to the list of the
-					// shape module
-					if (obj instanceof AbstractShape) {
-						shapeModules.add((AbstractShape) obj);
+					if (obj instanceof Module) {
+						// if it is a shape module, it is added to the list of the
+						// shape module
+						if (obj instanceof AbstractShape) {
+							shapeModules.add((AbstractShape) obj);
+						}
+						modules.add((Module) obj);
+					} else if (obj instanceof Plugin) {
+						Plugin plugin = (Plugin) obj;
+						pluginManager.addPlugin(plugin);
 					}
-
-					modules.add((Module) obj);
 				} catch (ClassNotFoundException | InstantiationException | IllegalAccessException
 						| IllegalArgumentException | InvocationTargetException
 						| NoSuchMethodException | SecurityException ex) {
@@ -320,6 +335,10 @@ public class ModuleManager {
 	 */
 	protected ResourceImageManager getResourceImageManager() {
 		return resourceImageManager;
+	}
+	
+	public PluginManager getPluginManager() {
+		return pluginManager;
 	}
 
 }

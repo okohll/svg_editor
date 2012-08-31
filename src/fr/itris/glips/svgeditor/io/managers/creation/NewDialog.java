@@ -81,8 +81,8 @@ public class NewDialog extends TitledDialog{
 		heightSpinner=new IntegerSpinnerWidget(1, 1, Integer.MAX_VALUE-1, 1);
 		
 		//initializing the spinners
-		widthSpinner.init(600);
-		heightSpinner.init(400);
+		widthSpinner.init(2000);
+		heightSpinner.init(1000);
 		
 		//creating and filling the panel that will contain the widgets
 		JPanel widgetsPanel=new JPanel();

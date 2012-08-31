@@ -42,7 +42,7 @@ public class EditorApplet extends JApplet{
 		editor=new Editor();
 		
 		//intializing the editor
-		editor.init(this, "", false, false, true, false, null);
+		editor.init(this, "", false, true, false, null);
 	}
 	
 	@Override

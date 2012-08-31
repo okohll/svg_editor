@@ -43,7 +43,7 @@ public class EditorMain {
 		}
 
 		//intializing the editor
-		editor.init(mainFrame, fileName, true, true, false, true, null);
+		editor.init(mainFrame, fileName, true, false, true, null);
 	}
 	
 	/**

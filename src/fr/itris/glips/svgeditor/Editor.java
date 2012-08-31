@@ -54,12 +54,7 @@ import java.net.*;
  * @author ITRIS, Jordi SUC
  */
 public class Editor {
-	
-	/**
-	 * whether the editor handles the rtda animations
-	 */
-	public static boolean isRtdaAnimationsVersion=false;
-	
+		
 	/**
 	 * the parent container
 	 */
@@ -69,6 +64,8 @@ public class Editor {
 	 * the desktop pane
 	 */
 	private JDesktopPane desktop;
+	
+	private JSplitPane splitPane;
 	
 	/**
 	 * the svg handles manager
@@ -192,14 +189,12 @@ public class Editor {
 	 * initializing the editor
 	 * @param parent the parent container for the application
 	 * @param fileToBeLoaded the file to be directly loaded
-     * @param showSplash whether the splash screen should be shown or not
      * @param displayFrame whether or not to show the frame 
      * @param quitDisabled whether the quit action is disabled
      * @param exitFromJVM whether the JVM will be exited when the user requires to exit from the editor
      * @param disposeRunnable the runnable that should be run when exiting the editor
 	 */
-	public void init(Container parent, String fileToBeLoaded, 
-		boolean showSplash, final boolean displayFrame, 
+	public void init(Container parent, String fileToBeLoaded, final boolean displayFrame, 
 			boolean quitDisabled, boolean exitFromJVM, Runnable disposeRunnable) {
 
 		if(parent instanceof JApplet){
@@ -251,6 +246,7 @@ public class Editor {
 		//creating the desktop
 		desktop=new JDesktopPane();
         desktop.setDragMode(JDesktopPane.LIVE_DRAG_MODE);
+        desktop.setMinimumSize(new Dimension(50, 50));
 
 		//creating the selection manager
 		selectionManager=new fr.itris.glips.svgeditor.selection.SelectionInfoManager();
@@ -272,11 +268,18 @@ public class Editor {
 			}
 			
 			//handling the frame content
-			parentFrame.getContentPane().setLayout(new BorderLayout());
-			parentFrame.getContentPane().add(
+			Container contentPane = parentFrame.getContentPane();
+			contentPane.setLayout(new BorderLayout());
+			contentPane.add(
 					moduleManager.getToolBarManager().getToolsBar(), BorderLayout.WEST);
-			parentFrame.getContentPane().add(desktop, BorderLayout.CENTER);
+			splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, true);
+			splitPane.setResizeWeight(0.75);
+			// Left side of split pane will be the desktop
+			// Right side will be available for plugin to add content
+			splitPane.add(desktop);
+			contentPane.add(splitPane, BorderLayout.CENTER);
 			parentFrame.setJMenuBar(moduleManager.getMenuBar());
+			moduleManager.getPluginManager().initializePlugins();
 			
 			//computing the bounds of the main frame
 			Dimension screenSize=Toolkit.getDefaultToolkit().getScreenSize();
@@ -291,7 +294,6 @@ public class Editor {
 			//sets the bounds of the main frame
 			parentFrame.setBounds(frameBounds);
 			desktop.setBounds(frameBounds);
-			
 		}else if(parent instanceof JApplet){
 
 			JApplet applet=(JApplet)parent;
@@ -518,6 +520,13 @@ public class Editor {
 	 */
 	public JDesktopPane getDesktop(){
 		return desktop;
+	}
+	
+	/** the split pane which allows the panel to slide in from the right
+	 * @return
+	 */
+	public JSplitPane getSplitPane() {
+		return splitPane;
 	}
 	
 	/**

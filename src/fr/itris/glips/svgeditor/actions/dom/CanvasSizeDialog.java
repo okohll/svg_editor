@@ -80,8 +80,8 @@ public class CanvasSizeDialog extends TitledDialog{
 		heightSpinner=new DoubleSpinnerWidget(1, 1, 1000000, 1, false);
 		
 		//initializing the spinners
-		widthSpinner.init(600);
-		heightSpinner.init(400);
+		widthSpinner.init(2000);
+		heightSpinner.init(1000);
 		
 		//creating and filling the panel that will contain the widgets
 		JPanel widgetsPanel=new JPanel();

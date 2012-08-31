@@ -67,6 +67,9 @@ public class SVGFrame extends JInternalFrame{
 	 */
 	protected void build(){
 		
+		//Oliver: for UI simplicity, document windows have no borders
+		this.setBorder(null);
+		
 		//handlling the properties of the internal frame//
 		
 		//setting the icon
@@ -182,6 +185,12 @@ public class SVGFrame extends JInternalFrame{
 			pack();
 			
 			setVisible(true);
+			try {
+				setMaximum(true);
+			} catch (PropertyVetoException e) {
+				System.err.println("Unable to maximize document window");
+				e.printStackTrace();
+			}
 		}
 	}
 	

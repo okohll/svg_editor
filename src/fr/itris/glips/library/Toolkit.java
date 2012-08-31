@@ -357,23 +357,6 @@ public class Toolkit {
 	}
     
     /**
-     * checks if the given document contains the rtda name space, if not, the namespace is added
-     * @param doc a svg document
-     */
-    public static void checkRtdaXmlns(Document doc){
-        
-        if(Editor.isRtdaAnimationsVersion && doc!=null){
-            
-            Element svgRoot=doc.getDocumentElement();
-            
-            if(! svgRoot.hasAttributeNS("http://www.w3.org/2000/xmlns/", "xmlns:rtda")){
-                
-                svgRoot.setAttributeNS("http://www.w3.org/2000/xmlns/", "xmlns:rtda", rtdaNameSpace);
-            }
-        }
-    }
-    
-    /**
      * returns the file name of this file
      * @param file a file
      * @return the file name of this file

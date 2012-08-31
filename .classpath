@@ -38,5 +38,11 @@
 	<classpathentry kind="lib" path="lib/swingx.jar"/>
 	<classpathentry kind="lib" path="lib/sac.jar"/>
 	<classpathentry kind="lib" path="plugins/biobox.jar"/>
+	<classpathentry kind="lib" path="/biobox_closed/lib/httpclient-4.2.1.jar"/>
+	<classpathentry kind="lib" path="/biobox_closed/lib/httpcore-4.2.1.jar"/>
+	<classpathentry kind="lib" path="/biobox_closed/lib/jackson-core-2.0.5.jar"/>
+	<classpathentry kind="lib" path="/biobox_closed/lib/jackson-databind-2.0.5.jar"/>
+	<classpathentry kind="lib" path="/biobox_closed/lib/jackson-annotations-2.0.5.jar"/>
+	<classpathentry kind="lib" path="/biobox_closed/lib/thumbnailator-0.4.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

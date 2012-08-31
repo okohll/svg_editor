@@ -220,7 +220,6 @@ public class SVGCanvas extends JPanel {
 		svgRoot.appendChild(defsElement);
 		
 		//initializing the canvas
-		Toolkit.checkRtdaXmlns(doc);
 		this.document=doc;
 		initializeCanvas(null);
 	}
@@ -234,11 +233,6 @@ public class SVGCanvas extends JPanel {
 		
 		synchronized(this){this.uri=uri;}
 		
-		if(Editor.isRtdaAnimationsVersion) {
-			
-			projectFile=Editor.getColorChooser().getProjectFile(uri);
-		}
-
 		try{
 			if(monitor!=null){
 				
@@ -253,20 +247,10 @@ public class SVGCanvas extends JPanel {
 			SVGDocument doc=factory.createSVGDocument(uri);
 
 			if(doc!=null){
-				// Debug 
-				/*
-				NodeList childNodes = doc.getChildNodes();
-				int numNodes = childNodes.getLength();
-				for (int i=0; i < numNodes; i++) {
-					Node item = childNodes.item(i);
-					System.out.println("There are " + item.getChildNodes().getLength() + " child nodes");
-				}
-				*/
 				//normalizing the document
 				Dimension scaledCanvasSize=
 					getScaledCanvasSize(doc.getDocumentElement());
 				svgHandle.getSvgDOMNormalizer().normalize(doc, scaledCanvasSize);
-				Toolkit.checkRtdaXmlns(doc);
 				
 				synchronized(this){this.document=doc;}
 
