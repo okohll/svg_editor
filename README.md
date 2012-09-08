@@ -23,7 +23,7 @@ This is a relatively large codebase so superficial changes and 'low hanging frui
   which would make troubleshooting hard. These sections now at least log the exceptions. In some cases unnecessary try/catch blocks have been entirely removed.
   This behaviour will hopefully be able to be further improved through a better understanding of methods in future.
 * The codebase has been run through FindBugs and many issues fixed.
-*  Large sections of code (packages ans classes) dealing with specialised Industrial Control Procedures have been removed, leaving just the generic image editing functions.
+*  Large sections of code (packages and classes) dealing with specialised Industrial Control Procedures have been removed, leaving just the generic image editing functions.
    There are probably a few remaining classes that can be removed.
 * The File Open dialog has been tweaked to make it function. There are still some issues.
 
