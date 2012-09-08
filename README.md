@@ -14,10 +14,12 @@ This is a relatively large codebase so superficial changes and 'low hanging frui
 
 * Third party libraries updated to their newest versions, notably the Apache Batik SVG library. Calling code has been altered so it compiles.
 * Some code cleanup, notably there were a few hundred instances of raw exceptions being swallowed, e.g.
+
     try {
       code...
     } catch (Exception e) {
     }
+
   which would make troubleshooting hard. These sections now at least log the exceptions. In some cases unnecessary try/catch blocks have been entirely removed.
   This behaviour will hopefully be able to be further improved through a better understanding of methods in future.
 * The codebase has been run through FindBugs and many issues fixed.
