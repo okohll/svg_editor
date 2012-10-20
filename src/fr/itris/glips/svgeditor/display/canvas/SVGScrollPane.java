@@ -166,6 +166,8 @@ public class SVGScrollPane extends JPanel{
 		add(BorderLayout.WEST, westPanel);
 		add(BorderLayout.CENTER, innerScrollPane);
 		innerScrollPane.setWheelScrollingEnabled(false);
+		// Depending on the default state (enabled or disabled) of the rulers, hide if disabled
+		updateRulers();
 		
 		componentListener=new ComponentAdapter(){
 			
@@ -276,6 +278,7 @@ public class SVGScrollPane extends JPanel{
 		RulersParametersManager manager=
 			Editor.getEditor().getHandlesManager().getRulersParametersHandler();
 		boolean rulersVisible=manager.areRulersEnabled();
+		System.out.println("Rulers visible: " + rulersVisible);
 		
 		horizontalRuler.setEnabled(rulersVisible);
 		verticalRuler.setEnabled(rulersVisible);

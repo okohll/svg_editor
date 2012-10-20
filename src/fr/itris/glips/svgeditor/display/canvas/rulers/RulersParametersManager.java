@@ -22,7 +22,7 @@ public class RulersParametersManager {
 	/**
 	 * the default value for the rulers enabled boolean
 	 */
-	protected static final boolean defaultRulersEnabled=true;
+	protected static final boolean defaultRulersEnabled=false;
 	
 	/**
 	 * the default value for the align with rulers boolean
@@ -37,7 +37,7 @@ public class RulersParametersManager {
 	/**
 	 * whether the rulers are enabled or not
 	 */
-	private boolean rulersEnabled=true;
+	private boolean rulersEnabled=false;
 	
 	/**
 	 * whether to align mouse to rulers when using painting tools
