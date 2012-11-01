@@ -44,5 +44,6 @@
 	<classpathentry kind="lib" path="/biobox_closed/lib/jackson-databind-2.0.5.jar"/>
 	<classpathentry kind="lib" path="/biobox_closed/lib/jackson-annotations-2.0.5.jar"/>
 	<classpathentry kind="lib" path="/biobox_closed/lib/thumbnailator-0.4.2.jar"/>
+	<classpathentry kind="lib" path="/Library/Java/JavaVirtualMachines/jdk1.7.0_09.jdk/Contents/Home/jre/lib/jfxrt.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -61,6 +61,12 @@ import libraries.*;
 public class SVGCanvas extends JPanel {
 	
 	/**
+	 * Background colour
+	 */
+	//public static final Color backgroundColour = Color.white;
+	public static final Color backgroundColour = new Color(168,169,172);
+	
+	/**
 	 * the constant for the grid layer
 	 */
 	public static final int GRID_LAYER=0;
@@ -184,7 +190,7 @@ public class SVGCanvas extends JPanel {
 		this.svgHandle=scrollpane.getSVGHandle();
 		this.zoomManager=new Zoom(this);
 		setDoubleBuffered(true);
-		setBackground(Color.white);
+		setBackground(backgroundColour);
 		
 		//creating the paint listeners map structure
 		paintListeners.put(GRID_LAYER, new CopyOnWriteArraySet<CanvasPainter>());
@@ -573,7 +579,7 @@ public class SVGCanvas extends JPanel {
 					BufferedImage image=new BufferedImage(renderedRectangle.width, 
 							renderedRectangle.height, BufferedImage.TYPE_INT_ARGB);
 					Graphics2D g2=GraphicsUtil.createGraphics(image);
-					g2.setColor(Color.white);
+					g2.setColor(backgroundColour); // or Color.white?
 					BufferedImage tmpImage=null;
 					
 					if(scrollY>0){
@@ -685,7 +691,7 @@ public class SVGCanvas extends JPanel {
 						g2.clip(svgRectangle);
 						
 						//painting the background
-				        g2.setColor(Color.white);
+				        g2.setColor(backgroundColour);
 				        g2.fill(svgRectangle);
 
 						setRenderingHints(g2); 
@@ -732,13 +738,13 @@ public class SVGCanvas extends JPanel {
 			        			g2.clip(clip);
 			        			
 						        //painting the background
-						        g2.setColor(Color.white);
+						        g2.setColor(backgroundColour);
 						        g2.fill(clip);
 		
 			        		}else {
 			        			
 			        			//clearing the background
-			        			g2.setColor(Color.white);
+			        			g2.setColor(backgroundColour);
 			        			g2.fillRect(0, 0, tempCanvasOffscreenImage.getWidth(), 
 			        					tempCanvasOffscreenImage.getHeight());
 			        		}
