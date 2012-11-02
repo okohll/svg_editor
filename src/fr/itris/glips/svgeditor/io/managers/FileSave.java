@@ -66,7 +66,7 @@ public class FileSave {
 		
 		//getting the file corresponding to the current handle
 		File handleFile=getFile(handle);
-
+		System.out.println("File handle is " + handleFile + ", saveAs is " + saveAs);
 		if(handleFile==null || saveAs){
 			
 			//getting the file where to save the document
@@ -186,7 +186,7 @@ public class FileSave {
 		
 			try {
 				file=new File(new URI(handle.getName()));
-			} catch (URISyntaxException e) {
+			} catch (URISyntaxException | IllegalArgumentException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}

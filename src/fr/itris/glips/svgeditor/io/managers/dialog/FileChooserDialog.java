@@ -156,7 +156,6 @@ public class FileChooserDialog extends TitledDialog {
 	
 	@Override
 	protected JPanel buildContentPanel() {
-		System.out.println("Building content panel with mode " + mode);
 		//creating the file chooser
 		fileChooser=new JFileChooser();
 		fileChooser.setControlButtonsAreShown(false);
@@ -170,7 +169,6 @@ public class FileChooserDialog extends TitledDialog {
 				
 				//computing the file corresponding to the text field content
 				String content=URIEncoderDecoder.encode(textField.getText());
-				System.out.println("Selected file string: " + content);
 				
 				if(content!=null && ! content.equals("")){
 					
