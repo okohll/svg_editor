@@ -307,7 +307,7 @@ public class HandlesManager {
 	 * @param name the name of the new svg handle
 	 * @return the new svg handle
 	 */
-	public SVGHandle createSVGHandle(String name){
+	public SVGHandle createSVGHandle(String name, boolean unsaved){
 		
 		if(name!=null && ! name.equals("")){
 		    
@@ -327,7 +327,7 @@ public class HandlesManager {
 			    name=name+" ("+new Integer(nb)+")";
 			}
 			
-			SVGHandle handle=new SVGHandle(name);
+			SVGHandle handle=new SVGHandle(name, unsaved);
 
 			//adds the svg handles in the list
 			handles.add(handles.size(), handle);

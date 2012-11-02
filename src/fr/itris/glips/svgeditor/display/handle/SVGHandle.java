@@ -54,6 +54,8 @@ public class SVGHandle {
 	 */
 	private String name;
 	
+	private boolean unsaved = true;
+	
 	/**
 	 * the internal frame that will be displayed in the desktop
 	 */
@@ -108,13 +110,25 @@ public class SVGHandle {
 	 * the constuctor of the class
 	 * @param name the name that will be linked with the SVG picture
 	 */
-	public SVGHandle(String name){
+	public SVGHandle(String name, boolean unsaved){
 
 		//creating the internal frame that will be displayed in the desktop
 		svgFrame=new SVGFrame(this);
 		
 		//setting the name of this handle
 		setName(name);
+		setUnsaved(unsaved);
+	}
+	
+	/**
+	 * Set unsaved = true if the file doesn't yet exist on disk
+	 */
+	public void setUnsaved(boolean unsaved) {
+		this.unsaved = unsaved;
+	}
+	
+	public boolean getUnsaved() {
+		return this.unsaved;
 	}
 	
 	/**

@@ -74,12 +74,16 @@ public class FileNew {
 	    
 		SVGHandle handle=
 			Editor.getEditor().getHandlesManager().
-				createSVGHandle(untitledLabel);
+				createSVGHandle(untitledLabel, true);
 		
 		if(handle!=null){
 		    
 		    handle.getScrollPane().getSVGCanvas().
 		    	newDocument(width, height);
+				
+				
+				Editor.getEditor().getIOManager().getFileSaveManager().
+				saveHandleDocument(handle, true, null);
 		}
 	}
 }

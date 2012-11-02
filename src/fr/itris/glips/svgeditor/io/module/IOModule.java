@@ -205,14 +205,14 @@ public class IOModule extends ModuleAdapter {
 				break;
 				
 			case 3 :
-				
+				// Save
 				Editor.getEditor().getIOManager().getFileSaveManager().
 					saveHandleDocument(currentHandle, false, menuItems[index]);
 					
 				break;
 				
 			case 4 :
-				
+				// Save As...
 				Editor.getEditor().getIOManager().getFileSaveManager().
 					saveHandleDocument(currentHandle, true, menuItems[index]);
 				break;

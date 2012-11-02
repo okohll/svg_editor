@@ -133,6 +133,7 @@ public class FileSave {
 		
 		 //setting the state of the handle to no more modified
 		 handle.setModified(false);
+		 handle.setUnsaved(false);
 		 final Document doc=handle.getCanvas().getDocument();
         
         //creating the runnable that will be added to the runnable queue
@@ -183,7 +184,10 @@ public class FileSave {
 	protected File getFile(SVGHandle handle){
 		
 		File file=null;
-		
+		if (handle.getUnsaved()) {
+			// If the file isn't yet saved to disk, return null
+			return file;
+		}
 			try {
 				file=new File(new URI(handle.getName()));
 			} catch (URISyntaxException | IllegalArgumentException e) {

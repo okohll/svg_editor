@@ -125,7 +125,7 @@ public class FileOpen {
 				
 				//creating a new handle
 				handle=Editor.getEditor().getHandlesManager().
-					createSVGHandle(file.toURI().toASCIIString());
+					createSVGHandle(file.toURI().toASCIIString(), false);
 				
 				//adding the file name to the list of the recent files
 				Editor.getEditor().getResourcesManager().addRecentFile(file.toURI().toASCIIString());
