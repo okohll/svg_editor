@@ -81,7 +81,8 @@ public class FileNew {
 		    handle.getScrollPane().getSVGCanvas().
 		    	newDocument(width, height);
 				
-				
+				// Immediately save the newly created file
+		    // so that importing SVGs works - won't work if parent not saved to disk because of relative path errors
 				Editor.getEditor().getIOManager().getFileSaveManager().
 				saveHandleDocument(handle, true, null);
 		}
