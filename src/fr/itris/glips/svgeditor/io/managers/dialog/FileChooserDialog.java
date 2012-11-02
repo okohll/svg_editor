@@ -42,7 +42,7 @@ public class FileChooserDialog extends TitledDialog {
 	/**
 	 * the mode of the file chooser
 	 */
-	private int mode=OPEN_FILE_MODE;
+	private final int mode;
 	
 	/**
 	 * the labels
@@ -94,8 +94,11 @@ public class FileChooserDialog extends TitledDialog {
 	 * initializes the dialog 
 	 */
 	protected void initialize(){
-		
 		//setting the properties to the file chooser
+		if (mode == SAVE_FILE_MODE) {
+			fileChooser.setDialogType(JFileChooser.SAVE_DIALOG);
+		}
+
 		fileChooser.setMultiSelectionEnabled(
 				mode==OPEN_FILE_MODE);
 			
@@ -153,7 +156,7 @@ public class FileChooserDialog extends TitledDialog {
 	
 	@Override
 	protected JPanel buildContentPanel() {
-		
+		System.out.println("Building content panel with mode " + mode);
 		//creating the file chooser
 		fileChooser=new JFileChooser();
 		fileChooser.setControlButtonsAreShown(false);

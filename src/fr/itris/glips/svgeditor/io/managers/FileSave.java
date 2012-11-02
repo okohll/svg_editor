@@ -40,12 +40,9 @@ public class FileSave {
 
 		//creating the file chooser dialog
 		if(Editor.getParent() instanceof Frame){
-			
 			fileChooserDialog=new FileChooserDialog(
-				(Frame)Editor.getParent(), FileChooserDialog.SAVE_FILE_MODE);
-			
+				(Frame)Editor.getParent(), FileChooserDialog.SAVE_FILE_MODE);			
 		}else if(Editor.getParent() instanceof JDialog){
-			
 			fileChooserDialog=new FileChooserDialog(
 				(JDialog)Editor.getParent(), FileChooserDialog.SAVE_FILE_MODE);
 		}
