@@ -141,7 +141,7 @@ public class SelectionListener extends MouseAdapter implements MouseMotionListen
 						selection.validateAction(point);
 						
 					}else {
-
+						System.out.println("Point is " + point);
 						selection.setSelection(point, isMultiSelectionEnabled);
 					}
 					

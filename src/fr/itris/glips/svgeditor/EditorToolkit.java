@@ -155,8 +155,10 @@ public class EditorToolkit {
 		try {
 			value = Double.parseDouble(element.getAttributeNS(null, attributeName));
 		} catch (NumberFormatException ex) {
-			ex.printStackTrace();
-			value = Double.NaN;
+			System.err.println("Error on attribute " + attributeName + ", element " + element.getNodeName() + ", " + element.getNodeType());
+			//ex.printStackTrace();
+			value = 0;
+			//value = Double.NaN;
 		}
 
 		return value;
@@ -578,8 +580,11 @@ public class EditorToolkit {
 	public double getDoubleValue(String str, boolean isPercentage) {
 
 		if (str == null) {
-
 			str = "";
+		}
+		// Addition by Oliver
+		if (str.equals("")) {
+			return 0;
 		}
 
 		str = str.replaceAll("\\s+", "");

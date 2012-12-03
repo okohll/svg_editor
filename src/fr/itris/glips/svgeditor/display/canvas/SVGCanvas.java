@@ -221,9 +221,16 @@ public class SVGCanvas extends JPanel {
 			EditorToolkit.getPixelledNumber(width)+" "+
 				EditorToolkit.getPixelledNumber(height));
 		
-		//creating a defs element
-		Element defsElement=doc.createElementNS(doc.getNamespaceURI(), "defs");
-		svgRoot.appendChild(defsElement);
+		// See if there are any custom defs
+		Document defsDoc = ResourcesManager.getXMLDocument("defs.xml");
+		if (defsDoc != null) {
+			//defsElement.appendChild(defsDoc.getFirstChild());
+			Node defs = doc.importNode(defsDoc.getFirstChild(), true);
+			doc.getDocumentElement().appendChild(defs);
+		} else {
+			Element defsElement=doc.createElementNS(doc.getNamespaceURI(), "defs");
+			doc.getDocumentElement().appendChild(defsElement);
+		}
 		
 		//initializing the canvas
 		this.document=doc;

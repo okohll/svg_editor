@@ -221,6 +221,7 @@ public class ModuleManager {
 						// if it is a shape module, it is added to the list of the
 						// shape module
 						if (obj instanceof AbstractShape) {
+							System.out.println("AbstractShape " + obj.getClass().getSimpleName());
 							shapeModules.add((AbstractShape) obj);
 						}
 						modules.add((Module) obj);

@@ -40,7 +40,7 @@ Contact : jordi.suc@itris.fr; philippe.gil@itris.fr
 		<!--<button name="LineShape"/>
 		<button name="PolygonShape"/>
 		<button name="PolylineShape"/>-->
-		<button name="PathShape"/>
+    <button name="PathShape"/>
 		<button name="ImageShape"/>
 		<button name="TextShape"/>
 		<button name="JWidgetManager"/>

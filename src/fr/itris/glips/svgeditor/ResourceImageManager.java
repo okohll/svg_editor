@@ -53,8 +53,8 @@ public class ResourceImageManager {
 	private DecimalFormat format;
 
 	/**
-	 * the map associating a svg handle to a map associating the id of a
-	 * resource to the imageRepresentation object representing this resource
+	 * the map associating a svg handle to a map associating the id of a resource
+	 * to the imageRepresentation object representing this resource
 	 */
 	private final Map<SVGHandle, Map<String, ImageRepresentation>> handleToIdToImages = Collections
 			.synchronizedMap(new HashMap<SVGHandle, Map<String, ImageRepresentation>>());
@@ -62,14 +62,13 @@ public class ResourceImageManager {
 	/**
 	 * the size of each image, and the size of the small images
 	 */
-	private final Dimension imageSize = new Dimension(20, 20), smallImageSize = new Dimension(16,
-			16);
+	private final Dimension imageSize = new Dimension(20, 20),
+			smallImageSize = new Dimension(16, 16);
 
 	/**
 	 * the list containing runnables to execute, create, or update
 	 */
-	private java.util.List<Runnable> queue = Collections
-			.synchronizedList(new LinkedList<Runnable>());
+	private java.util.List<Runnable> queue = Collections.synchronizedList(new LinkedList<Runnable>());
 
 	/**
 	 * the thread handling the queue
@@ -91,7 +90,7 @@ public class ResourceImageManager {
 	 * the constructor of the class
 	 * 
 	 * @param editor
-	 *            the editor
+	 *          the editor
 	 */
 	public ResourceImageManager(Editor editor) {
 
@@ -170,13 +169,13 @@ public class ResourceImageManager {
 	 * returns a representation of the resource given by its id
 	 * 
 	 * @param svgHandle
-	 *            a svg handle
+	 *          a svg handle
 	 * @param resourceId
-	 *            the id of a resource node
+	 *          the id of a resource node
 	 * @param useSmallImage
-	 *            whether the returned representation should be small or large
+	 *          whether the returned representation should be small or large
 	 * @param componentToRefresh
-	 *            the component to refresh
+	 *          the component to refresh
 	 * @return a resource representation
 	 */
 	public ResourceRepresentation getResourceRepresentation(SVGHandle svgHandle, String resourceId,
@@ -212,7 +211,7 @@ public class ResourceImageManager {
 	 * enqueues the given runnable
 	 * 
 	 * @param runnable
-	 *            a runnable
+	 *          a runnable
 	 */
 	protected void invokeLater(Runnable runnable) {
 
@@ -233,9 +232,9 @@ public class ResourceImageManager {
 	 * invalidates the representation of a resource
 	 * 
 	 * @param svgHandle
-	 *            a svg handle
+	 *          a svg handle
 	 * @param resourceId
-	 *            the id of a resource node
+	 *          the id of a resource node
 	 */
 	public void invalidateResourceRepresentation(SVGHandle svgHandle, String resourceId) {
 
@@ -262,7 +261,7 @@ public class ResourceImageManager {
 	 * checks the consistency of the stored images
 	 * 
 	 * @param svgHandle
-	 *            a svg handle
+	 *          a svg handle
 	 */
 	public void checkConsistency(SVGHandle svgHandle) {
 
@@ -287,7 +286,7 @@ public class ResourceImageManager {
 	 * checks if the map associating an id to an image is consistent
 	 * 
 	 * @param svgHandle
-	 *            a svg handle
+	 *          a svg handle
 	 */
 	protected void checkResourceRepresentationsConsistency(SVGHandle svgHandle) {
 
@@ -309,9 +308,8 @@ public class ResourceImageManager {
 					resourceNames.add("pattern");
 					resourceNames.add("marker");
 
-					Map<String, Element> resources = svgHandle.getSvgResourcesManager()
-							.getResourcesFromDefs(svgHandle.getCanvas().getDocument(),
-									resourceNames);
+					Map<String, Element> resources = svgHandle.getSvgResourcesManager().getResourcesFromDefs(
+							svgHandle.getCanvas().getDocument(), resourceNames);
 
 					for (String id : new LinkedList<String>(idToImageMap.keySet())) {
 
@@ -329,9 +327,9 @@ public class ResourceImageManager {
 	 * creates a new image
 	 * 
 	 * @param svgHandle
-	 *            a svg handle
+	 *          a svg handle
 	 * @param resourceId
-	 *            the id of the resource from which the image will be created
+	 *          the id of the resource from which the image will be created
 	 */
 	protected void createNewImage(SVGHandle svgHandle, String resourceId) {
 
@@ -374,8 +372,7 @@ public class ResourceImageManager {
 
 				// creating the new document
 				final String svgNS = SVGDOMImplementation.SVG_NAMESPACE_URI;
-				final SVGDocument doc = (SVGDocument) resourceElement.getOwnerDocument().cloneNode(
-						false);
+				final SVGDocument doc = (SVGDocument) resourceElement.getOwnerDocument().cloneNode(false);
 
 				// creating the root element
 				final Element root = (Element) doc.importNode(resourceElement.getOwnerDocument()
@@ -396,12 +393,10 @@ public class ResourceImageManager {
 				// adding the new attributes for the root
 				root.setAttributeNS(null, "width", imageSize.width + "");
 				root.setAttributeNS(null, "height", imageSize.height + "");
-				root.setAttributeNS(null, "viewBox", "0 0 " + imageSize.width + " "
-						+ imageSize.height);
+				root.setAttributeNS(null, "viewBox", "0 0 " + imageSize.width + " " + imageSize.height);
 
 				// the defs element that will contain the cloned resource node
-				final Element defs = (Element) doc
-						.importNode(resourceElement.getParentNode(), true);
+				final Element defs = (Element) doc.importNode(resourceElement.getParentNode(), true);
 				root.appendChild(defs);
 
 				if (resourceElement.getNodeName().equals("linearGradient")
@@ -449,40 +444,34 @@ public class ResourceImageManager {
 
 						// getting the root element of the initial resource
 						// element
-						Element initialRoot = resourceElement.getOwnerDocument()
-								.getDocumentElement();
+						Element initialRoot = resourceElement.getOwnerDocument().getDocumentElement();
 
 						// getting the width and height of the initial root
 						// element
 						double initialWidth = 0, initialHeight = 0;
 
 						try {
-							initialWidth = EditorToolkit.getPixelledNumber(initialRoot
-									.getAttributeNS(null, "width"));
-							initialHeight = EditorToolkit.getPixelledNumber(initialRoot
-									.getAttributeNS(null, "height"));
+							initialWidth = EditorToolkit.getPixelledNumber(initialRoot.getAttributeNS(null,
+									"width"));
+							initialHeight = EditorToolkit.getPixelledNumber(initialRoot.getAttributeNS(null,
+									"height"));
 						} catch (DOMException ex) {
 							ex.printStackTrace();
 						}
 
 						if (resourceElement.getNodeName().equals("linearGradient")) {
 
-							if (resourceElement.getAttributeNS(null, "gradientUnits").equals(
-									"userSpaceOnUse")) {
+							if (resourceElement.getAttributeNS(null, "gradientUnits").equals("userSpaceOnUse")) {
 
 								double x1 = 0, y1 = 0, x2 = 0, y2 = 0;
 
 								// normalizing the values for the vector to fit
 								// the rectangle
 								try {
-									x1 = Double.parseDouble(resourceElement.getAttributeNS(null,
-											"x1"));
-									y1 = Double.parseDouble(resourceElement.getAttributeNS(null,
-											"y1"));
-									x2 = Double.parseDouble(resourceElement.getAttributeNS(null,
-											"x2"));
-									y2 = Double.parseDouble(resourceElement.getAttributeNS(null,
-											"y2"));
+									x1 = Double.parseDouble(resourceElement.getAttributeNS(null, "x1"));
+									y1 = Double.parseDouble(resourceElement.getAttributeNS(null, "y1"));
+									x2 = Double.parseDouble(resourceElement.getAttributeNS(null, "x2"));
+									y2 = Double.parseDouble(resourceElement.getAttributeNS(null, "y2"));
 
 									x1 = x1 / initialWidth * imageSize.width;
 									y1 = y1 / initialHeight * imageSize.height;
@@ -500,31 +489,25 @@ public class ResourceImageManager {
 
 						} else if (resourceElement.getNodeName().equals("radialGradient")) {
 
-							if (resourceElement.getAttributeNS(null, "gradientUnits").equals(
-									"userSpaceOnUse")) {
+							if (resourceElement.getAttributeNS(null, "gradientUnits").equals("userSpaceOnUse")) {
 
 								double cx = 0, cy = 0, r = 0, fx = 0, fy = 0;
 
 								// normalizing the values for the circle to fit
 								// the rectangle
 								try {
-									cx = Double.parseDouble(resourceElement.getAttributeNS(null,
-											"cx"));
-									cy = Double.parseDouble(resourceElement.getAttributeNS(null,
-											"cy"));
-									r = Double.parseDouble(resourceElement
-											.getAttributeNS(null, "r"));
-									fx = Double.parseDouble(resourceElement.getAttributeNS(null,
-											"fx"));
-									fy = Double.parseDouble(resourceElement.getAttributeNS(null,
-											"fy"));
+									cx = Double.parseDouble(resourceElement.getAttributeNS(null, "cx"));
+									cy = Double.parseDouble(resourceElement.getAttributeNS(null, "cy"));
+									r = Double.parseDouble(resourceElement.getAttributeNS(null, "r"));
+									fx = Double.parseDouble(resourceElement.getAttributeNS(null, "fx"));
+									fy = Double.parseDouble(resourceElement.getAttributeNS(null, "fy"));
 
 									cx = cx / initialWidth * imageSize.width;
 									cy = cy / initialHeight * imageSize.height;
 
 									r = r
-											/ (Math.abs(Math.sqrt(Math.pow(initialWidth, 2)
-													+ Math.pow(initialHeight, 2))))
+											/ (Math
+													.abs(Math.sqrt(Math.pow(initialWidth, 2) + Math.pow(initialHeight, 2))))
 											* Math.abs(Math.sqrt(Math.pow(imageSize.width, 2)
 													+ Math.pow(imageSize.width, 2)));
 
@@ -543,22 +526,29 @@ public class ResourceImageManager {
 
 						} else if (resourceElement.getNodeName().equals("pattern")) {
 
-							if (resourceElement.getAttributeNS(null, "patternUnits").equals(
-									"userSpaceOnUse")) {
+							if (resourceElement.getAttributeNS(null, "patternUnits").equals("userSpaceOnUse")) {
 
 								double x = 0, y = 0, w = 0, h = 0;
 
 								// normalizing the values for the vector to fit
 								// the rectangle
 								try {
-									x = Double.parseDouble(resourceElement
-											.getAttributeNS(null, "x"));
-									y = Double.parseDouble(resourceElement
-											.getAttributeNS(null, "y"));
-									w = Double.parseDouble(resourceElement
-											.getAttributeNS(null, "w"));
-									h = Double.parseDouble(resourceElement
-											.getAttributeNS(null, "h"));
+									String xString = resourceElement.getAttributeNS(null, "x");
+									if (!xString.equals("")) {
+										x = Double.parseDouble(xString);
+									}
+									String yString = resourceElement.getAttributeNS(null, "y");
+									if (!yString.equals("")) {
+										y = Double.parseDouble(yString);
+									}
+									String wString = resourceElement.getAttributeNS(null, "w");
+									if (!wString.equals("")) {
+										w = Double.parseDouble(wString);
+									}
+									String hString = resourceElement.getAttributeNS(null, "h");
+									if (!hString.equals("")) {
+										h = Double.parseDouble(hString);
+									}
 
 									x = x / initialWidth * imageSize.width;
 									y = y / initialHeight * imageSize.height;
@@ -570,10 +560,8 @@ public class ResourceImageManager {
 
 								clonedResourceElement.setAttributeNS(null, "x", format.format(x));
 								clonedResourceElement.setAttributeNS(null, "y", format.format(y));
-								clonedResourceElement.setAttributeNS(null, "width",
-										format.format(w));
-								clonedResourceElement.setAttributeNS(null, "height",
-										format.format(h));
+								clonedResourceElement.setAttributeNS(null, "width", format.format(w));
+								clonedResourceElement.setAttributeNS(null, "height", format.format(h));
 							}
 						}
 					}
@@ -593,8 +581,7 @@ public class ResourceImageManager {
 					String id = resourceElement.getAttribute("id");
 					if (id == null)
 						id = "";
-					line.setAttributeNS(null, "style", "stroke:none;fill:none;marker-start:url(#"
-							+ id + ");");
+					line.setAttributeNS(null, "style", "stroke:none;fill:none;marker-start:url(#" + id + ");");
 				}
 
 				root.appendChild(elementToAdd);
@@ -658,14 +645,13 @@ public class ResourceImageManager {
 	 * Returns the representation of the resource whose id is given
 	 * 
 	 * @param svgHandle
-	 *            a svg handle
+	 *          a svg handle
 	 * @param resourceId
-	 *            the id of the resource from which the image has been created
+	 *          the id of the resource from which the image has been created
 	 * @param useSmallImage
-	 *            whether the representation should display a small or a large
-	 *            image
+	 *          whether the representation should display a small or a large image
 	 * @param componentToRefresh
-	 *            the component to refresh
+	 *          the component to refresh
 	 * @return the representation of the resource whose id is given
 	 */
 	protected ResourceRepresentation getRepresentation(SVGHandle svgHandle, String resourceId,
@@ -675,8 +661,7 @@ public class ResourceImageManager {
 
 		if (svgHandle != null && resourceId != null && !resourceId.equals("")) {
 
-			rep = new ResourceRepresentation(svgHandle, resourceId, useSmallImage,
-					componentToRefresh);
+			rep = new ResourceRepresentation(svgHandle, resourceId, useSmallImage, componentToRefresh);
 		}
 
 		return rep;
@@ -686,11 +671,11 @@ public class ResourceImageManager {
 	 * creates a new image
 	 * 
 	 * @param svgHandle
-	 *            a svg handle
+	 *          a svg handle
 	 * @param resourceId
-	 *            the id of the resource from which the image has been created
+	 *          the id of the resource from which the image has been created
 	 * @param image
-	 *            the image representing the resource
+	 *          the image representing the resource
 	 */
 	protected void setImage(SVGHandle svgHandle, String resourceId, Image image) {
 
@@ -718,9 +703,9 @@ public class ResourceImageManager {
 	 * getting the image representing a resource given the id of a resource
 	 * 
 	 * @param svgHandle
-	 *            a svg handle
+	 *          a svg handle
 	 * @param resourceId
-	 *            the id of the resource from which the image has been created
+	 *          the id of the resource from which the image has been created
 	 * @return the image representation object representing the resource
 	 */
 	public ImageRepresentation getResourceImage(SVGHandle svgHandle, String resourceId) {
@@ -749,11 +734,11 @@ public class ResourceImageManager {
 	 * getting the image representing a resource given the id of a resource
 	 * 
 	 * @param svgHandle
-	 *            a svg handle
+	 *          a svg handle
 	 * @param resourceId
-	 *            the id of the resource from which the image has been created
+	 *          the id of the resource from which the image has been created
 	 * @param useSmallImage
-	 *            whether the returned image should be small or large
+	 *          whether the returned image should be small or large
 	 * @return the image representing the resource
 	 */
 	public Image getImage(SVGHandle svgHandle, String resourceId, boolean useSmallImage) {
@@ -813,8 +798,8 @@ public class ResourceImageManager {
 		public Image resourceImage = null;
 
 		/**
-		 * whether this resource representation should display a large or a
-		 * small image
+		 * whether this resource representation should display a large or a small
+		 * image
 		 */
 		private boolean useSmallImage = false;
 
@@ -827,17 +812,17 @@ public class ResourceImageManager {
 		 * the constructor of the class
 		 * 
 		 * @param svgHandle
-		 *            a svg handle
+		 *          a svg handle
 		 * @param resourceId
-		 *            the id of a resource
+		 *          the id of a resource
 		 * @param useSmallImage
-		 *            whether this resource representation should display a
-		 *            large or a small image
+		 *          whether this resource representation should display a large or a
+		 *          small image
 		 * @param componentToRefresh
-		 *            the component to refresh
+		 *          the component to refresh
 		 */
-		protected ResourceRepresentation(SVGHandle svgHandle, String resourceId,
-				boolean useSmallImage, Component componentToRefresh) {
+		protected ResourceRepresentation(SVGHandle svgHandle, String resourceId, boolean useSmallImage,
+				Component componentToRefresh) {
 
 			this.svgHandle = svgHandle;
 			this.resourceId = resourceId;
@@ -895,15 +880,13 @@ public class ResourceImageManager {
 				if (useSmallImage && imageRepresentation.getSmallImage() != null) {
 
 					synchronized (this) {
-						resourceImage = new ImageIcon(imageRepresentation.getSmallImage())
-								.getImage();
+						resourceImage = new ImageIcon(imageRepresentation.getSmallImage()).getImage();
 					}
 
 				} else if (imageRepresentation.getLargeImage() != null) {
 
 					synchronized (this) {
-						resourceImage = new ImageIcon(imageRepresentation.getLargeImage())
-								.getImage();
+						resourceImage = new ImageIcon(imageRepresentation.getLargeImage()).getImage();
 					}
 				}
 
@@ -981,7 +964,7 @@ public class ResourceImageManager {
 		 * the constructor of the class
 		 * 
 		 * @param image
-		 *            an image
+		 *          an image
 		 */
 		protected ImageRepresentation(Image image) {
 
