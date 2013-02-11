@@ -141,6 +141,7 @@ public class PopupManager {
 			    		if(item!=null){
 			    			
 			    			popupItems.put(item.getId(), item);
+			    			System.out.println("Put popup item " + item + ", id " + item.getId());
 			    		}
 			    	}
 			    }
@@ -188,10 +189,12 @@ public class PopupManager {
                             if(itemName!=null && popupItems.containsKey(itemName)){
                             	
                             	popupItem=popupItems.get(itemName);
+                            	System.out.println("Got popup item " + itemName);
                             	
                             	if(popupItem!=null){
                             		
                             		menuItem=popupItem.getPopupItem(selectedNodes);
+                            		System.out.println("Menu item is " + menuItem);
                             		
                                     if(menuItem!=null){
                                         

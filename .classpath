@@ -14,7 +14,6 @@
 	<classpathentry kind="lib" path="/biobox_closed/lib/jackson-databind-2.0.5.jar"/>
 	<classpathentry kind="lib" path="/biobox_closed/lib/jackson-annotations-2.0.5.jar"/>
 	<classpathentry kind="lib" path="/biobox_closed/lib/thumbnailator-0.4.2.jar"/>
-	<classpathentry kind="lib" path="/Library/Java/JavaVirtualMachines/jdk1.7.0_09.jdk/Contents/Home/jre/lib/jfxrt.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/batik"/>
 	<classpathentry kind="lib" path="/batik/lib/itcl.jar"/>
 	<classpathentry kind="lib" path="/batik/lib/jacl.jar"/>
@@ -28,5 +27,7 @@
 	<classpathentry kind="lib" path="/batik/lib/xerces_2_5_0.jar"/>
 	<classpathentry kind="lib" path="/batik/lib/xml-apis-ext.jar"/>
 	<classpathentry kind="lib" path="/batik/lib/xml-apis.jar"/>
+	<classpathentry kind="lib" path="/Library/Java/JavaVirtualMachines/jdk1.7.0_13.jdk/Contents/Home/jre/lib/jfxrt.jar"/>
+	<classpathentry kind="lib" path="lib/commons-lang-2.3.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

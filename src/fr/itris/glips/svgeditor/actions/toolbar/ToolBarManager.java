@@ -46,7 +46,7 @@ public class ToolBarManager {
 				items = module.getToolItems();
 
 				if (items != null) {
-					System.out.println("Putting toolbar items form module " + module + ": " + items);
+					//System.out.println("Putting toolbar items form module " + module + ": " + items);
 					toolItems.putAll(items);
 				}
 			}
