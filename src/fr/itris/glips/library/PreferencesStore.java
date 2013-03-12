@@ -18,6 +18,7 @@ public class PreferencesStore {
         //getting the preference node
         	preferences=Preferences.userNodeForPackage(
         			PreferencesStore.class);
+        	System.out.println("Preferences path is " + preferences.absolutePath());
     }
     
     /**

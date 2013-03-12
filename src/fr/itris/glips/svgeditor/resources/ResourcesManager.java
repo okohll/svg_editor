@@ -271,6 +271,7 @@ public class ResourcesManager {
 							String iconPath = getPath("icons/" + path);
 							if (!iconPath.equals("")) {
 								icon = new ImageIcon(new URL(iconPath));
+								System.out.println("Icon width for " + iconPath + " is " + icon.getIconWidth());
 							} else {
 								System.err.println("Icon file not found: icons/" + path);
 							}

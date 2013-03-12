@@ -3,6 +3,7 @@ package fr.itris.glips.svgeditor.actions.toolbar;
 import java.awt.*;
 import java.util.*;
 import javax.swing.*;
+
 import org.w3c.dom.*;
 import fr.itris.glips.svgeditor.*;
 import fr.itris.glips.svgeditor.resources.*;
@@ -32,7 +33,9 @@ public class ToolBarManager {
 
 		// setting the properties of the menu bar
 		//toolsBar.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
-		toolsBar.setLayout(new BoxLayout(toolsBar, BoxLayout.Y_AXIS));
+		BoxLayout layout = new BoxLayout(toolsBar, BoxLayout.Y_AXIS);
+		toolsBar.setLayout(layout);
+		toolsBar.setBackground(new Color(129,130,133));
 		toolsBar.setFloatable(false);
 		// getting all the tool items of the application
 		Collection<Module> modules = Editor.getEditor().getSVGModuleLoader().getModules();
@@ -47,6 +50,12 @@ public class ToolBarManager {
 
 				if (items != null) {
 					//System.out.println("Putting toolbar items form module " + module + ": " + items);
+					for (AbstractButton button : items.values()) {
+						button.setSize(40, 40);
+						button.setPreferredSize(new Dimension(40,40));
+						button.setMinimumSize(new Dimension(40,40));
+						System.out.println("Button " + button.getIcon() + " width: " + button.getSize().width);
+					}
 					toolItems.putAll(items);
 				}
 			}

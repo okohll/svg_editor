@@ -40,3 +40,11 @@ You may notice that there is a basic plugin architecture which I'm sure could be
 Development should concentrate on the basic image opening and editing features first.
 
 There is also further scope for code cleanup and modernisation. As one simple 'micro' level example, perhaps some Iterators can be replaced with for loops.
+
+NOTES
+======
+
+Code locations:
+* toolbar icon sizing: fr.itris.glips.svgeditor.shape.AbstractShape, shapeCreatorToolItem.setSize(40, 40);
+* also PathShapeItemsHandler
+* anywhere where a JToggleButton is created 

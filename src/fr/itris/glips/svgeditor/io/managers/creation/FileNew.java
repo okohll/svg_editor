@@ -1,6 +1,7 @@
 package fr.itris.glips.svgeditor.io.managers.creation;
 
 import java.awt.*;
+import java.io.File;
 import java.util.*;
 import javax.swing.*;
 import fr.itris.glips.svgeditor.*;
@@ -83,8 +84,15 @@ public class FileNew {
 				
 				// Immediately save the newly created file
 		    // so that importing SVGs works - won't work if parent not saved to disk because of relative path errors
-				Editor.getEditor().getIOManager().getFileSaveManager().
-				saveHandleDocument(handle, true, null);
+		    IOManager ioManager = Editor.getEditor().getIOManager();
+				ioManager.getFileSaveManager().saveHandleDocument(handle, true, null);
+				// Then close and re-open the file, otherwise errors occur when SVG patterns in the new file are used 
+				String filename = handle.getName();
+				// TODO: return here if cancel button pressed
+				ioManager.getFileCloseManager().close(handle);
+				File file = new File(filename.replace("file:", ""));
+				// monitor parameter is null. We don't need to monitor the progress on opening a blank file, it should be quick
+				ioManager.getFileOpenManager().open(file, null);
 		}
 	}
 }

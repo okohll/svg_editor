@@ -176,6 +176,9 @@ public abstract class AbstractShape extends ModuleAdapter {
 		shapeCreatorToolItem.setToolTipText(itemToolTip);
 		shapeCreatorToolItem.addActionListener(listener);
 		shapeCreatorToolItem.setEnabled(false);
+		shapeCreatorToolItem.setSize(40, 40); //Oliver
+		shapeCreatorToolItem.setPreferredSize(new Dimension(40,40));
+		shapeCreatorToolItem.setMinimumSize(new Dimension(40,40));
 		
 		//adding the listener to the switches between the svg handles
 		final HandlesManager svgHandleManager=

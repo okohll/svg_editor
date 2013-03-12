@@ -94,6 +94,11 @@ public class PathShape extends AbstractShape {
 		itemsHandler=new PathShapeItemsHandler(this);
 	}
 	
+	public boolean isAddRemoveElementEnabled() {
+		// Return true by default, subclasses can override if necessary
+		return true;
+	}
+	
 	@Override
 	protected void retrieveLabels() {
 
@@ -106,12 +111,17 @@ public class PathShape extends AbstractShape {
 	
 	@Override
 	public HashMap<String, JMenuItem> getMenuItems() {
-		
+		if (itemsHandler == null) {
+			return new HashMap<String, JMenuItem>();
+		}
 		return itemsHandler.getMenuItems();
 	}
 	
 	@Override
 	public HashMap<String, AbstractButton> getToolItems() {
+		if (itemsHandler == null) {
+			return new HashMap<String, AbstractButton>();
+		}
 		
 		return itemsHandler.getTools();
 	}
