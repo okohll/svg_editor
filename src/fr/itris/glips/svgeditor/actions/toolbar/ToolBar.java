@@ -88,7 +88,9 @@ public class ToolBar {
 					button=toolItems.get(name);
 					
 					if(button!=null){
-						
+						button.setSize(40, 40);
+						button.setPreferredSize(new Dimension(40,40));
+						button.setMinimumSize(new Dimension(40,40));
 						if(isExclusive){
 							
 							//adding the button to a button group

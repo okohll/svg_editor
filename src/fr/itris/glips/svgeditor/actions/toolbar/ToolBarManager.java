@@ -51,10 +51,10 @@ public class ToolBarManager {
 				if (items != null) {
 					//System.out.println("Putting toolbar items form module " + module + ": " + items);
 					for (AbstractButton button : items.values()) {
+						// TODO: sizes also set in ToolBar.java, work out which properties and where they need to be set
 						button.setSize(40, 40);
 						button.setPreferredSize(new Dimension(40,40));
 						button.setMinimumSize(new Dimension(40,40));
-						System.out.println("Button " + button.getIcon() + " width: " + button.getSize().width);
 					}
 					toolItems.putAll(items);
 				}
